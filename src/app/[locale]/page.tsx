@@ -105,6 +105,7 @@ function Nav() {
         <div className="nav-links">
           <a href="#history">{t.nav.history}</a>
           <a href="#architecture">{t.nav.architecture}</a>
+          {t.nav.ecology && <a href="#ecology">{t.nav.ecology}</a>}
           <a href="#monuments">{t.nav.monuments}</a>
           <a href="#visiting">{t.nav.visiting}</a>
           <a href="#transportation">{t.nav.transportation}</a>
@@ -273,6 +274,41 @@ function Architecture() {
   );
 }
 
+function Ecology() {
+  const { t } = useLang();
+  if (!t.ecology) return null;
+  
+  return (
+    <section id="ecology" className="section" style={{ background: "var(--color-cream)" }}>
+      <ScrollReveal>
+        <p className="section-label">02.5</p>
+        <h2 className="section-title">{t.ecology.title}</h2>
+        <div className="section-divider" />
+      </ScrollReveal>
+      
+      <ScrollReveal>
+        <p className="about-text" style={{ whiteSpace: "pre-line", marginBottom: "2rem" }}>{renderText(t.ecology.intro)}</p>
+      </ScrollReveal>
+      
+      <ScrollReveal>
+        <div style={{ display: "grid", gap: "1.5rem", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
+          {t.ecology.items.map((item: { name: string; description: string }, i: number) => (
+            <div key={i} style={{ padding: "1.5rem", background: "#fff", borderRadius: "8px", border: "1px solid rgba(0,0,0,0.05)" }}>
+              <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "var(--color-deep)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", fontWeight: "bold", marginBottom: "1rem" }}>
+                🌿
+              </div>
+              <h4 style={{ fontFamily: "var(--font-display)", fontSize: "1.05rem", fontWeight: 600, color: "var(--color-deep)", marginBottom: "0.75rem" }}>
+                {item.name}
+              </h4>
+              <p style={{ fontSize: "0.9rem", color: "var(--color-earth-soft)", lineHeight: "1.6", whiteSpace: "pre-line" }}>{renderText(item.description)}</p>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
+    </section>
+  );
+}
+
 function Monuments() {
   const { t } = useLang();
   
@@ -344,22 +380,6 @@ function BestTimeToVisit() {
         </div>
       </ScrollReveal>
 
-      <ScrollReveal>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem", marginTop: "3rem" }}>
-          <div>
-            <div style={{ borderRadius: "8px", overflow: "hidden", border: "1px solid rgba(0,0,0,0.1)", marginBottom: "1rem" }}>
-              <img src="/gallery/crab-catwalk (5).jpg" alt="Daytime view" style={{ width: "100%", height: "auto", display: "block" }} />
-            </div>
-            <p style={{ textAlign: "center", fontSize: "0.95rem", color: "var(--color-earth-soft)", fontWeight: 600 }}>{locale === "zh" ? "白天的海滨风光" : locale === "pt" ? "Vista costeira durante o dia" : "Daytime seaside view"}</p>
-          </div>
-          <div>
-            <div style={{ borderRadius: "8px", overflow: "hidden", border: "1px solid rgba(0,0,0,0.1)", marginBottom: "1rem" }}>
-              <img src="/gallery/crab-catwalk (8).jpg" alt="Sunset view" style={{ width: "100%", height: "auto", display: "block" }} />
-            </div>
-            <p style={{ textAlign: "center", fontSize: "0.95rem", color: "var(--color-earth-soft)", fontWeight: 600 }}>{locale === "zh" ? "壮丽的日落景色" : locale === "pt" ? "Vista espetacular do pôr do sol" : "Spectacular sunset view"}</p>
-          </div>
-        </div>
-      </ScrollReveal>
     </section>
   );
 }
@@ -740,8 +760,8 @@ function Location() {
         <div className="location-section">
           <div className="location-map-container">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.1943198323!2d-35.7067!3d-9.6658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7016b2b2b2b2b2b2%3A0xb2b2b2b2b2b2b2b2!2sMarco%20dos%20Corais%2C%20Maceió!5e0!3m2!1sen!2sbr!4v1700000000000!5m2!1sen!2sbr"
-              width="800"
+              src="https://maps.google.com/maps?q=Marco%20dos%20Corais,%20Macei%C3%B3&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
               height="600"
               style={{ border: 0 }}
               allowFullScreen
@@ -807,6 +827,7 @@ export default function Home(props: { params: Promise<{ locale: string }> }) {
       <Hero />
       <History />
       <Architecture />
+      <Ecology />
       <Monuments />
       <BestTimeToVisit />
       <Visiting />
