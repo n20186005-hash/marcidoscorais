@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import Layout from "../../layouts/Layout.astro";
 import { languagesList } from "../../i18n/ui";
 import { getTranslation } from "../../i18n/translations";
 import { legal } from "../../i18n/legal";
@@ -14,7 +14,7 @@ const t = getTranslation(lang);
 const doc = legal.terms[lang];
 ---
 
-<BaseLayout lang={lang} t={t} page="terms" title={doc.title}>
+<Layout lang={lang} t={t} page="terms" title={doc.title}>
   <section class="section legal">
     <div class="container">
       <h1 class="legal__title">{doc.title}</h1>
@@ -32,4 +32,4 @@ const doc = legal.terms[lang];
       }
     </div>
   </section>
-</BaseLayout>
+</Layout>

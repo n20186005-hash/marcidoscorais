@@ -1,0 +1,116 @@
+---
+import "../styles/global.css";
+import { siteConfig, type Lang } from "../config";
+import { getJsonLd } from "../lib/schema";
+import { languagesList, htmlLang, defaultLang } from "../i18n/ui";
+import type { Translation } from "../i18n/translations";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+  page?: string; // 子页路径，如 "privacy"，用于语言切换时保持同页
+  title?: string; // 可选：子页自定义标题（如法律页），未提供则用站点名
+}
+const { lang, t, page = "", title } = Astro.props;
+
+const baseUrl = siteConfig.baseUrl;
+const pageSeg = page ? `${page}/` : "";
+const canonical = `${baseUrl}/${lang}/${pageSeg}`;
+const description = t.site.description;
+
+const htmlLang = lang === "zh" ? "zh-CN" : lang === "en" ? "en" : "pt-BR";
+const resolvedTitle = title ?? `${t.site.name} · ${t.site.tagline}`;
+const jsonLd = getJsonLd(t, lang, baseUrl);
+const alternates = [
+  {
+    hreflang: "x-default",
+    href: `${baseUrl}/${defaultLang}/${pageSeg}`,
+  },
+  ...languagesList.map((l) => ({
+    hreflang: htmlLang[l],
+    href: `${baseUrl}/${l}/${pageSeg}`,
+  })),
+];
+---
+
+<!doctype html>
+<html lang={htmlLang} data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{resolvedTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content={siteConfig.themeColor} />
+
+    <!-- hreflang alternates -->
+    {
+      alternates.map((a) => (
+        <link rel="alternate" hreflang={a.hreflang} href={a.href} />
+      ))
+    }
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={resolvedTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={t.site.name} />
+    <meta property="og:image" content={`${baseUrl}${siteConfig.ogImage}`} />
+    <meta property="og:locale" content={htmlLang} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={resolvedTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${baseUrl}${siteConfig.ogImage}`} />
+
+    <!-- Google Analytics (gtag.js) -->
+    <script
+      is:inline
+      src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaId}`}
+    ></script>
+    <script
+      is:inline
+      define:vars={{ gaId: siteConfig.gaId }}
+    >
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", gaId);
+    </script>
+
+    <!-- 防止主题闪烁：在首屏渲染前应用已保存的主题 -->
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var theme =
+            stored ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+  </head>
+  <body class="bg-canvas text-ink antialiased">
+    <Header lang={lang} t={t} page={page} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} t={t} />
+    <script>
+      import "../scripts/main.ts";
+    </script>
+  </body>
+</html>

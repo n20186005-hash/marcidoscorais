@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+/* 将现有主题 CSS 变量映射为 Tailwind 颜色 token，
+   工具类（bg-ocean / text-coral 等）会自动跟随 [data-theme="dark"] 切换 */
+@theme {
+  --color-ocean: var(--color-primary);
+  --color-ocean-light: var(--color-primary-light);
+  --color-ocean-dark: var(--color-primary-dark);
+  --color-coral: var(--color-accent);
+  --color-canvas: var(--color-bg);
+  --color-canvas-alt: var(--color-bg-alt);
+  --color-surface: var(--color-surface);
+  --color-surface-2: var(--color-surface-2);
+  --color-ink: var(--color-text);
+  --color-muted: var(--color-text-muted);
+  --color-line: var(--color-border);
+  --color-footer-bg: var(--color-footer-bg);
+  --color-footer-text: var(--color-footer-text);
+  --color-footer-muted: var(--color-footer-muted);
+  --color-coral-rgb: var(--color-accent-rgb);
+}
+
 :root {
   --nav-h: 68px;
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
@@ -130,89 +150,8 @@ img {
   box-shadow: var(--shadow-sm);
 }
 
-.site-nav__inner {
-  width: 100%;
-  max-width: var(--max-content);
-  margin-inline: auto;
-  padding-inline: clamp(16px, 4vw, 32px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.site-nav__brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-  white-space: nowrap;
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
-  text-decoration: none;
-  color: var(--color-text);
-}
-
-.site-nav__brand > span:last-child {
-  white-space: nowrap;
-}
-
-.site-nav__brand-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-primary-light)
-  );
-  color: #fff;
-  font-size: 1.1rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.site-nav__links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-shrink: 0;
-  flex-wrap: nowrap;
-  list-style: none;
-}
-
-.site-nav__links a {
-  display: inline-block;
-  padding: 8px 4px;
-  border-radius: 999px;
-  text-decoration: none;
-  color: var(--color-text-muted);
-  font-weight: 600;
-  font-size: 0.92rem;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-.site-nav__links a:hover {
-  color: var(--color-primary);
-  background-color: var(--color-surface-2);
-}
-
-.site-nav__spacer {
-  flex: 1;
-  min-width: 0;
-}
-
-.site-nav__actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
+/* 导航内部布局（inner / brand / links / actions）改用 Tailwind 工具类，
+   见 components/Header.astro；此处仅保留 JS 行为钩子与下拉菜单样式。 */
 
 .lang-menu {
   position: relative;
@@ -866,6 +805,45 @@ img {
 .transport-option__content {
   color: var(--color-text-muted);
   font-size: 0.95rem;
+}
+
+.transport-option__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.transport-option__steps {
+  list-style: none;
+  counter-reset: tropt;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.transport-option__step {
+  position: relative;
+  padding-left: 30px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.transport-option__step::before {
+  counter-increment: tropt;
+  content: counter(tropt);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background-color: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  color: var(--color-primary);
 }
 
 /* ---------- Gallery ---------- */

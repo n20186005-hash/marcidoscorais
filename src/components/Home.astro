@@ -1,0 +1,33 @@
+---
+import Hero from "../components/Hero.astro";
+import History from "../components/History.astro";
+import Architecture from "../components/Architecture.astro";
+import Monuments from "../components/Monuments.astro";
+import BestTime from "../components/BestTime.astro";
+import Visiting from "../components/Visiting.astro";
+import Transportation from "../components/Transportation.astro";
+import Gallery from "../components/Gallery.astro";
+import Reviews from "../components/Reviews.astro";
+import Faq from "../components/FAQ.astro";
+import Location from "../components/Location.astro";
+import { type Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { lang, t } = Astro.props;
+---
+
+<Hero lang={lang} t={t} />
+<History lang={lang} t={t} />
+<Architecture lang={lang} t={t} />
+<Monuments lang={lang} t={t} />
+<BestTime lang={lang} t={t} />
+<Visiting lang={lang} t={t} />
+<Transportation lang={lang} t={t} />
+<Gallery lang={lang} t={t} />
+<Reviews lang={lang} t={t} />
+<Faq lang={lang} t={t} />
+<Location lang={lang} t={t} />

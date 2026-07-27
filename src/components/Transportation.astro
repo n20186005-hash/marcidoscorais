@@ -26,9 +26,18 @@ const { t } = Astro.props;
         t.transportation.options.map((opt) => (
           <div class="transport-option reveal">
             <div class="transport-option__icon">{opt.icon}</div>
-            <div>
+            <div class="transport-option__body">
               <div class="transport-option__title">{opt.title}</div>
               <div class="transport-option__content">{opt.content}</div>
+              {
+                opt.steps && opt.steps.length > 0 && (
+                  <ol class="transport-option__steps">
+                    {opt.steps.map((step) => (
+                      <li class="transport-option__step">{step}</li>
+                    ))}
+                  </ol>
+                )
+              }
             </div>
           </div>
         ))

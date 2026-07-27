@@ -71,7 +71,7 @@ export type Translation = {
     title: string;
     subtitle: string;
     intro: string;
-    options: { icon: string; title: string; content: string }[];
+    options: { icon: string; title: string; content: string; steps?: string[] }[];
   };
   gallery: {
     eyebrow: string;
@@ -346,11 +346,30 @@ export const translations: Record<Lang, Translation> = {
         "A Orla de Atalaia é central e bem sinalizada. De carro, você chega em poucos minutos de qualquer ponto de Maceió.",
       options: [
         {
+          icon: "✈️",
+          title: "Do aeroporto ao marco",
+          text: "O Aeroporto de Maceió (MCZ) fica a cerca de 25 km; táxi, app ou aluguel de carro cobrem o trajeto em 30–40 min.",
+          content:
+            "O Aeroporto Internacional de Maceió – Zumbi dos Palmares (MCZ) fica a cerca de 25 km da Orla de Atalaia. Táxi, app de transporte ou carro alugado cobrem o trajeto em 30–40 minutos, dependendo do trânsito.",
+          steps: [
+            "Ao desembarcar, siga a sinalização de desembarque e procure o ponto de táxi (táxi comum ou executivo) no pavimento térreo.",
+            "No app, defina o destino como \"Marco dos Corais, Orla de Atalaia\"; a corrida custa em torno de R$ 60–90.",
+            "A rodovia AL-101 Sul liga o aeroporto ao litoral; mantenha-se na faixa da direita seguindo placas para \"Atalaia\".",
+            "Pegue a Avenida Brigadeiro Eduardo Gomes até avistar a sinalização do Marco dos Corais e a orla à esquerda.",
+            "Desça próximo à entrada da orla; há estacionamento e ponto de app nas redondezas.",
+          ],
+        },
+        {
           icon: "🚗",
           title: "De carro",
           text: "Siga pela Avenida Brigadeiro Eduardo Gomes até a Orla de Atalaia; há sinalização para o Marco dos Corais.",
           content:
             "Siga pela Avenida Brigadeiro Eduardo Gomes até a Orla de Atalaia; há sinalização para o Marco dos Corais. Estacionamento nas redondezas.",
+          steps: [
+            "De qualquer ponto de Maceió, dirija pela AL-101 ou pelas avenidas litorâneas em direção à Orla de Atalaia.",
+            "Entre na Avenida Brigadeiro Eduardo Gomes e mantenha a faixa à esquerda perto da praia.",
+            "Observe a sinalização turística do \"Marco dos Corais\" e estacione nas vagas da orla ou estacionamentos privados.",
+          ],
         },
         {
           icon: "🚕",
@@ -358,6 +377,11 @@ export const translations: Record<Lang, Translation> = {
           text: "Uber e 99 operam em Maceió e deixam bem próximo à entrada da orla.",
           content:
             "Uber e 99 operam em Maceió e deixam bem próximo à entrada da orla. Combina bem para quem quer evitar o estacionamento.",
+          steps: [
+            "Abra o Uber ou 99 e defina o destino como \"Marco dos Corais, Orla de Atalaia\".",
+            "Confirme a corrida e aguarde o motorista no ponto de embarque mais próximo.",
+            "Peça para descer bem na entrada da orla, evitando o estacionamento pago se preferir caminhar.",
+          ],
         },
         {
           icon: "🚌",
@@ -365,6 +389,11 @@ export const translations: Record<Lang, Translation> = {
           text: "Linhas municipais passam pela Orla de Atalaia saindo do centro.",
           content:
             "Linhas municipais passam pela Orla de Atalaia saindo do centro. Ônibus 401 e 402 atendem a região.",
+          steps: [
+            "No Terminal de Integração do Centro, procure as linhas que seguem para a Orla de Atalaia.",
+            "Embarque nos ônibus 401 ou 402 e permaneça a bordo até o ponto final ou próximo ao marco.",
+            "Desça e caminhe alguns minutos pela calçadão da orla até avistar o Marco dos Corais.",
+          ],
         },
         {
           icon: "🚶",
@@ -372,6 +401,11 @@ export const translations: Record<Lang, Translation> = {
           text: "A ciclovia da orla conecta o marco a praias vizinhas.",
           content:
             "A ciclovia da orla conecta o marco a praias vizinhas. Caminhada plana e agradável ao entardecer.",
+          steps: [
+            "Use a ciclovia contínua da Orla de Atalaia, que liga o marco a praias como Pajuçara e Ponta Verde.",
+            "Para caminhada, siga o calçadão à beira-mar em terreno plano e bem iluminado.",
+            "Aproveite o passeio ao entardecer, quando a luz fica ideal para fotos no marco.",
+          ],
         },
       ],
     },
@@ -728,11 +762,30 @@ export const translations: Record<Lang, Translation> = {
         "The Atalaia waterfront is central and well signposted. By car, you reach it in a few minutes from anywhere in Maceió.",
       options: [
         {
+          icon: "✈️",
+          title: "From the airport to the landmark",
+          text: "Maceió Airport (MCZ) is about 25 km away; taxi, ride app or rental car cover the trip in 30–40 min.",
+          content:
+            "Maceió–Zumbi dos Palmares International Airport (MCZ) is about 25 km from the Atalaia waterfront. Taxi, ride app or a rental car cover the trip in 30–40 minutes depending on traffic.",
+          steps: [
+            "After landing, follow the exit signs to the ground-floor taxi stand (standard or executive taxi).",
+            "In your app, set the destination to \"Marco dos Corais, Orla de Atalaia\"; the fare is roughly R$ 60–90.",
+            "Take the AL-101 South highway toward the coast, keeping right and following signs for \"Atalaia\".",
+            "Drive along Avenida Brigadeiro Eduardo Gomes until you see the Marco dos Corais sign and the waterfront on your left.",
+            "Get off near the waterfront entrance, where parking and ride-app drop-off points are available.",
+          ],
+        },
+        {
           icon: "🚗",
           title: "By car",
           text: "Follow Avenida Brigadeiro Eduardo Gomes to the Atalaia waterfront; signs point to Marco dos Corais.",
           content:
             "Follow Avenida Brigadeiro Eduardo Gomes to the Atalaia waterfront; signs point to Marco dos Corais. Parking nearby.",
+          steps: [
+            "From anywhere in Maceió, drive via the AL-101 or the coastal avenues toward the Atalaia waterfront.",
+            "Enter Avenida Brigadeiro Eduardo Gomes and keep in the left lane near the beach.",
+            "Watch for the tourist sign \"Marco dos Corais\" and park along the waterfront or in private lots.",
+          ],
         },
         {
           icon: "🚕",
@@ -740,6 +793,11 @@ export const translations: Record<Lang, Translation> = {
           text: "Uber and 99 operate in Maceió and drop you close to the waterfront entrance.",
           content:
             "Uber and 99 operate in Maceió and drop you close to the waterfront entrance. Great if you want to skip parking.",
+          steps: [
+            "Open Uber or 99 and set the destination to \"Marco dos Corais, Orla de Atalaia\".",
+            "Confirm the ride and wait for your driver at the nearest pickup point.",
+            "Ask to be dropped right at the waterfront entrance, skipping paid parking if you prefer to walk.",
+          ],
         },
         {
           icon: "🚌",
@@ -747,6 +805,11 @@ export const translations: Record<Lang, Translation> = {
           text: "Municipal lines pass the Atalaia waterfront from downtown.",
           content:
             "Municipal lines pass the Atalaia waterfront from downtown. Buses 401 and 402 serve the area.",
+          steps: [
+            "At the downtown integration terminal, look for lines heading to the Atalaia waterfront.",
+            "Board buses 401 or 402 and stay on until the final stop or near the landmark.",
+            "Get off and walk a few minutes along the waterfront promenade to the Marco dos Corais.",
+          ],
         },
         {
           icon: "🚶",
@@ -754,6 +817,11 @@ export const translations: Record<Lang, Translation> = {
           text: "The waterfront bike lane connects the landmark to nearby beaches.",
           content:
             "The waterfront bike lane connects the landmark to nearby beaches. Flat, pleasant walk at dusk.",
+          steps: [
+            "Use the continuous Atalaia waterfront bike lane, which links the landmark to Pajuçara and Ponta Verde beaches.",
+            "For walking, follow the seaside promenade on flat, well-lit ground.",
+            "Enjoy the stroll at dusk, when the light is ideal for photos at the landmark.",
+          ],
         },
       ],
     },
@@ -1108,11 +1176,30 @@ export const translations: Record<Lang, Translation> = {
         "阿塔拉亚滨海大道位于市中心、指示清晰。开车从马塞约任何位置几分钟即达。",
       options: [
         {
+          icon: "✈️",
+          title: "从机场到景点",
+          text: "马塞约机场（MCZ）约 25 公里；出租车、网约车或租车约 30–40 分钟可达。",
+          content:
+            "马塞约－尊比·多斯·帕尔马雷斯国际机场（MCZ）距阿塔拉亚滨海大道约 25 公里。出租车、网约车或租车在 30–40 分钟内可达，视交通而定。",
+          steps: [
+            "落地后跟随出口指示到一层出租车站（普通或商务出租车）。",
+            "在 App 中将目的地设为「Marco dos Corais，Orla de Atalaia」；车费约 60–90 雷亚尔。",
+            "走 AL-101 南向公路前往海岸，靠右行驶并跟随「Atalaia」路牌。",
+            "沿爱德华多·戈麦斯准将大道行驶，直到看到 Marco dos Corais 标志与左侧滨海大道。",
+            "在滨海入口附近下车，周边有停车场与网约车落客点。",
+          ],
+        },
+        {
           icon: "🚗",
           title: "自驾",
           text: "沿爱德华多·戈麦斯准将大道至阿塔拉亚滨海大道，有标志指向 Marco dos Corais。",
           content:
             "沿爱德华多·戈麦斯准将大道至阿塔拉亚滨海大道，有标志指向 Marco dos Corais。周边可停车。",
+          steps: [
+            "从马塞约任意位置沿 AL-101 或滨海大道驶向阿塔拉亚滨海大道。",
+            "进入爱德华多·戈麦斯准将大道，靠近海滩时保持在左侧车道。",
+            "留意「Marco dos Corais」旅游标志，停在滨海路边或私营停车场。",
+          ],
         },
         {
           icon: "🚕",
@@ -1120,6 +1207,11 @@ export const translations: Record<Lang, Translation> = {
           text: "Uber 与 99 在马塞约运营，可就近停在滨海入口。",
           content:
             "Uber 与 99 在马塞约运营，可就近停在滨海入口。想省去停车很合适。",
+          steps: [
+            "打开 Uber 或 99，将目的地设为「Marco dos Corais，Orla de Atalaia」。",
+            "确认订单后在最近的上车点等候司机。",
+            "请司机在滨海入口处落客，若不打算开车可省去付费停车。",
+          ],
         },
         {
           icon: "🚌",
@@ -1127,6 +1219,11 @@ export const translations: Record<Lang, Translation> = {
           text: "从市中心出发的市政线路经过阿塔拉亚滨海大道。",
           content:
             "从市中心出发的市政线路经过阿塔拉亚滨海大道。401 与 402 路覆盖该区域。",
+          steps: [
+            "在市中心换乘枢纽寻找前往阿塔拉亚滨海大道的线路。",
+            "乘坐 401 或 402 路，一直坐到终点站或靠近地标处。",
+            "下车后沿滨海步道步行几分钟即可看到 Marco dos Corais。",
+          ],
         },
         {
           icon: "🚶",
@@ -1134,6 +1231,11 @@ export const translations: Record<Lang, Translation> = {
           text: "滨海自行车道把地标与周边海滩相连。",
           content:
             "滨海自行车道把地标与周边海滩相连。黄昏时平坦惬意。",
+          steps: [
+            "使用贯穿阿塔拉亚滨海大道的自行车道，可把地标与 Pajuçara、Ponta Verde 等海滩相连。",
+            "步行可沿平坦、照明良好的滨海步道前行。",
+            "黄昏时分漫步最佳，此时光线最适合在地标拍照。",
+          ],
         },
       ],
     },
