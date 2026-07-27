@@ -1,0 +1,117 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { siteConfig, type Lang } from "../config";
+import { languagesList, defaultLang, htmlLang } from "../i18n/ui";
+import type { Translation } from "../i18n/translations";
+import { getJsonLd } from "../lib/schema";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+  title?: string;
+  description?: string;
+  page?: string; // "" = home, "privacy" | "terms" | "cookies"
+}
+
+const { lang, t, title, description, page = "" } = Astro.props;
+
+const baseUrl = siteConfig.baseUrl;
+const pagePath = page ? `${page}` : "";
+const canonical = page
+  ? `${baseUrl}/${lang}/${page}`
+  : `${baseUrl}/${lang}/`;
+
+const metaTitle =
+  title ?? `${t.hero.title} | ${t.hero.subtitle.split("。")[0].split(". ")[0]}`;
+const metaDescription = description ?? t.hero.subtitle;
+
+const jsonLd = getJsonLd(t, lang, baseUrl);
+
+// hreflang 语言-区域映射
+const hreflang: Record<string, string> = {
+  pt: "pt-BR",
+  en: "en-US",
+  zh: "zh-CN",
+};
+---
+
+<!doctype html>
+<html lang={htmlLang[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0e7490" />
+
+    <!-- hreflang 多语言备用链接 -->
+    {
+      languagesList.map((l) => (
+        <link
+          rel="alternate"
+          hreflang={hreflang[l] ?? l}
+          href={page ? `${baseUrl}/${l}/${page}` : `${baseUrl}/${l}/`}
+        />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={`${baseUrl}/${defaultLang}/`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${baseUrl}${siteConfig.ogImage}`} />
+    <meta property="og:locale" content={hreflang[lang] ?? lang} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metaTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={`${baseUrl}${siteConfig.ogImage}`} />
+
+    <!-- JSON-LD 结构化数据 -->
+    {jsonLd.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+
+    <!-- 主题初始化（避免闪烁） -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t) {
+            t = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          }
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Google Analytics (gtag.js) -->
+    <script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaId}`}></script>
+    <script is:inline define:vars={{ gaId: siteConfig.gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", gaId);
+    </script>
+  </head>
+  <body>
+    <Nav lang={lang} t={t} page={page} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} t={t} page={page} />
+
+    <!-- 全局交互脚本：主题切换 / 导航 / FAQ / 灯箱 / 滚动揭示 / 天气 -->
+    <script>
+      import "../scripts/main";
+    </script>
+  </body>
+</html>

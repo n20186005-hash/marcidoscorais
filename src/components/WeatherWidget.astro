@@ -1,0 +1,17 @@
+---
+import { siteConfig } from "../config";
+---
+
+<div
+  class="weather-card"
+  id="weatherCard"
+  data-lat={siteConfig.geo.latitude}
+  data-lon={siteConfig.geo.longitude}
+>
+  <div class="weather-card__icon" id="weatherIcon">🌤️</div>
+  <div>
+    <div class="weather-card__temp" id="weatherTemp">--°</div>
+    <div class="weather-card__meta" id="weatherDesc">…</div>
+  </div>
+  <div class="weather-card__note">Open-Meteo · Maceió, BR</div>
+</div>

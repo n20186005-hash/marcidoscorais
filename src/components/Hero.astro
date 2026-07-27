@@ -1,0 +1,39 @@
+---
+import type { Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section class="hero" id="top">
+  <div class="hero__bg"></div>
+  <div class="hero__glow"></div>
+  <div class="container hero__content">
+    <span class="hero__eyebrow">📍 {t.hero.eyebrow}</span>
+    <h1 class="hero__title">{t.hero.title}</h1>
+    <p class="hero__subtitle">{t.hero.subtitle}</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href={t.hero.primaryCta.href}>
+        {t.hero.primaryCta.label}
+      </a>
+      <a class="btn btn--ghost" href={t.hero.secondaryCta.href}>
+        {t.hero.secondaryCta.label}
+      </a>
+    </div>
+    <div class="hero__stats">
+      {
+        t.hero.stats.map((s) => (
+          <div class="hero__stat">
+            <div class="num">{s.num}</div>
+            <div class="label">{s.label}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">↓</div>
+</section>

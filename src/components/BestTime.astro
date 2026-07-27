@@ -1,0 +1,35 @@
+---
+import type { Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+import { renderRichText } from "../lib/richtext";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section id="best-time" class="section section--alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-head__eyebrow">{t.bestTime.eyebrow}</span>
+      <h2 class="section-head__title">{t.bestTime.title}</h2>
+      <p class="section-head__subtitle">{t.bestTime.subtitle}</p>
+    </div>
+
+    <div class="prose reveal" set:html={renderRichText(t.bestTime.intro)}></div>
+
+    <div class="grid grid-3" style="margin-top:32px">
+      {
+        t.bestTime.seasons.map((s) => (
+          <div class="season-card reveal">
+            <div class="season-card__name">{s.name}</div>
+            <p class="season-card__desc">{s.description}</p>
+            <span class="season-card__tip">✨ {s.tip}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

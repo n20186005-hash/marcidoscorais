@@ -1,0 +1,46 @@
+---
+import type { Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+import { renderRichText } from "../lib/richtext";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section id="monuments" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-head__eyebrow">{t.monuments.eyebrow}</span>
+      <h2 class="section-head__title">{t.monuments.title}</h2>
+      <p class="section-head__subtitle">{t.monuments.subtitle}</p>
+    </div>
+
+    <div class="prose reveal" set:html={renderRichText(t.monuments.intro)}></div>
+
+    <div class="feature-list reveal" style="margin-top:32px">
+      {
+        t.monuments.items.map((item) => (
+          <div class="feature-item">
+            <div class="feature-item__icon">{item.icon ?? "🪨"}</div>
+            <div>
+              <div style="font-weight:600; font-size:0.82rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--color-primary)">
+                {item.era}
+              </div>
+              <div class="feature-item__title">{item.name}</div>
+              <div class="feature-item__text">{item.description}</div>
+              <div
+                class="feature-item__text"
+                style="margin-top:6px; font-size:0.85rem; opacity:0.8"
+              >
+                {item.culture}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+import type { Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { t } = Astro.props;
+
+const initials = (name: string) =>
+  name
+    .split(" ")
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+
+const stars = (rating: number) => "★".repeat(rating) + "☆".repeat(5 - rating);
+---
+
+<section id="reviews" class="section section--alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-head__eyebrow">{t.reviews.eyebrow}</span>
+      <h2 class="section-head__title">{t.reviews.title}</h2>
+      <p class="section-head__subtitle">{t.reviews.subtitle}</p>
+    </div>
+
+    <div class="prose reveal" style="text-align:center">
+      {t.reviews.intro}
+    </div>
+
+    <div class="grid grid-3" style="margin-top:32px">
+      {
+        t.reviews.items.map((r) => (
+          <article class="review-card reveal">
+            <div class="review-card__head">
+              <div class="review-card__avatar">{initials(r.name)}</div>
+              <div>
+                <div class="review-card__name">{r.name}</div>
+                <div class="review-card__date">{r.date}</div>
+              </div>
+            </div>
+            <div class="review-card__stars">{stars(r.rating)}</div>
+            <p class="review-card__text">{r.text}</p>
+            <span class="review-card__src">📝 {r.source}</span>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

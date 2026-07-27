@@ -1,0 +1,58 @@
+---
+import type { Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+import { renderRichText } from "../lib/richtext";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section id="history" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-head__eyebrow">{t.history.eyebrow}</span>
+      <h2 class="section-head__title">{t.history.title}</h2>
+      <p class="section-head__subtitle">{t.history.subtitle}</p>
+    </div>
+
+    <div class="prose reveal" set:html={renderRichText(t.history.intro)}></div>
+
+    <div class="grid grid-3" style="margin-top:32px">
+      {
+        t.history.highlights.map((h) => (
+          <article class="card" style="padding:24px">
+            <div class="card__icon">{h.icon}</div>
+            <h3 class="card__title">{h.title}</h3>
+            <p class="card__text">{h.text}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="timeline reveal">
+      {
+        t.history.timeline.map((item) => (
+          <div class="timeline__item">
+            <div class="timeline__year">{item.year}</div>
+            <div class="timeline__title">{item.title}</div>
+            <p class="timeline__text">{item.text}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="grid grid-2 reveal" style="margin-top:32px">
+      {
+        t.history.localLife.map((item) => (
+          <div class="card" style="padding:22px">
+            <h3 class="card__title">{item.title}</h3>
+            <p class="card__text">{item.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

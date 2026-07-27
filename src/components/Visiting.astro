@@ -1,0 +1,58 @@
+---
+import type { Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+import WeatherWidget from "./WeatherWidget.astro";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section id="visiting" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-head__eyebrow">{t.visiting.eyebrow}</span>
+      <h2 class="section-head__title">{t.visiting.title}</h2>
+      <p class="section-head__subtitle">{t.visiting.subtitle}</p>
+    </div>
+
+    <div
+      class="prose reveal"
+      set:html={t.visiting.paragraphs.join("<br/><br/>")}
+    ></div>
+
+    <WeatherWidget />
+
+    <h3 class="card__title reveal" style="margin:8px 0 14px">
+      ✅ {t.visiting.essentials.map((e) => e.name).join(" · ")}
+    </h3>
+    <div class="info-band reveal">
+      {
+        t.visiting.essentials.map((e) => (
+          <div class="info-card">
+            <div style="font-size:1.4rem; margin-bottom:8px">{e.icon}</div>
+            <div class="info-card__title">{e.name}</div>
+            <div class="info-card__text">{e.description}</div>
+          </div>
+        ))
+      }
+    </div>
+
+    <h3 class="card__title reveal" style="margin:28px 0 14px">
+      🎒 {t.visiting.bring.map((b) => b.name).join(" · ")}
+    </h3>
+    <div class="info-band reveal">
+      {
+        t.visiting.bring.map((b) => (
+          <div class="info-card">
+            <div style="font-size:1.4rem; margin-bottom:8px">{b.icon}</div>
+            <div class="info-card__title">{b.name}</div>
+            <div class="info-card__text">{b.description}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

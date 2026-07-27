@@ -1,0 +1,43 @@
+---
+import type { Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section id="gallery" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-head__eyebrow">{t.gallery.eyebrow}</span>
+      <h2 class="section-head__title">{t.gallery.title}</h2>
+      <p class="section-head__subtitle">{t.gallery.subtitle}</p>
+    </div>
+
+    <div class="gallery-grid reveal">
+      {
+        t.gallery.items.map((item) => (
+          <button
+            type="button"
+            class="gallery-item"
+            data-full={item.src}
+            data-caption={item.caption}
+          >
+            <img src={item.src} alt={item.caption} loading="lazy" />
+            <span class="gallery-item__cap">{item.caption}</span>
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- 灯箱 -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+    <div class="lightbox__cap" id="lightboxCap"></div>
+  </div>
+</section>

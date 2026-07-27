@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { languagesList } from "../../i18n/ui";
+import { getTranslation } from "../../i18n/translations";
+import { legal } from "../../i18n/legal";
+import { renderRichText } from "../../lib/richtext";
+
+export function getStaticPaths() {
+  return languagesList.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = getTranslation(lang);
+const doc = legal.privacy[lang];
+---
+
+<BaseLayout lang={lang} t={t} page="privacy" title={doc.title}>
+  <section class="section legal">
+    <div class="container">
+      <h1 class="legal__title">{doc.title}</h1>
+      <p class="legal__updated">{doc.updated}</p>
+      <p style="color:var(--color-text-muted); max-width:760px">
+        {doc.intro}
+      </p>
+      {
+        doc.sections.map((s) => (
+          <div>
+            <h2>{s.heading}</h2>
+            <p set:html={renderRichText(s.body)} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

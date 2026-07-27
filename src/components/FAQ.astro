@@ -1,0 +1,44 @@
+---
+import type { Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+import { renderRichText } from "../lib/richtext";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { t } = Astro.props;
+
+const answerHtml = (answer: string | string[]) =>
+  renderRichText(Array.isArray(answer) ? answer.join("\n") : answer);
+---
+
+<section id="faq" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-head__eyebrow">{t.faq.eyebrow}</span>
+      <h2 class="section-head__title">{t.faq.title}</h2>
+      <p class="section-head__subtitle">{t.faq.subtitle}</p>
+    </div>
+
+    <div style="max-width:820px; margin-inline:auto">
+      {
+        t.faq.items.map((item) => (
+          <div class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>{item.question}</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div
+                class="faq-answer__inner"
+                set:html={answerHtml(item.answer)}
+              >
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

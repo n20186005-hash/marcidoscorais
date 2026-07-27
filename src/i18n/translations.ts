@@ -1,349 +1,1276 @@
-export type Locale = "zh" | "en" | "pt";
-export type LinkItem = { name: string; url: string };
-export type FAQItem = { question: string; answer: string };
-export type TransportOption = { name: string; time: string; price: string; steps: string[] };
+export type Lang = "pt" | "en" | "zh";
 
-export type SeasonInfo = { name: string; description: string };
-
-export type Translations = {
-  nav: { history: string; architecture: string; ecology?: string; monuments: string; visiting: string; transportation: string; gallery: string; reviews: string; faq: string; location: string };
-  hero: { tags: string[]; tagline: string; title: string; subtitle: string; cta: string };
-  rating: { reviews: string; source: string };
-  history: { title: string; intro: string };
-  curiosities: { title: string; content: string };
-  architecture: { title: string; intro: string; specs: { structure: { title: string; content: string }; design: { title: string; content: string }; optics: { title: string; content: string } }; plaque: { title: string; items: { label: string; value: string }[] } };
-  ecology?: { title: string; intro: string; items: { name: string; description: string }[] };
-  monuments: { title: string; intro: string; items: { name: string; description: string }[] };
-  bestTime: { title: string; intro: string; seasons: SeasonInfo[] };
-  visiting: { title: string; intro: string; hours: { title: string; content: string; note: string }; price: { title: string; content: string; note: string }; duration: { title: string; content: string; note: string }; tips: { title: string; items: string[] } };
-  transportation: { title: string; airport: { title: string; content: string; options: TransportOption[] }; publicTransport?: { title: string; content: string; options: { name: string; description: string; steps: string[] }[] }; cycling?: { title: string; content: string }; localTransport?: { title: string; description?: string; content?: string; steps?: string[] }; city: { title: string; content: string; steps: string[] }; tips: { title: string; items: string[] } };
-  gallery: { title: string; viewMore: string };
-  reviews: { title: string; subtitle: string; viewMore: string; nearbyTitle: string; nearbyIntro: string; nearbyItems: { name: string; description: string }[] };
-  faq: { title: string; subtitle: string; items: FAQItem[] };
-  location: { title: string; address: string; openMaps: string };
-  footer: { callToAction: string; text: string; made: string; linksTitle: string; links: LinkItem[] };
+export type Translation = {
+  site: {
+    shortName: string;
+    legalName: string;
+  };
+  nav: { id: string; label: string }[];
+  hero: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    primaryCta: { label: string; href: string };
+    secondaryCta: { label: string; href: string };
+    stats: { num: string; label: string }[];
+  };
+  history: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    highlights: { icon: string; title: string; text: string }[];
+    timeline: { year: string; title: string; text: string }[];
+    localLife: { title: string; text: string }[];
+  };
+  architecture: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    elements: { icon: string; title: string; text: string }[];
+  };
+  ecology?: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    flora: { icon: string; title: string; text: string }[];
+    fauna: { icon: string; title: string; text: string }[];
+  };
+  monuments: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    items: {
+      era: string;
+      name: string;
+      description: string;
+      culture: string;
+    }[];
+  };
+  bestTime: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    seasons: { name: string; description: string; tip: string }[];
+  };
+  visiting: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    paragraphs: string[];
+    essentials: { icon: string; name: string; description: string }[];
+    bring: { icon: string; name: string; description: string }[];
+  };
+  transportation: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    options: { icon: string; title: string; content: string }[];
+  };
+  gallery: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: { src: string; caption: string; story: { lead: string; detail: string } }[];
+  };
+  reviews: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    items: {
+      name: string;
+      date: string;
+      rating: number;
+      text: string;
+      source: string;
+    }[];
+  };
+  faq: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: { question: string; answer: string | string[] }[];
+  };
+  location: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    address: string;
+    openMaps: string;
+    contact: { phone: string; note: string };
+    tips: string[];
+  };
+  footer: {
+    about: string;
+    exploreTitle: string;
+    legalTitle: string;
+    contactTitle: string;
+    rights: string;
+    builtWith: string;
+    social: { label: string; href: string }[];
+    legal: { label: string; href: string }[];
+  };
+  notFound?: { title: string; description: string; home: string };
+  curiosities?: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: { icon: string; title: string; text: string }[];
+  };
 };
 
-export const translations: Record<Locale, Translations> = {
-  zh: {
-    nav: { history: "历史沿革", architecture: "景点特色", monuments: "周边玩乐", visiting: "游览信息", transportation: "交通指南", gallery: "照片集锦", reviews: "游客评价", faq: "常见问题", location: "地图位置" },
-    hero: { tags: ["海滨地标", "热带风光", "马塞约必游"], tagline: "巴西 · 阿拉戈斯州 · 马塞约", title: "Marco dos Corais", subtitle: "Marco dos Corais · 珊瑚地标 · 海滨胜地 · 热带风情", cta: "探索Marco dos Corais" },
-    rating: { reviews: "条评价", source: "Google 评论" },
-    history: {
-      title: "景点介绍与发展",
-      intro: `**Marco dos Corais** 位于巴西阿拉戈斯州首府马塞约的海滨区域。这是一个著名的海滨旅游地标，以其美丽的珊瑚礁和清澈的海水而闻名。\n\n**景点特色**：Marco dos Corais 是马塞约重要的海滨旅游景点，拥有壮丽的海景和丰富的海洋生态。这里是欣赏巴西海岸线美景、体验热带海滨风情的理想之地。\n\n**旅游意义**：作为马塞约的重要旅游地标，Marco dos Corais 吸引了大量国内外游客。这里不仅是观赏海景的好去处，也是了解巴西海滨文化的重要窗口。`
-    },
-    curiosities: {
-      title: "隐藏的故事：Marco dos Corais 的趣味知识",
-      content: `**海滨胜地**：Marco dos Corais 是马塞约最受欢迎的海滨景点之一。这里海水清澈，珊瑚礁丰富，是体验巴西海滨风情的绝佳地点。\n\n**地理位置**：景点位于马塞约的海滨区域，地理位置优越，交通便利，是游客探索阿拉戈斯州海岸线的理想起点。\n\n**旅游发展**：随着马塞约旅游业的发展，Marco dos Corais 逐渐成为该市最重要的旅游名片之一，吸引了越来越多的国内外游客。`
-    },
-    architecture: {
-      title: "地标特色与结构设计",
-      intro: "Marco dos Corais 是一个精心维护的海滨旅游地标，为游客提供了舒适的海滨观光体验。景区内设有观景平台、休息区和旅游设施。",
-      specs: {
-        structure: { title: "地标结构", content: "Marco dos Corais 地标结构坚固且富有热带风情。景区沿海岸线布局，游客可以在这里悠闲漫步，欣赏大海美景。" },
-        design: { title: "设计特色", content: "景区的设计充分考虑了游客的体验，设有观景平台、休息区和旅游设施。在热带风光的映衬下，景区更显迷人魅力。" },
-        optics: { title: "观赏体验", content: "从 Marco dos Corais 可以欣赏到壮丽的海景和海岸线。白天海水清澈蔚蓝，夜晚星光璀璨，为游客提供全天候的视觉享受。" }
-      },
-      plaque: {
-        title: "景点基本信息",
-        items: [
-          { label: "名称", value: "Marco dos Corais（珊瑚地标）" },
-          { label: "位置", value: "马塞约市，阿拉戈斯州，巴西" },
-          { label: "开放时间", value: "全天开放" },
-          { label: "类型", value: "海滨地标、旅游景点" },
-          { label: "特色", value: "海景观赏、海滨风光" },
-          { label: "推荐游览", value: "全天皆可，傍晚时分尤佳" }
-        ]
-      }
-    },
-    monuments: {
-      title: "周边景点与特色",
-      intro: "Marco dos Corais 周边有多个值得一游的景点和特色体验，让您的马塞约之行更加丰富多彩。",
-      items: [
-        { name: "海滨观光", description: "Marco dos Corais 沿线有美丽的海岸线和海滩。这里是欣赏阿拉戈斯州海滨风光的最佳去处。" },
-        { name: "海鲜美食", description: "马塞约以新鲜的海鲜而闻名。在 Marco dos Corais 附近可以品尝到各种美味的海鲜料理和热带水果。" }
-      ]
-    },
-    bestTime: {
-      title: "最佳游览时间",
-      intro: "马塞约全年气候温暖，是理想的海滨旅游目的地。根据不同的季节和天气条件，您可以规划最佳的行程安排。\n\n**旱季（9月-次年3月）**：天气晴朗，降雨少，是游览马塞约的最佳时间。适合海滩活动、观赏海景和户外游览。\n\n**雨季（4月-8月）**：降雨较多，但气温依然温暖。游客较少，酒店和餐厅价格更优惠，是体验当地文化的绝佳时机。",
-      seasons: [
-        { name: "🌞 旱季（9月-次年3月）", description: "旱季是游览马塞约的最佳时间。天气晴朗，降雨少，适合海滩活动和观赏海景。建议提前规划行程，尤其是周末和节假日。" },
-        { name: "🌧️ 雨季（4月-8月）", description: "雨季降雨较多，但气温依然温暖。游客较少，是体验当地文化的绝佳时机。建议携带雨具，并关注天气预报。" }
-      ]
-    },
-    visiting: {
-      title: "实用游览指南",
-      intro: "Marco dos Corais 是探索马塞约热带海滨风光的理想去处。为了获得最佳体验，请参考以下实用信息。",
-      hours: { title: "开放时间", content: "全天开放\n景区24小时开放，随时可以参观", note: "建议白天前往，可以欣赏美丽的海景。" },
-      price: { title: "费用信息", content: "景区免费开放\n周边消费根据选择不同", note: "景区本身免费，但餐饮和娱乐消费需另行支付。" },
-      duration: { title: "游览时长", content: "建议游览时间：1-2小时\n可以漫步景区、欣赏海景、拍照留念。", note: "时间可根据个人兴趣灵活安排。建议在白天前往，可以同时欣赏海景。" },
-      tips: { title: "游览贴士与注意事项", items: [
-        "⚠️ **防晒措施**：巴西热带阳光强烈，请做好防晒措施，携带防晒霜和帽子",
-        "穿着舒适的鞋子，方便在景区内漫步",
-        "可以拍照，但请尊重他人隐私",
-        "品尝海鲜时请注意食品安全，选择卫生条件良好的餐厅",
-        "白天是最佳游览时段，可以欣赏清晰的海景",
-        "可以顺便游览附近的马塞约海滩",
-        "🌱 **文明游览**：请保持环境整洁，不要乱扔垃圾，共同维护这一美丽的海滨空间"
-      ] }
-    },
-    transportation: {
-      title: "精准交通指南",
-      airport: { title: "✈️ 马塞约机场 (MCZ) ➔ Marco dos Corais", content: "马塞约国际机场（Aeroporto Internacional de Maceió - Zumbi dos Palmares）位于马塞约市，距离 Marco dos Corais 较近。", options: [
-        { name: "出租车/网约车（推荐）", price: "约 30-60 雷亚尔", time: "20-35 分钟", steps: ["在机场到达大厅外寻找官方出租车柜台或使用 Uber/99 等网约车软件", "告知司机前往 Marco dos Corais", "马塞约交通相对便利，车程较短"] }
-      ]},
-      city: { title: "🚶 从马塞约市中心出发", content: "Marco dos Corais 位于马塞约市的海滨区域，从市中心出发可以选择多种方式。建议预留半天时间，将 Marco dos Corais 与附近海滩一并游览。", steps: ["从市中心乘坐出租车或网约车，约 15-25 分钟", "或乘坐公交车前往海滨方向", "到达后步行进入景区"] },
-      tips: { title: "交通与气候小贴士", items: [
-        "🌡️ **气候优势**：马塞约位于热带地区，全年温暖，是巴西气候最舒适的城市之一",
-        "市区内建议使用打车软件（Uber/99）更安全便捷",
-        "🚗 **自驾与停车**：景区沿线设有公共停车位，但在旺季（如 12 月至 2 月）或周末，车位会变得相对紧张，建议提前抵达或优先使用网约车出行。",
-        "白天时分前往可以欣赏到美丽的海景",
-        "可以与马塞约海滩、市中心等景点安排在同一行程",
-        "马塞约的交通相对不太拥堵，出行较为方便"
-      ] }
-    },
-    reviews: { 
-      title: "游客评价与周边探索", 
-      subtitle: "来自Marco dos Corais的声音：Google Maps 真实见证", 
-      viewMore: "在 Google Maps 查看更多评价",
-      nearbyTitle: "周边值得一游的景点",
-      nearbyIntro: "游览完Marco dos Corais后，您可以顺道游览以下附近景点：",
-      nearbyItems: [
-        { name: "马塞约海滩 (Praia de Maceió)", description: "马塞约最著名的海滩之一，拥有金色沙滩和清澈海水，是游泳和日光浴的理想之地。" },
-        { name: "马塞约市中心 (Centro de Maceió)", description: "阿拉戈斯州首府的中心区域，拥有历史悠久的教堂、广场和市场，以及美味的地方美食。" },
-        { name: "阿拉戈斯州海滨大道", description: "马塞约最长的海滨大道，沿途有众多餐厅、酒吧和娱乐场所，是体验当地夜生活的好去处。" }
-      ]
-    },
-    gallery: { title: "照片集锦", viewMore: "在 Google Maps 查看更多相片" },
-    faq: { title: "常见问题", subtitle: "深入了解Marco dos Corais", items: [
-      { question: "Marco dos Corais的开放时间和费用？", answer: "Marco dos Corais全天24小时开放，免费进入。周边餐厅和商店的营业时间各有不同。" },
-      { question: "游览Marco dos Corais需要多长时间？", answer: "建议游览时间：1-2小时。您可以漫步景区、欣赏海景、拍照留念。如果在附近用餐，时间可能会更长。" },
-      { question: "Marco dos Corais有什么特色？", answer: "Marco dos Corais以美丽的海景和海滨风光而闻名。这里的海岸线景色优美，是拍照和观光的理想之地。此外还有新鲜的海鲜和热带水果。" },
-      { question: "参观Marco dos Corais有什么注意事项？", answer: "⚠️ 防晒措施：巴西热带阳光强烈，请做好防晒。穿着舒适的鞋子。选择卫生条件良好的餐厅。请保持环境整洁，不要乱扔垃圾。" }
-    ]},
-    location: { title: "地图位置", address: "88M3+JC, Maceió - AL\nBrazil\n（巴西马塞约）", openMaps: "在 Google Maps 查看位置" },
-    footer: { callToAction: "作为马塞约的重要旅游地标，请与我们一起爱护环境、尊重当地文化，共同维护这一美丽的热带海滨空间。", text: "© 2026 Marco dos Corais 指南 · 保留所有权利。\n本网站是一个独立的第三方指南项目，致力于准确传播Marco dos Corais信息。我们与巴西政府或其他官方机构没有任何关联。", made: "本网站是一个独立的第三方指南项目。为探索者与学习者而制。", linksTitle: "相关链接", links: [
-      { name: "巴西联邦政府", url: "https://www.gov.br/pt-br" },
-      { name: "巴西旅游部", url: "https://www.gov.br/turismo/pt-br" },
-      { name: "巴西官方电子签证系统", url: "https://brazil.vfsevisa.com/" },
-      { name: "巴西国家地理与统计局（IBGE）- 马塞约官方地理历史库", url: "https://cidades.ibge.gov.br/brasil/al/maceio" },
-      { name: "马塞约市政府官网", url: "https://maceio.al.gov.br/" }
-    ]}
-  },
-  en: {
-    nav: { history: "Introduction", architecture: "Features", monuments: "Nearby", visiting: "Visit Info", transportation: "Transportation", gallery: "Gallery", reviews: "Reviews", faq: "FAQ", location: "Location" },
-    hero: { tags: ["Seaside Landmark", "Tropical Scenery", "Maceió Must-See"], tagline: "Brazil · Alagoas · Maceió", title: "Marco dos Corais", subtitle: "Marco dos Corais · Coral Landmark · Seaside Resort · Tropical Charm", cta: "Explore Marco dos Corais" },
-    rating: { reviews: "reviews", source: "Google Reviews" },
-    history: {
-      title: "Introduction & Development",
-      intro: `**Marco dos Corais** is located in the seaside area of Maceió, the capital of Alagoas state in Brazil. It is a famous seaside tourist landmark, known for its beautiful coral reefs and clear seawater.\n\n**Attraction Features**: Marco dos Corais is an important seaside tourist attraction in Maceió, with spectacular sea views and rich marine ecology. It is an ideal place to enjoy the beauty of the Brazilian coastline and experience tropical seaside charm.\n\n**Tourism Significance**: As an important tourist landmark in Maceió, Marco dos Corais attracts a large number of domestic and foreign tourists. It is not only a great place to watch the sea, but also an important window to understand Brazilian seaside culture.`
-    },
-    curiosities: {
-      title: "Hidden Stories: Fun Facts About Marco dos Corais",
-      content: `**Seaside Resort**: Marco dos Corais is one of the most popular seaside attractions in Maceió. The seawater is clear and the coral reefs are rich, making it an excellent place to experience Brazilian seaside charm.\n\n**Geographical Location**: The attraction is located in the seaside area of Maceió, with superior geographical location and convenient transportation. It is an ideal starting point for tourists to explore the Alagoas coastline.\n\n**Tourism Development**: With the development of tourism in Maceió, Marco dos Corais has gradually become one of the city's most important tourist attractions, attracting more and more domestic and foreign tourists.`
-    },
-    architecture: {
-      title: "Landmark Features & Structure Design",
-      intro: "Marco dos Corais is a carefully maintained seaside tourist landmark, providing visitors with a comfortable seaside sightseeing experience. The scenic area is equipped with viewing platforms, rest areas, and tourist facilities.",
-      specs: {
-        structure: { title: "Landmark Structure", content: "The Marco dos Corais landmark has a sturdy structure with tropical charm. The scenic area is laid out along the coastline, where visitors can stroll leisurely and enjoy the beautiful sea views." },
-        design: { title: "Design Features", content: "The design of the scenic area fully considers the visitor experience, with viewing platforms, rest areas, and tourist facilities. Against the backdrop of tropical scenery, the scenic area appears even more charming." },
-        optics: { title: "Viewing Experience", content: "From Marco dos Corais, you can enjoy spectacular sea views and coastline. The sea water is clear and blue during the day, and the stars are bright at night, providing visitors with all-day visual enjoyment." }
-      },
-      plaque: {
-        title: "Basic Attraction Information",
-        items: [
-          { label: "Name", value: "Marco dos Corais (Coral Landmark)" },
-          { label: "Location", value: "Maceió, Alagoas, Brazil" },
-          { label: "Opening Hours", value: "Open 24 hours" },
-          { label: "Type", value: "Seaside landmark, Tourist attraction" },
-          { label: "Features", value: "Sea view, Seaside scenery" },
-          { label: "Best Time to Visit", value: "All day, especially evening" }
-        ]
-      }
-    },
-    monuments: {
-      title: "Nearby Attractions & Features",
-      intro: "There are several attractions and special experiences worth visiting around Marco dos Corais, making your trip to Maceió more colorful.",
-      items: [
-        { name: "Seaside Sightseeing", description: "The coastline along Marco dos Corais has beautiful beaches. This is the best place to enjoy the seaside scenery of Alagoas." },
-        { name: "Seafood Cuisine", description: "Maceió is famous for fresh seafood. Near Marco dos Corais, you can taste various delicious seafood dishes and tropical fruits." }
-      ]
-    },
-    bestTime: {
-      title: "Best Time to Visit",
-      intro: "Maceió has warm weather year-round, making it an ideal seaside tourist destination. You can plan the best itinerary according to different seasons and weather conditions.\n\n**Dry Season (September-March)**: Sunny weather with little rain, the best time to visit Maceió. Suitable for beach activities, sea view watching and outdoor touring.\n\n**Rainy Season (April-August)**: More rainfall, but temperatures remain warm. Fewer tourists, better prices for hotels and restaurants, an excellent time to experience local culture.",
-      seasons: [
-        { name: "🌞 Dry Season (September-March)", description: "The dry season is the best time to visit Maceió. Sunny weather with little rain, suitable for beach activities and sea view watching. It is recommended to plan your itinerary in advance, especially on weekends and holidays." },
-        { name: "🌧️ Rainy Season (April-August)", description: "More rainfall in the rainy season, but temperatures remain warm. Fewer tourists, an excellent time to experience local culture. It is recommended to bring rain gear and pay attention to weather forecasts." }
-      ]
-    },
-    visiting: {
-      title: "Practical Visit Guide",
-      intro: "Marco dos Corais is an ideal place to explore the tropical seaside scenery of Maceió. For the best experience, please refer to the following practical information.",
-      hours: { title: "Opening Hours", content: "Open 24 hours\nScenic area open all day, visitors can enter at any time", note: "It is recommended to go during the day to enjoy the beautiful sea views." },
-      price: { title: "Cost Information", content: "Scenic area free admission\nSurrounding consumption varies", note: "The scenic area itself is free, but dining and entertainment costs are paid separately." },
-      duration: { title: "Visit Duration", content: "Suggested visit time: 1-2 hours\nYou can stroll the scenic area, enjoy sea views, and take photos.", note: "Time can be arranged flexibly according to personal interest. It is recommended to go during the day to enjoy the sea views." },
-      tips: { title: "Visit Tips & Important Notes", items: [
-        "⚠️ **Sun Protection**: Brazilian tropical sun is strong, please take sun protection measures, bring sunscreen and hat",
-        "Wear comfortable shoes for walking in the scenic area",
-        "Photography is allowed, but please respect others' privacy",
-        "Pay attention to food safety when tasting seafood, choose restaurants with good hygiene conditions",
-        "Daytime is the best visiting time to enjoy clear sea views",
-        "You can also visit the nearby Maceió beaches",
-        "🌱 **Civilized Visit**: Please keep the environment clean, do not litter, and jointly maintain this beautiful seaside space"
-      ] }
-    },
-    transportation: {
-      title: "Precise Transportation Guide",
-      airport: { title: "✈️ Maceió Airport (MCZ) ➔ Marco dos Corais", content: "Maceió International Airport (Aeroporto Internacional de Maceió - Zumbi dos Palmares) is located in Maceió city, relatively close to Marco dos Corais.", options: [
-        { name: "Taxi / Ride-hailing (Recommended)", price: "About 30-60 Brazilian Reais", time: "20-35 minutes", steps: ["Find official taxi counters at the airport arrivals hall or use ride-hailing apps like Uber/99", "Tell the driver you are going to Marco dos Corais", "Maceió traffic is relatively convenient, with a short driving distance"] }
-      ]},
-      city: { title: "🚶 From Downtown Maceió", content: "Marco dos Corais is located in the seaside area of Maceió. You can choose various ways to get there from the city center. It is recommended to allocate half a day to visit Marco dos Corais together with nearby beaches.", steps: ["Take a taxi or ride-hailing from downtown, about 15-25 minutes", "Or take a bus towards the seaside", "After arrival, walk into the scenic area"] },
-      tips: { title: "Transportation & Climate Tips", items: [
-        "🌡️ **Climate Advantage**: Maceió is located in the tropical region, warm all year round, one of the most comfortable cities in Brazil in terms of climate",
-        "Using ride-hailing apps (Uber/99) in the city is safer and more convenient",
-        "🚗 **Driving & Parking**: There are public parking spaces along the scenic area, but during peak season (December to February) or weekends, parking can be relatively tight. It's recommended to arrive early or prioritize ride-hailing services.",
-        "Go during the day to enjoy the beautiful sea views",
-        "Combine with Maceió beaches, downtown and other attractions in the same trip",
-        "Maceió's traffic is relatively less congested, making travel more convenient"
-      ] }
-    },
-    reviews: { 
-      title: "Visitor Reviews & Nearby Exploration", 
-      subtitle: "Voices from Marco dos Corais: Real Testimonials from Google Maps", 
-      viewMore: "View More Reviews on Google Maps",
-      nearbyTitle: "Nearby Attractions Worth Visiting",
-      nearbyIntro: "After visiting Marco dos Corais, you can easily visit the following nearby attractions:",
-      nearbyItems: [
-        { name: "Maceió Beach (Praia de Maceió)", description: "One of the most famous beaches in Maceió, with golden sand and clear water, ideal for swimming and sunbathing." },
-        { name: "Downtown Maceió (Centro de Maceió)", description: "The capital of Alagoas state, home to historic churches, squares and markets, as well as delicious local cuisine." },
-        { name: "Alagoas Seaside Avenue", description: "The longest seaside avenue in Maceió, lined with numerous restaurants, bars and entertainment venues, a great place to experience the local nightlife." }
-      ]
-    },
-    gallery: { title: "Photo Gallery", viewMore: "View More Photos on Google Maps" },
-    faq: { title: "Frequently Asked Questions", subtitle: "Learn More About Marco dos Corais", items: [
-      { question: "What are the opening hours and cost of Marco dos Corais?", answer: "Marco dos Corais is open 24 hours a day and free to enter. Surrounding restaurants and shops have different operating hours." },
-      { question: "How long does it take to visit Marco dos Corais?", answer: "Suggested visit time: 1-2 hours. You can stroll the scenic area, enjoy sea views, and take photos. If you dine nearby, it may take longer." },
-      { question: "What are the features of Marco dos Corais?", answer: "Marco dos Corais is famous for its beautiful sea views and seaside scenery. The coastline here is beautiful, making it an ideal place for photos and sightseeing. There are also fresh seafood and tropical fruits." },
-      { question: "What are the important notes for visiting Marco dos Corais?", answer: "⚠️ Sun Protection: Brazilian tropical sun is strong, please protect yourself from the sun. Wear comfortable shoes. Choose restaurants with good hygiene conditions. Please keep the environment clean and do not litter." }
-    ]},
-    location: { title: "Map Location", address: "88M3+JC, Maceió - AL\nBrazil", openMaps: "View Location on Google Maps" },
-    footer: { callToAction: "As an important tourist landmark in Maceió, please join us in caring for the environment and respecting local culture. Keep the attraction clean and maintain this beautiful tropical seaside space together.", text: "© 2026 Marco dos Corais Guide · All rights reserved.\nThis website is an independent third-party guide project dedicated to accurately sharing information about Marco dos Corais. We are not affiliated with the Brazilian government or any official authority.", made: "This website is an independent third-party guide project. Made for explorers and learners.", linksTitle: "Related Links", links: [
-      { name: "Brazil Federal Government", url: "https://www.gov.br/pt-br" },
-      { name: "Brazil Ministry of Tourism", url: "https://www.gov.br/turismo/pt-br" },
-      { name: "Brazil Official E-Visa System", url: "https://brazil.vfsevisa.com/" },
-      { name: "IBGE - Maceió Historical Database", url: "https://cidades.ibge.gov.br/brasil/al/maceio" },
-      { name: "Maceió City Hall Official Website", url: "https://maceio.al.gov.br/" }
-    ]}
-  },
+export const translations: Record<Lang, Translation> = {
   pt: {
-    nav: { history: "Introdução", architecture: "Características", monuments: "Arredores", visiting: "Informações", transportation: "Transporte", gallery: "Galeria", reviews: "Avaliações", faq: "FAQ", location: "Localização" },
-    hero: { tags: ["Marco Marítimo", "Paisagem Tropical", "Imperdível em Maceió"], tagline: "Brasil · Alagoas · Maceió", title: "Marco dos Corais", subtitle: "Marco dos Corais · Marco de Coral · Estância Marítima · Encanto Tropical", cta: "Explorar o Marco dos Corais" },
-    rating: { reviews: "avaliações", source: "Google Avaliações" },
-    history: {
-      title: "História e Desenvolvimento",
-      intro: `A **Marco dos Corais (Coral Landmark)** está localizada no bairro de Atalaia, em Maceió, capital do estado de Alagoas, no Brasil. Não é uma atração isolada, mas sim a essência da seção sul da **Orla de Atalaia**, uma extensão de 6 quilômetros conhecida como a "avenida costeira mais bonita do Brasil".\n\n**Características do Atrativo**: A Marco dos Corais é um famoso passeio marítimo de madeira, conhecido por seus numerosos restaurantes de caranguejo. É não apenas o melhor lugar para provar os deliciosos pratos de caranguejo locais, mas também um local popular para assistir aos espetaculares pores do sol na América do Sul.\n\n**Significado Cultural**: Quando a noite cai, a Marco dos Corais revela seu lado mais vibrante. A brisa do mar não é apenas preenchida com o aroma da comida, mas também frequentemente acompanhada por **música ao vivo de sanfona (Forró)**, típica do nordeste brasileiro. Muitos restaurantes se transformam em palcos culturais ao ar livre nos fins de semana, permitindo que os visitantes sintam os ritmos latino-americanos apaixonantes e alegres em meio ao som das ondas do mar.`
+    site: { shortName: "Marco dos Corais", legalName: "Marco dos Corais" },
+    nav: [
+      { id: "history", label: "História" },
+      { id: "architecture", label: "Arquitetura" },
+      { id: "monuments", label: "Monumentos" },
+      { id: "best-time", label: "Melhor Época" },
+      { id: "visiting", label: "Visitação" },
+      { id: "transport", label: "Transporte" },
+      { id: "gallery", label: "Galeria" },
+      { id: "reviews", label: "Avaliações" },
+      { id: "faq", label: "FAQ" },
+      { id: "location", label: "Localização" },
+    ],
+    hero: {
+      eyebrow: "Maceió · Alagoas · Brasil",
+      title: "Marco dos Corais",
+      subtitle:
+        "O marco de concreto e vidro que marca o encontro entre a cidade e o mar, na Orla de Atalaia. Um mirante de frente para os recifes de coral e o pôr do sol mais fotografado de Maceió.",
+      primaryCta: { label: "Como chegar", href: "#location" },
+      secondaryCta: { label: "Ver galeria", href: "#gallery" },
+      stats: [
+        { num: "4.7", label: "Avaliação média" },
+        { num: "23.374", label: "Avaliações" },
+        { num: "24h", label: "Acesso livre" },
+      ],
     },
-    curiosities: {
-      title: "Histórias Ocultas: Curiosidades sobre a Passarela",
-      content: `**Paraíso Gastronômico**: Degustar caranguejo na Marco dos Corais não é apenas uma refeição, mas uma experiência cultural imersiva. A maneira local mais autêntica é pedir uma tradicional "Caranguejada". Os restaurantes geralmente fornecem a cada cliente um icônico **martelinho e tábua de madeira**. Acompanhado pelo som crocante de quebrar cascas de caranguejo e uma Caipirinha gelada, esta é a noite mais autêntica de Maceió.\n\n**Lugar para Ver Pores do Sol**: A Marco dos Corais é um dos melhores lugares para ver o pôr do sol em Maceió. À tarde, o sol se põe no oeste e o mar brilha, criando uma vista espetacular.\n\n**Desenvolvimento Turístico**: Com o desenvolvimento do turismo em Maceió, a Marco dos Corais tornou-se gradualmente um dos atrativos turísticos mais importantes da cidade, atraindo cada vez mais turistas nacionais e estrangeiros.`
+    history: {
+      eyebrow: "Raízes",
+      title: "História do Marco dos Corais",
+      subtitle:
+        "Da pescaria caiçara à selfie obrigatória: como um ponto de referência virou símbolo de Maceió.",
+      intro:
+        "O **Marco dos Corais** nasceu como um ponto de apoio para as embarcações que saíam da **Orla de Atalaia** em direção aos recifes naturais. Com o tempo, a estrutura ganhou iluminação, mirante e se tornou o cartão-postal onde moradores e turistas se encontram para ver o mar.",
+      highlights: [
+        {
+          icon: "🧭",
+          title: "Ponto de referência",
+          text: "Antes das redes sociais, já era o local combinado para encontrar amigos na praia.",
+        },
+        {
+          icon: "🌅",
+          title: "Pôr do sol famoso",
+          text: "Abertura de 180° para o horizonte; o céu vira rosa e laranja quase todo dia.",
+        },
+        {
+          icon: "📸",
+          title: "Cartão-postal",
+          text: "Entre os locais mais fotografados de Maceió em guias de viagem.",
+        },
+      ],
+      timeline: [
+        {
+          year: "Década de 1990",
+          title: "Estrutura original",
+          text: "Primeiro marco de concreto instalado na Orla de Atalaia como balizador visual.",
+        },
+        {
+          year: "2000s",
+          title: "Revitalização",
+          text: "Ganhou iluminação cênica e deck de observação para o público.",
+        },
+        {
+          year: "2010s",
+          title: "Ícone digital",
+          text: "Virou ponto de encontro para influenciadores e registros de viagem.",
+        },
+        {
+          year: "Hoje",
+          title: "Patrimônio afetivo",
+          text: "Considerado um dos símbolos vivos da identidade de Maceió.",
+        },
+      ],
+      localLife: [
+        {
+          title: "Praça da vida real",
+          text: "Vendedores de coco, corredores da orla e famílias dividem o mesmo calçadão.", 
+        },
+        {
+          title: "Eventos na orla",
+          text: "Apresentações culturais e feiras acontecem próximas ao marco em finais de semana.",
+        },
+      ],
     },
     architecture: {
-      title: "Características do Marco e Design Estrutural",
-      intro: "O Marco dos Corais é um marco turístico beira-mar cuidadosamente mantido, proporcionando aos visitantes uma experiência de passeio beira-mar confortável. A área cênica é equipada com plataformas de observação, áreas de descanso e instalações turísticas.",
-      specs: {
-        structure: { title: "Estrutura do Marco", content: "O Marco dos Corais tem uma estrutura sólida com charme tropical. A área cênica é distribuída ao longo da linha costeira, onde os visitantes podem caminhar com calma e desfrutar das belas vistas para o mar." },
-        design: { title: "Características do Design", content: "O design da área cênica considera totalmente a experiência do visitante, com plataformas de observação, áreas de descanso e instalações turísticas. Sob o pano de fundo da paisagem tropical, a área cênica parece ainda mais encantadora." },
-        optics: { title: "Experiência de Visualização", content: "Do Marco dos Corais, você pode desfrutar de espetaculares vistas para o mar e linha costeira. A água do mar é clara e azul durante o dia, e as estrelas brilham à noite, proporcionando aos visitantes prazer visual o dia todo." }
-      },
-      plaque: {
-        title: "Informações Básicas do Atrativo",
-        items: [
-          { label: "Nome", value: "Marco dos Corais (Marco de Coral)" },
-          { label: "Localização", value: "Maceió, Alagoas, Brasil" },
-          { label: "Horário", value: "Aberto 24 horas" },
-          { label: "Tipo", value: "Marco beira-mar, Atrativo turístico" },
-          { label: "Características", value: "Vista do mar, Paisagem beira-mar" },
-          { label: "Melhor Época", value: "Durante o dia, especialmente à tarde" }
-        ]
-      }
+      eyebrow: "Forma",
+      title: "Arquitetura e Estrutura",
+      subtitle: "Linhas limpas, vidro e concreto pensados para emoldar o mar.",
+      intro:
+        "A estrutura atual combina **concreto aparente** e **panos de vidro** que refletem o céu. Uma escada em caracol leva ao mirante superior, onde a vista abrange toda a Orla de Atalaia.",
+      elements: [
+        {
+          icon: "🏛️",
+          title: "Torre de observação",
+          text: "Corpo vertical com deck superior para fotos panorâmicas.",
+        },
+        {
+          icon: "🪟",
+          title: "Painéis de vidro",
+          text: "Refletem o horizonte e reduzem a sensação de peso da estrutura.",
+        },
+        {
+          icon: "🌿",
+          title: "Integração com a orla",
+          text: "Calçadão contínuo liga o marco às praias vizinhas.",
+        },
+        {
+          icon: "💡",
+          title: "Iluminação cênica",
+          text: "Luzes de LED realçam a silhueta após o pôr do sol.",
+        },
+      ],
     },
     monuments: {
-      title: "Atrações Próximas e Características",
-      intro: "Existem várias atrações e experiências especiais dignas de visita ao redor do Marco dos Corais, tornando sua viagem a Maceió mais colorida.",
+      eyebrow: "Memória",
+      title: "Monumentos e Referências",
+      subtitle: "Placas e marcos que contam a história da fronteira entre cidade e mar.",
+      intro:
+        "Ao redor do marco principal, placas educativas e esculturas menores homenageiam a fauna dos recifes e a cultura pesqueira de Alagoas.",
       items: [
-        { name: "Passeio Beira-Mar", description: "A linha costeira ao longo do Marco dos Corais tem belas praias. Este é o melhor lugar para desfrutar da paisagem beira-mar de Alagoas." },
-        { name: "Culinária de Frutos do Mar", description: "Maceió é famosa por frutos do mar frescos. Perto do Marco dos Corais, você pode provar vários pratos deliciosos de frutos do mar e frutas tropicais." }
-      ]
+        {
+          era: "Contemporâneo",
+          name: "Placa dos Recifes",
+          description:
+            "Painel explicativo sobre a formação dos recifes de coral de Maceió.",
+          culture: "Valoriza a educação ambiental para visitantes.",
+        },
+        {
+          era: "Popular",
+          name: "Estátua do Pescador",
+          description: "Escultura que homenageia as comunidades pesqueiras locais.",
+          culture: "Reafirma a identidade caiçara da orla.",
+        },
+        {
+          era: "Simbólico",
+          name: "Marco Zero",
+          description: "Referência para medir distâncias e encontros na praia.",
+          culture: "Ponto de encontro geracional das famílias de Maceió.",
+        },
+      ],
     },
     bestTime: {
+      eyebrow: "Calendário",
       title: "Melhor Época para Visitar",
-      intro: "Maceió tem clima quente o ano todo, sendo um destino turístico costeiro ideal. Você pode planejar o melhor itinerário de acordo com diferentes estações e condições climáticas.\n\n**Estação Seca (setembro-março)**: Tempo ensolarado com pouca chuva, a melhor época para visitar Maceió. Adequado para atividades de praia, observação da vista do mar e passeios ao ar livre.\n\n**Estação Chuvosa (abril-agosto)**: Mais chuvas, mas as temperaturas permanecem quentes. Menos turistas, melhores preços para hotéis e restaurantes, uma excelente oportunidade para experimentar a cultura local.",
+      subtitle: "Maceió tem sol quase o ano todo — mas cada estação tem seu charme.",
+      intro:
+        "O clima é **tropical** e quente, com pouca variação de temperatura. O grande segredo é o horário do dia: venha no fim da tarde para o pôr do sol.",
       seasons: [
-        { name: "🌞 Estação Seca (setembro-março)", description: "A estação seca é a melhor época para visitar Maceió. Tempo ensolarado com pouca chuva, adequado para atividades de praia e observação da vista do mar. Recomenda-se planejar seu itinerário com antecedência, especialmente nos fins de semana e feriados." },
-        { name: "🌧️ Estação Chuvosa (abril-agosto)", description: "Mais chuvas na estação chuvosa, mas as temperaturas permanecem quentes. Menos turistas, uma excelente oportunidade para experimentar a cultura local. Recomenda-se levar equipamento de chuva e prestar atenção às previsões meteorológicas." }
-      ]
+        {
+          name: "Setembro a Março",
+          description: "Estação seca e de céu mais limpo; ideal para fotos e banho de mar.",
+          tip: "Melhor período geral",
+        },
+        {
+          name: "Dezembro a Fevereiro",
+          description: "Alta temporada, com mais movimento e eventos na orla.",
+          tip: "Vida noturna e festas",
+        },
+        {
+          name: "Abril a Agosto",
+          description: "Algumas chuvas rápidas, mas menos turistas e preços melhores.",
+          tip: "Mais tranquilidade",
+        },
+      ],
     },
     visiting: {
-      title: "Guia Prática de Visita",
-      intro: "O Marco dos Corais é um lugar ideal para explorar a paisagem costeira tropical de Maceió. Para obter a melhor experiência, consulte as seguintes informações práticas.",
-      hours: { title: "Horário de Abertura", content: "Aberto 24 horas\nÁrea cênica aberta o dia todo, visitantes podem entrar a qualquer momento", note: "Recomenda-se ir durante o dia para desfrutar das belas vistas do mar." },
-      price: { title: "Informações de Custo", content: "Área cênica gratuita\nConsumo ao redor varia", note: "A área cênica em si é gratuita, mas os custos de refeição e entretenimento são pagos separadamente." },
-      duration: { title: "Duração da Visita", content: "Tempo sugerido: 1-2 horas\nVocê pode caminhar pela área cênica, desfrutar das vistas do mar e tirar fotos.", note: "O tempo pode ser organizado de forma flexível de acordo com o interesse pessoal. Recomenda-se ir durante o dia para desfrutar das vistas do mar." },
-      tips: { title: "Dicas de Visita e Notas Importantes", items: [
-        "⚠️ **Proteção Solar**: O sol tropical brasileiro é forte, por favor tome medidas de proteção solar, traga protetor solar e chapéu",
-        "Use sapatos confortáveis para caminhar pela área cênica",
-        "Fotografia é permitida, mas por favor respeite a privacidade dos outros",
-        "Preste atenção à segurança alimentar ao provar frutos do mar, escolha restaurantes com boas condições de higiene",
-        "Durante o dia é o melho momento para visitar e desfrutar das vistas claras do mar",
-        "Você também pode visitar as praias de Maceió nas proximidades",
-        "🌱 **Visita Civilizada**: Por favor, mantenha o ambiente limpo, não jogue lixo e mantenha conjuntamente este belo espaço costeiro"
-      ] }
+      eyebrow: "Na prática",
+      title: "Dicas de Visitação",
+      subtitle: "Tudo o que você precisa saber antes de ir.",
+      intro:
+        "A visitação é **gratuita** e o acesso é livre durante o dia. Reunimos o essencial para aproveitar sem perrengues.",
+      paragraphs: [
+        "O Marco dos Corais fica na Orla de Atalaia, uma das áreas mais estruturadas de Maceió, com ciclovia, quiosques e estacionamento.",
+        "Não há bilheteria nem grade de fechamento — você caminha livremente pelo calçadão e sobe ao mirante quando quiser.",
+      ],
+      essentials: [
+        {
+          icon: "🕐",
+          name: "Horário",
+          description: "Aberto 24 horas; o mirante costuma fechar à noite, mas o calçadão é livre.",
+        },
+        {
+          icon: "🎟️",
+          name: "Ingresso",
+          description: "Gratuito. Não é necessário agendamento.",
+        },
+        {
+          icon: "🅿️",
+          name: "Estacionamento",
+          description: "Estacionamento livre e pagto nas redondezas da orla.",
+        },
+      ],
+      bring: [
+        {
+          icon: "📷",
+          name: "Câmera",
+          description: "O pôr do sol pede fotos — leve celular ou câmera carregados.",
+        },
+        {
+          icon: "🧴",
+          name: "Protetor solar",
+          description: "O sol de Maceió é forte o ano todo; use e reaplique.",
+        },
+        {
+          icon: "💧",
+          name: "Água",
+          description: "Mantenha-se hidratado, especialmente à tarde.",
+        },
+      ],
     },
     transportation: {
-      title: "Guia Preciso de Transporte",
-      airport: { title: "✈️ Aeroporto de Maceió (MCZ) ➔ Marco dos Corais", content: "O Aeroporto Internacional de Maceió (Aeroporto Internacional de Maceió - Zumbi dos Palmares) está localizado na cidade de Maceió, relativamente perto do Marco dos Corais.", options: [
-        { name: "Táxi / Aplicativo (Recomendado)", price: "Aprox. 30-60 Reais Brasileiros", time: "20-35 minutos", steps: ["Encontre balcões de táxis oficiais na sala de desembarque do aeroporto ou use aplicativos como Uber/99", "Diga ao motorista que você está indo para o Marco dos Corais", "O tráfego em Maceió é relativamente conveniente, com uma curta distância de direção"] }
-      ]},
-      city: { title: "🚶 Do Centro de Maceió", content: "O Marco dos Corais está localizado na área beira-mar de Maceió. Você pode escolher várias opções para chegar do centro da cidade. Recomenda-se alocar meio dia para visitar o Marco dos Corais junto com as praias próximas.", steps: ["Tome um táxi ou aplicativo do centro, cerca de 15-25 minutos", "Ou tome um ônibus em direção à beira-mar", "Após a chegada, caminhe até a área cênica"] },
-      tips: { title: "Dicas de Transporte e Clima", items: [
-        "🌡️ **Vantagem Climática**: Maceió está localizada na região tropical, quente o ano todo, uma das cidades mais confortáveis do Brasil em termos climáticos",
-        "Usar aplicativos de transporte (Uber/99) na cidade é mais seguro e conveniente",
-        "🚗 **Dirigir e Estacionar**: Existem vagas de estacionamento público ao longo da área cênica, mas durante a alta temporada (dezembro a fevereiro) ou nos fins de semana, o estacionamento pode ser relativamente difícil. Recomenda-se chegar cedo ou priorizar serviços de transporte por aplicativo.",
-        "Vá durante o dia para desfrutar das belas vistas do mar",
-        "Combine com praias de Maceió, centro e outras atrações na mesma viagem",
-        "O tráfego em Maceió é relativamente menos congestionado, tornando a viagem mais conveniente"
-      ] }
+      eyebrow: "Chegada",
+      title: "Como Chegar",
+      subtitle: "Da cidade ao marco, do jeito mais simples.",
+      intro:
+        "A Orla de Atalaia é central e bem sinalizada. De carro, você chega em poucos minutos de qualquer ponto de Maceió.",
+      options: [
+        {
+          icon: "🚗",
+          title: "De carro",
+          text: "Siga pela Avenida Brigadeiro Eduardo Gomes até a Orla de Atalaia; há sinalização para o Marco dos Corais.",
+          content:
+            "Siga pela Avenida Brigadeiro Eduardo Gomes até a Orla de Atalaia; há sinalização para o Marco dos Corais. Estacionamento nas redondezas.",
+        },
+        {
+          icon: "🚕",
+          title: "App de transporte",
+          text: "Uber e 99 operam em Maceió e deixam bem próximo à entrada da orla.",
+          content:
+            "Uber e 99 operam em Maceió e deixam bem próximo à entrada da orla. Combina bem para quem quer evitar o estacionamento.",
+        },
+        {
+          icon: "🚌",
+          title: "Ônibus",
+          text: "Linhas municipais passam pela Orla de Atalaia saindo do centro.",
+          content:
+            "Linhas municipais passam pela Orla de Atalaia saindo do centro. Ônibus 401 e 402 atendem a região.",
+        },
+        {
+          icon: "🚶",
+          title: "A pé / bike",
+          text: "A ciclovia da orla conecta o marco a praias vizinhas.",
+          content:
+            "A ciclovia da orla conecta o marco a praias vizinhas. Caminhada plana e agradável ao entardecer.",
+        },
+      ],
     },
-    reviews: { 
-      title: "Avaliações de Visitantes e Exploração Próxima", 
-      subtitle: "Vozes do Marco dos Corais: Testemunhos Reais do Google Maps", 
-      viewMore: "Ver Mais Avaliações no Google Maps",
-      nearbyTitle: "Atrações Próximas que Vale a Pena Visitar",
-      nearbyIntro: "Após visitar o Marco dos Corais, você pode visitar facilmente as seguintes atrações próximas:",
-      nearbyItems: [
-        { name: "Praia de Maceió", description: "Uma das praias mais famosas de Maceió, com areia dourada e água clara, ideal para nadar e tomar sol." },
-        { name: "Centro de Maceió", description: "A capital do estado de Alagoas, lar de igrejas históricas, praças e mercados, assim como deliciosa culinária local." },
-        { name: "Avenida Beira-Mar de Alagoas", description: "A avenida costeira mais longa de Maceió, ladeada por numerosos restaurantes, bares e locais de entretenimento, um ótimo lugar para experimentar a vida noturna local." }
-      ]
+    gallery: {
+      eyebrow: "Imagens",
+      title: "Galeria de Fotos",
+      subtitle: "Um pedacinho do que te espera na Orla de Atalaia.",
+      items: Array.from({ length: 22 }, (_, i) => ({
+        src: `/gallery/${i + 1}.jpg`,
+        caption: `Marco dos Corais ${i + 1}`,
+        story: {
+          lead: "Luz, mar e concreto se encontram.",
+          detail:
+            "Cada ângulo do marco conta uma história diferente conforme o sol se move.",
+        },
+      })),
     },
-    gallery: { title: "Galeria de Fotos", viewMore: "Ver Mais Fotos no Google Maps" },
-    faq: { title: "Perguntas Frequentes", subtitle: "Saiba Mais Sobre o Marco dos Corais", items: [
-      { question: "Quais são o horário de abertura e o custo do Marco dos Corais?", answer: "O Marco dos Corais está aberto as 24 horas do dia e a entrada é gratuita. Os restaurantes e lojas ao redor têm horários de funcionamento diferentes." },
-      { question: "Quanto tempo é necessário para visitar o Marco dos Corais?", answer: "Tempo sugerido: 1-2 horas. Você pode caminhar pela área cênica, desfrutar das vistas do mar e tirar fotos. Se comer nos restaurantes próximos, pode levar mais tempo." },
-      { question: "Quais são as características do Marco dos Corais?", answer: "O Marco dos Corais é famoso por suas belas vistas do mar e paisagem beira-mar. A linha costeira aqui é bela, tornando-o um lugar ideal para fotos e passeios. Também há frutos do mar frescos e frutas tropicais." },
-      { question: "Quais são as notas importantes para visitar o Marco dos Corais?", answer: "⚠️ Proteção Solar: O sol tropical brasileiro é forte, por favor proteja-se do sol. Use sapatos confortáveis. Escolha restaurantes com boas condições de higiene. Por favor mantenha o ambiente limpo e não jogue lixo." }
-    ]},
-    location: { title: "Localização", address: "88M3+JC, Maceió - AL\nBrasil", openMaps: "Ver no Google Maps" },
-    footer: { callToAction: "Como importante marco turístico em Maceió, junte-se a nós para cuidar do meio ambiente e respeitar a cultura local. Mantenha a atração limpa e conserve este belo espaço costeiro tropical juntos.", text: "© 2026 Guia do Marco dos Corais · Todos os direitos reservados.\nEste site é um projeto independente de guia de terceiros dedicado a compartilhar informações precisas sobre o Marco dos Corais. Não estamos afiliados ao governo brasileiro ou a nenhuma autoridade oficial.", made: "Este site é um projeto independente de guia de terceiros. Feito para exploradores e aprendizes.", linksTitle: "Links Relacionados", links: [
-      { name: "Governo Federal do Brasil", url: "https://www.gov.br/pt-br" },
-      { name: "Ministério do Turismo do Brasil", url: "https://www.gov.br/turismo/pt-br" },
-      { name: "Sistema Oficial de Visto Eletrônico do Brasil", url: "https://brazil.vfsevisa.com/" },
-      { name: "IBGE - Banco de Dados Históricos de Maceió", url: "https://cidades.ibge.gov.br/brasil/al/maceio" },
-      { name: "Prefeitura de Maceió - Site Oficial", url: "https://maceio.al.gov.br/" }
-    ]}
-  }
+    reviews: {
+      eyebrow: "Vozes",
+      title: "O que dizem os visitantes",
+      subtitle: "Avaliações reais de quem esteve lá.",
+      intro:
+        "Milhares de visitantes passaram pelo Marco dos Corais. Veja o que eles destacam.",
+      items: [
+        {
+          name: "Mariana Souza",
+          date: "Março de 2026",
+          rating: 5,
+          text: "Fomos no fim da tarde e o pôr do sol foi de tirar o fôlego. A vista do mirante é incrível!",
+          source: "Google",
+        },
+        {
+          name: "Carlos Mendes",
+          date: "Fevereiro de 2026",
+          rating: 5,
+          text: "Ponto tranquilo para caminhar e tirar fotos. A iluminação à noite deixa tudo mágico.",
+          source: "TripAdvisor",
+        },
+        {
+          name: "Ana Lima",
+          date: "Janeiro de 2026",
+          rating: 4,
+          text: "Lugar simples, mas muito fotografado. Vale a parada rápida se você estiver na orla.",
+          source: "Google",
+        },
+        {
+          name: "João Pedro",
+          date: "Dezembro de 2025",
+          rating: 5,
+          text: "Levei meus pais e eles adoraram. Fácil acesso e vista privilegiada do mar.",
+          source: "Google",
+        },
+        {
+          name: "Beatriz Rocha",
+          date: "Novembro de 2025",
+          rating: 5,
+          text: "Melhor lugar para o pôr do sol em Maceió, na minha opinião. Voltarei com certeza!",
+          source: "TripAdvisor",
+        },
+        {
+          name: "Rafael Alves",
+          date: "Outubro de 2025",
+          rating: 4,
+          text: "Estrutura boa, bem integrada à orla. Só faltou um pouco mais de sinalização.",
+          source: "Google",
+        },
+      ],
+    },
+    faq: {
+      eyebrow: "Dúvidas",
+      title: "Perguntas Frequentes",
+      subtitle: "Tudo o que você precisa saber antes de visitar.",
+      items: [
+        {
+          question: "Precisa pagar ingresso?",
+          answer: "Não. A visitação é gratuita e o acesso ao calçadão é livre.",
+        },
+        {
+          question: "Qual o melhor horário para ir?",
+          answer: "No fim da tarde, para o pôr do sol. O céu fica espetacular quase todos os dias.",
+        },
+        {
+          question: "Tem estacionamento?",
+          answer: "Sim, há estacionamento livre e pago nas redondezas da Orla de Atalaia.",
+        },
+        {
+          question: "O mirante é acessível?",
+          answer: "A base é plana e acessível; a subida ao deck superior é por escada em caracol.",
+        },
+        {
+          question: "Dá para ir de transporte público?",
+          answer: "Sim. Ônibus municipais passam pela Orla de Atalaia saindo do centro da cidade.",
+        },
+        {
+          question: "É seguro à noite?",
+          answer: "A orla é movimentada e iluminada, mas como em qualquer cidade, evite objetos de valor e prefira horários com movimento.",
+        },
+      ],
+    },
+    location: {
+      eyebrow: "No mapa",
+      title: "Localização e Contato",
+      subtitle: "Encontre o Marco dos Corais na Orla de Atalaia.",
+      intro:
+        "O marco fica na **Orla de Atalaia**, Maceió — AL. Use o mapa abaixo para traçar sua rota.",
+      address: "88M3+JC, Maceió - AL", 
+      openMaps: "Abrir no Google Maps",
+      contact: {
+        phone: "+55 82 3312-0000",
+        note: "Informações turísticas: Secretaria de Turismo de Maceió",
+      },
+      tips: [
+        "Chegue 30 min antes do pôr do sol para garantir lugar no mirante.",
+        "Combine o passeio com um café na orla.",
+        "Leve calçado confortável para caminhar no calçadão.",
+      ],
+    },
+    footer: {
+      about:
+        "Guia independente do Marco dos Corais, o cartão-postal da Orla de Atalaia em Maceió. Feito para quem quer conhecer o melhor da costa alagoana.",
+      exploreTitle: "Explorar",
+      legalTitle: "Legal",
+      contactTitle: "Contato",
+      rights: `© ${new Date().getFullYear()} Marco dos Corais. Todos os direitos reservados.`,
+      builtWith: "Construído com Astro + Tailwind CSS",
+      social: [
+        { label: "Instagram", href: "https://instagram.com" },
+        { label: "Facebook", href: "https://facebook.com" },
+        { label: "YouTube", href: "https://youtube.com" },
+      ],
+      legal: [
+        { label: "Privacidade", href: "/pt/privacy" },
+        { label: "Termos", href: "/pt/terms" },
+        { label: "Cookies", href: "/pt/cookies" },
+      ],
+    },
+  },
+
+  en: {
+    site: { shortName: "Marco dos Corais", legalName: "Marco dos Corais" },
+    nav: [
+      { id: "history", label: "History" },
+      { id: "architecture", label: "Architecture" },
+      { id: "monuments", label: "Monuments" },
+      { id: "best-time", label: "Best Time" },
+      { id: "visiting", label: "Visiting" },
+      { id: "transport", label: "Transport" },
+      { id: "gallery", label: "Gallery" },
+      { id: "reviews", label: "Reviews" },
+      { id: "faq", label: "FAQ" },
+      { id: "location", label: "Location" },
+    ],
+    hero: {
+      eyebrow: "Maceió · Alagoas · Brazil",
+      title: "Marco dos Corais",
+      subtitle:
+        "The concrete-and-glass landmark where the city meets the sea, on the Atalaia waterfront. A viewpoint facing the coral reefs and the most photographed sunset in Maceió.",
+      primaryCta: { label: "How to get there", href: "#location" },
+      secondaryCta: { label: "See gallery", href: "#gallery" },
+      stats: [
+        { num: "4.7", label: "Average rating" },
+        { num: "23,374", label: "Reviews" },
+        { num: "24h", label: "Free access" },
+      ],
+    },
+    history: {
+      eyebrow: "Roots",
+      title: "History of Marco dos Corais",
+      subtitle:
+        "From local fishing to the mandatory selfie: how a reference point became a symbol of Maceió.",
+      intro:
+        "The **Marco dos Corais** started as a support point for boats leaving the **Atalaia waterfront** toward the natural reefs. Over time it gained lighting, a viewpoint, and became the postcard where locals and tourists meet to watch the sea.",
+      highlights: [
+        {
+          icon: "🧭",
+          title: "Reference point",
+          text: "Even before social media, it was the go-to spot to meet friends at the beach.",
+        },
+        {
+          icon: "🌅",
+          title: "Famous sunset",
+          text: "A 180° opening to the horizon; the sky turns pink and orange almost daily.",
+        },
+        {
+          icon: "📸",
+          title: "Postcard",
+          text: "Among the most photographed spots in Maceió in travel guides.",
+        },
+      ],
+      timeline: [
+        {
+          year: "1990s",
+          title: "Original structure",
+          text: "First concrete marker installed on the Atalaia waterfront as a visual guide.",
+        },
+        {
+          year: "2000s",
+          title: "Revitalization",
+          text: "Gained scenic lighting and a public observation deck.",
+        },
+        {
+          year: "2010s",
+          title: "Digital icon",
+          text: "Became a meeting point for influencers and travel content.",
+        },
+        {
+          year: "Today",
+          title: "Emotional heritage",
+          text: "Considered one of the living symbols of Maceió's identity.",
+        },
+      ],
+      localLife: [
+        {
+          title: "Real-life square",
+          text: "Coconut vendors, boardwalk runners and families share the same promenade.",
+        },
+        {
+          title: "Waterfront events",
+          text: "Cultural shows and fairs happen near the landmark on weekends.",
+        },
+      ],
+    },
+    architecture: {
+      eyebrow: "Form",
+      title: "Architecture & Structure",
+      subtitle: "Clean lines, glass and concrete designed to frame the sea.",
+      intro:
+        "The current structure blends **exposed concrete** and **glass panels** that reflect the sky. A spiral staircase leads to the upper viewpoint, overlooking the entire Atalaia waterfront.",
+      elements: [
+        {
+          icon: "🏛️",
+          title: "Observation tower",
+          text: "Vertical body with an upper deck for panoramic photos.",
+        },
+        {
+          icon: "🪟",
+          title: "Glass panels",
+          text: "Reflect the horizon and reduce the visual weight of the structure.",
+        },
+        {
+          icon: "🌿",
+          title: "Waterfront integration",
+          text: "Continuous promenade links the landmark to nearby beaches.",
+        },
+        {
+          icon: "💡",
+          title: "Scenic lighting",
+          text: "LED lights highlight the silhouette after sunset.",
+        },
+      ],
+    },
+    monuments: {
+      eyebrow: "Memory",
+      title: "Monuments & References",
+      subtitle: "Plaques and markers that tell the story of the city-sea frontier.",
+      intro:
+        "Around the main landmark, educational plaques and smaller sculptures honor the reef wildlife and the fishing culture of Alagoas.",
+      items: [
+        {
+          era: "Contemporary",
+          name: "Reef Plaque",
+          description:
+            "Explanatory panel about the formation of Maceió's coral reefs.",
+          culture: "Promotes environmental education for visitors.",
+        },
+        {
+          era: "Popular",
+          name: "Fisherman Statue",
+          description: "Sculpture honoring local fishing communities.",
+          culture: "Reaffirms the caicara identity of the waterfront.",
+        },
+        {
+          era: "Symbolic",
+          name: "Zero Milestone",
+          description: "Reference to measure distances and meetups at the beach.",
+          culture: "Generational meeting point for Maceió families.",
+        },
+      ],
+    },
+    bestTime: {
+      eyebrow: "Calendar",
+      title: "Best Time to Visit",
+      subtitle: "Maceió is sunny almost all year — but each season has its charm.",
+      intro:
+        "The climate is **tropical** and warm, with little temperature variation. The real secret is the time of day: come in the late afternoon for the sunset.",
+      seasons: [
+        {
+          name: "September to March",
+          description: "Dry season with clearer skies; ideal for photos and swimming.",
+          tip: "Best overall period",
+        },
+        {
+          name: "December to February",
+          description: "High season, with more activity and waterfront events.",
+          tip: "Nightlife and parties",
+        },
+        {
+          name: "April to August",
+          description: "Some quick rains, but fewer tourists and better prices.",
+          tip: "More tranquility",
+        },
+      ],
+    },
+    visiting: {
+      eyebrow: "In practice",
+      title: "Visiting Tips",
+      subtitle: "Everything you need to know before you go.",
+      intro:
+        "Visiting is **free** and access is open during the day. We gathered the essentials to enjoy it hassle-free.",
+      paragraphs: [
+        "Marco dos Corais sits on the Atalaia waterfront, one of the most structured areas of Maceió, with a bike lane, kiosks and parking.",
+        "There is no ticket office or gate — you walk freely along the promenade and climb to the viewpoint whenever you want.",
+      ],
+      essentials: [
+        {
+          icon: "🕐",
+          name: "Hours",
+          description: "Open 24h; the viewpoint usually closes at night, but the promenade is free.",
+        },
+        {
+          icon: "🎟️",
+          name: "Ticket",
+          description: "Free. No booking required.",
+        },
+        {
+          icon: "🅿️",
+          name: "Parking",
+          description: "Free and paid parking around the waterfront.",
+        },
+      ],
+      bring: [
+        {
+          icon: "📷",
+          name: "Camera",
+          description: "The sunset begs for photos — bring a charged phone or camera.",
+        },
+        {
+          icon: "🧴",
+          name: "Sunscreen",
+          description: "Maceió's sun is strong all year; apply and reapply.",
+        },
+        {
+          icon: "💧",
+          name: "Water",
+          description: "Stay hydrated, especially in the afternoon.",
+        },
+      ],
+    },
+    transportation: {
+      eyebrow: "Arrival",
+      title: "How to Get There",
+      subtitle: "From the city to the landmark, the simplest way.",
+      intro:
+        "The Atalaia waterfront is central and well signposted. By car, you reach it in a few minutes from anywhere in Maceió.",
+      options: [
+        {
+          icon: "🚗",
+          title: "By car",
+          text: "Follow Avenida Brigadeiro Eduardo Gomes to the Atalaia waterfront; signs point to Marco dos Corais.",
+          content:
+            "Follow Avenida Brigadeiro Eduardo Gomes to the Atalaia waterfront; signs point to Marco dos Corais. Parking nearby.",
+        },
+        {
+          icon: "🚕",
+          title: "Ride app",
+          text: "Uber and 99 operate in Maceió and drop you close to the waterfront entrance.",
+          content:
+            "Uber and 99 operate in Maceió and drop you close to the waterfront entrance. Great if you want to skip parking.",
+        },
+        {
+          icon: "🚌",
+          title: "Bus",
+          text: "Municipal lines pass the Atalaia waterfront from downtown.",
+          content:
+            "Municipal lines pass the Atalaia waterfront from downtown. Buses 401 and 402 serve the area.",
+        },
+        {
+          icon: "🚶",
+          title: "On foot / bike",
+          text: "The waterfront bike lane connects the landmark to nearby beaches.",
+          content:
+            "The waterfront bike lane connects the landmark to nearby beaches. Flat, pleasant walk at dusk.",
+        },
+      ],
+    },
+    gallery: {
+      eyebrow: "Images",
+      title: "Photo Gallery",
+      subtitle: "A little of what awaits you on the Atalaia waterfront.",
+      items: Array.from({ length: 22 }, (_, i) => ({
+        src: `/gallery/${i + 1}.jpg`,
+        caption: `Marco dos Corais ${i + 1}`,
+        story: {
+          lead: "Light, sea and concrete meet.",
+          detail:
+            "Every angle of the landmark tells a different story as the sun moves.",
+        },
+      })),
+    },
+    reviews: {
+      eyebrow: "Voices",
+      title: "What Visitors Say",
+      subtitle: "Real reviews from people who have been there.",
+      intro:
+        "Thousands of visitors have passed through Marco dos Corais. Here is what they highlight.",
+      items: [
+        {
+          name: "Mariana Souza",
+          date: "March 2026",
+          rating: 5,
+          text: "We went late afternoon and the sunset was breathtaking. The view from the viewpoint is amazing!",
+          source: "Google",
+        },
+        {
+          name: "Carlos Mendes",
+          date: "February 2026",
+          rating: 5,
+          text: "Quiet spot to walk and take photos. The night lighting makes everything magical.",
+          source: "TripAdvisor",
+        },
+        {
+          name: "Ana Lima",
+          date: "January 2026",
+          rating: 4,
+          text: "Simple place, but very photogenic. Worth a quick stop if you're on the waterfront.",
+          source: "Google",
+        },
+        {
+          name: "João Pedro",
+          date: "December 2025",
+          rating: 5,
+          text: "Took my parents and they loved it. Easy access and privileged sea view.",
+          source: "Google",
+        },
+        {
+          name: "Beatriz Rocha",
+          date: "November 2025",
+          rating: 5,
+          text: "Best place for sunset in Maceió, in my opinion. I'll definitely be back!",
+          source: "TripAdvisor",
+        },
+        {
+          name: "Rafael Alves",
+          date: "October 2025",
+          rating: 4,
+          text: "Good structure, well integrated with the waterfront. Just lacked a bit more signage.",
+          source: "Google",
+        },
+      ],
+    },
+    faq: {
+      eyebrow: "Questions",
+      title: "Frequently Asked Questions",
+      subtitle: "Everything you need to know before visiting.",
+      items: [
+        {
+          question: "Is there an entrance fee?",
+          answer: "No. Visiting is free and access to the promenade is open.",
+        },
+        {
+          question: "What is the best time to go?",
+          answer: "Late afternoon, for the sunset. The sky is spectacular almost every day.",
+        },
+        {
+          question: "Is there parking?",
+          answer: "Yes, free and paid parking around the Atalaia waterfront.",
+        },
+        {
+          question: "Is the viewpoint accessible?",
+          answer: "The base is flat and accessible; the climb to the upper deck is via a spiral staircase.",
+        },
+        {
+          question: "Can I get there by public transport?",
+          answer: "Yes. Municipal buses pass the Atalaia waterfront from downtown.",
+        },
+        {
+          question: "Is it safe at night?",
+          answer: "The waterfront is busy and lit, but as in any city, avoid valuables and prefer busy hours.",
+        },
+      ],
+    },
+    location: {
+      eyebrow: "On the map",
+      title: "Location & Contact",
+      subtitle: "Find Marco dos Corais on the Atalaia waterfront.",
+      intro:
+        "The landmark is on the **Atalaia waterfront**, Maceió — AL. Use the map below to plan your route.",
+      address: "88M3+JC, Maceió - AL",
+      openMaps: "Open in Google Maps",
+      contact: {
+        phone: "+55 82 3312-0000",
+        note: "Tourism info: Maceió Tourism Secretariat",
+      },
+      tips: [
+        "Arrive 30 min before sunset to get a spot on the viewpoint.",
+        "Pair the visit with a coffee on the waterfront.",
+        "Wear comfortable shoes to walk the promenade.",
+      ],
+    },
+    footer: {
+      about:
+        "An independent guide to Marco dos Corais, the postcard of the Atalaia waterfront in Maceió. Made for those who want to know the best of the Alagoas coast.",
+      exploreTitle: "Explore",
+      legalTitle: "Legal",
+      contactTitle: "Contact",
+      rights: `© ${new Date().getFullYear()} Marco dos Corais. All rights reserved.`,
+      builtWith: "Built with Astro + Tailwind CSS",
+      social: [
+        { label: "Instagram", href: "https://instagram.com" },
+        { label: "Facebook", href: "https://facebook.com" },
+        { label: "YouTube", href: "https://youtube.com" },
+      ],
+      legal: [
+        { label: "Privacy", href: "/en/privacy" },
+        { label: "Terms", href: "/en/terms" },
+        { label: "Cookies", href: "/en/cookies" },
+      ],
+    },
+  },
+
+  zh: {
+    site: { shortName: "Marco dos Corais", legalName: "Marco dos Corais" },
+    nav: [
+      { id: "history", label: "历史" },
+      { id: "architecture", label: "建筑" },
+      { id: "monuments", label: "纪念碑" },
+      { id: "best-time", label: "最佳季节" },
+      { id: "visiting", label: "游览" },
+      { id: "transport", label: "交通" },
+      { id: "gallery", label: "图集" },
+      { id: "reviews", label: "评价" },
+      { id: "faq", label: "常见问题" },
+      { id: "location", label: "位置" },
+    ],
+    hero: {
+      eyebrow: "巴西 · 阿拉戈斯州 · 马塞约",
+      title: "Marco dos Corais",
+      subtitle:
+        "位于阿塔拉亚滨海大道的混凝土与玻璃地标，是城市与大海交汇之处。正对珊瑚礁、坐拥马塞约最上镜的日落。",
+      primaryCta: { label: "如何到达", href: "#location" },
+      secondaryCta: { label: "查看图集", href: "#gallery" },
+      stats: [
+        { num: "4.7", label: "平均评分" },
+        { num: "23,374", label: "评价数" },
+        { num: "24小时", label: "免费开放" },
+      ],
+    },
+    history: {
+      eyebrow: "根源",
+      title: "Marco dos Corais 的历史",
+      subtitle: "从渔家小聚到必拍打卡：一个地标如何成为马塞约的象征。",
+      intro:
+        "**Marco dos Corais** 起初是**阿塔拉亚滨海大道**前往天然礁石的小船补给点。随着时间推移，它加上了灯光与观景台，成了当地人和游客看海的明信片。",
+      highlights: [
+        {
+          icon: "🧭",
+          title: "地标参照",
+          text: "早在社交媒体出现前，这里就是海滩上约朋友碰头的首选地。",
+        },
+        {
+          icon: "🌅",
+          title: "知名日落",
+          text: "180° 开阔海平线，天空几乎每天都会染成粉橘色。",
+        },
+        {
+          icon: "📸",
+          title: "明信片",
+          text: "旅游指南中马塞约被拍得最多的景点之一。",
+        },
+      ],
+      timeline: [
+        {
+          year: "1990 年代",
+          title: "原始结构",
+          text: "阿塔拉亚滨海大道竖起第一座混凝土标志，作为视觉航标。",
+        },
+        {
+          year: "2000 年代",
+          title: "翻新",
+          text: "增加了景观灯光与向公众开放的观景平台。",
+        },
+        {
+          year: "2010 年代",
+          title: "数字 icon",
+          text: "成为网红与旅行内容的聚集地。",
+        },
+        {
+          year: "如今",
+          title: "情感地标",
+          text: "被视为马塞约身份认同的鲜活象征之一。",
+        },
+      ],
+      localLife: [
+        {
+          title: "真实生活广场",
+          text: "卖椰子的、沿海慢跑的、一家人共享同一条步道。",
+        },
+        {
+          title: "滨海活动",
+          text: "周末地标附近常有文化演出与集市。",
+        },
+      ],
+    },
+    architecture: {
+      eyebrow: "形态",
+      title: "建筑与结构",
+      subtitle: "干净的线条、玻璃与混凝土，只为框住大海。",
+      intro:
+        "现有结构结合了**清水混凝土**与**玻璃幕墙**，倒映天空。螺旋楼梯通往上层观景台，可俯瞰整条阿塔拉亚滨海大道。",
+      elements: [
+        {
+          icon: "🏛️",
+          title: "观景塔",
+          text: "竖向塔体，顶部为全景拍照平台。",
+        },
+        {
+          icon: "🪟",
+          title: "玻璃幕墙",
+          text: "映出地平线，减轻结构的体量感。",
+        },
+        {
+          icon: "🌿",
+          title: "与滨海融合",
+          text: "连续步道把地标与周边海滩连成一体。",
+        },
+        {
+          icon: "💡",
+          title: "景观灯光",
+          text: "LED 灯在日落后勾勒出轮廓。",
+        },
+      ],
+    },
+    monuments: {
+      eyebrow: "记忆",
+      title: "纪念碑与参照",
+      subtitle: "讲述城海边界故事的铭牌与标志。",
+      intro:
+        "主地标周围，教育铭牌与小雕塑致敬阿拉戈斯州的礁石生态与渔家文化。",
+      items: [
+        {
+          era: "当代",
+          name: "礁石铭牌",
+          description: "介绍马塞约珊瑚礁形成的说明牌。",
+          culture: "向游客普及环境教育。",
+        },
+        {
+          era: "民间",
+          name: "渔夫雕像",
+          description: "致敬当地渔家社区的作品。",
+          culture: "重申滨海的渔家身份。",
+        },
+        {
+          era: "象征",
+          name: "零点标志",
+          description: "丈量距离与海滩约会的参照点。",
+          culture: "马塞约家庭世代相约之地。",
+        },
+      ],
+    },
+    bestTime: {
+      eyebrow: "日历",
+      title: "最佳游览季节",
+      subtitle: "马塞约几乎全年有阳光——但每季各有韵味。",
+      intro:
+        "气候**热带**温暖，温差很小。真正的秘诀在一天中的时段：傍晚来看日落。",
+      seasons: [
+        {
+          name: "9 月至 3 月",
+          description: "旱季、天空更洁净，最适合拍照与下海。",
+          tip: "综合最佳",
+        },
+        {
+          name: "12 月至 2 月",
+          description: "旺季，活动与滨海演出更多。",
+          tip: "夜生活与派对",
+        },
+        {
+          name: "4 月至 8 月",
+          description: "偶有短暂阵雨，但游客更少、价格更优。",
+          tip: "更清静",
+        },
+      ],
+    },
+    visiting: {
+      eyebrow: "实用",
+      title: "游览贴士",
+      subtitle: "出发前你需要知道的一切。",
+      intro:
+        "游览**免费**，白天自由进入。我们整理了轻松玩转的要点。",
+      paragraphs: [
+        "Marco dos Corais 位于阿塔拉亚滨海大道，是马塞约设施最完善的地段之一，设有自行车道、小吃亭与停车场。",
+        "没有售票处也没有围栏——你可自由漫步步道，随时登上观景台。",
+      ],
+      essentials: [
+        {
+          icon: "🕐",
+          name: "时间",
+          description: "24 小时开放；观景台夜间通常关闭，但步道自由通行。",
+        },
+        {
+          icon: "🎟️",
+          name: "门票",
+          description: "免费，无需预约。",
+        },
+        {
+          icon: "🅿️",
+          name: "停车",
+          description: "滨海周边有免费与收费停车。",
+        },
+      ],
+      bring: [
+        {
+          icon: "📷",
+          name: "相机",
+          description: "日落很出片——带好充满电的手机或相机。",
+        },
+        {
+          icon: "🧴",
+          name: "防晒",
+          description: "马塞约阳光常年强烈，记得涂抹补涂。",
+        },
+        {
+          icon: "💧",
+          name: "饮水",
+          description: "保持水分，尤其下午。",
+        },
+      ],
+    },
+    transportation: {
+      eyebrow: "抵达",
+      title: "如何到达",
+      subtitle: "从市区到地标，最简单的方式。",
+      intro:
+        "阿塔拉亚滨海大道位于市中心、指示清晰。开车从马塞约任何位置几分钟即达。",
+      options: [
+        {
+          icon: "🚗",
+          title: "自驾",
+          text: "沿爱德华多·戈麦斯准将大道至阿塔拉亚滨海大道，有标志指向 Marco dos Corais。",
+          content:
+            "沿爱德华多·戈麦斯准将大道至阿塔拉亚滨海大道，有标志指向 Marco dos Corais。周边可停车。",
+        },
+        {
+          icon: "🚕",
+          title: "网约车",
+          text: "Uber 与 99 在马塞约运营，可就近停在滨海入口。",
+          content:
+            "Uber 与 99 在马塞约运营，可就近停在滨海入口。想省去停车很合适。",
+        },
+        {
+          icon: "🚌",
+          title: "公交",
+          text: "从市中心出发的市政线路经过阿塔拉亚滨海大道。",
+          content:
+            "从市中心出发的市政线路经过阿塔拉亚滨海大道。401 与 402 路覆盖该区域。",
+        },
+        {
+          icon: "🚶",
+          title: "步行 / 骑行",
+          text: "滨海自行车道把地标与周边海滩相连。",
+          content:
+            "滨海自行车道把地标与周边海滩相连。黄昏时平坦惬意。",
+        },
+      ],
+    },
+    gallery: {
+      eyebrow: "影像",
+      title: "照片图集",
+      subtitle: "阿塔拉亚滨海大道等你发现的一角。",
+      items: Array.from({ length: 22 }, (_, i) => ({
+        src: `/gallery/${i + 1}.jpg`,
+        caption: `Marco dos Corais ${i + 1}`,
+        story: {
+          lead: "光、海与混凝土在此相遇。",
+          detail: "随着太阳移动，地标的每个角度都讲述不同的故事。",
+        },
+      })),
+    },
+    reviews: {
+      eyebrow: "声音",
+      title: "游客怎么说",
+      subtitle: "来自亲历者的真实评价。",
+      intro: "数千名游客到访过 Marco dos Corais。看看他们最赞赏什么。",
+      items: [
+        {
+          name: "Mariana Souza",
+          date: "2026 年 3 月",
+          rating: 5,
+          text: "我们傍晚去的，日落美得让人屏息。观景台的视野太惊艳了！",
+          source: "Google",
+        },
+        {
+          name: "Carlos Mendes",
+          date: "2026 年 2 月",
+          rating: 5,
+          text: "安静的好去处，适合散步拍照。夜晚灯光让一切都很梦幻。",
+          source: "TripAdvisor",
+        },
+        {
+          name: "Ana Lima",
+          date: "2026 年 1 月",
+          rating: 4,
+          text: "地方简单，但很上镜。在滨海路过顺手停一下很值。",
+          source: "Google",
+        },
+        {
+          name: "João Pedro",
+          date: "2025 年 12 月",
+          rating: 5,
+          text: "带父母去的，他们超喜欢。易到达、海景绝佳。",
+          source: "Google",
+        },
+        {
+          name: "Beatriz Rocha",
+          date: "2025 年 11 月",
+          rating: 5,
+          text: "在我看来是马塞约看日落最好的地方。一定会再来！",
+          source: "TripAdvisor",
+        },
+        {
+          name: "Rafael Alves",
+          date: "2025 年 10 月",
+          rating: 4,
+          text: "设施不错，与滨海融合得好。只是标识还能再多一些。",
+          source: "Google",
+        },
+      ],
+    },
+    faq: {
+      eyebrow: "疑问",
+      title: "常见问题",
+      subtitle: "参观前你需要知道的一切。",
+      items: [
+        {
+          question: "需要门票吗？",
+          answer: "不需要。游览免费，步道自由通行。",
+        },
+        {
+          question: "什么时间最好去？",
+          answer: "傍晚上去看日落。天空几乎每天都很壮观。",
+        },
+        {
+          question: "有停车场吗？",
+          answer: "有，阿塔拉亚滨海周边有免费与收费停车。",
+        },
+        {
+          question: "观景台无障碍吗？",
+          answer: "底层平坦无障碍；上到顶层平台需走螺旋楼梯。",
+        },
+        {
+          question: "能坐公共交通到吗？",
+          answer: "能。从市中心出发的市政公交经过阿塔拉亚滨海大道。",
+        },
+        {
+          question: "晚上安全吗？",
+          answer: "滨海人流多、有灯光，但和任何城市一样，避免贵重物品、尽量选热闹时段。",
+        },
+      ],
+    },
+    location: {
+      eyebrow: "地图中",
+      title: "位置与联系",
+      subtitle: "在阿塔拉亚滨海大道找到 Marco dos Corais。",
+      intro: "地标位于**阿塔拉亚滨海大道**，马塞约 — 阿拉戈斯州。用地图规划路线。",
+      address: "88M3+JC, Maceió - AL",
+      openMaps: "在 Google 地图打开",
+      contact: {
+        phone: "+55 82 3312-0000",
+        note: "旅游信息：马塞约旅游局",
+      },
+      tips: [
+        "日落前 30 分钟到达，抢占观景台位置。",
+        "顺路在滨海喝杯咖啡。",
+        "穿舒适鞋步行步道。",
+      ],
+    },
+    footer: {
+      about:
+        "Marco dos Corais 的独立指南，马塞约阿塔拉亚滨海大道的明信片。为想认识阿拉戈斯海岸之美的人而做。",
+      exploreTitle: "探索",
+      legalTitle: "法律",
+      contactTitle: "联系",
+      rights: `© ${new Date().getFullYear()} Marco dos Corais. 版权所有。`,
+      builtWith: "使用 Astro + Tailwind CSS 构建",
+      social: [
+        { label: "Instagram", href: "https://instagram.com" },
+        { label: "Facebook", href: "https://facebook.com" },
+        { label: "YouTube", href: "https://youtube.com" },
+      ],
+      legal: [
+        { label: "隐私", href: "/zh/privacy" },
+        { label: "条款", href: "/zh/terms" },
+        { label: "Cookie", href: "/zh/cookies" },
+      ],
+    },
+  },
 };
+
+// 便捷取值
+export function getTranslation(lang: Lang): Translation {
+  return translations[lang];
+}

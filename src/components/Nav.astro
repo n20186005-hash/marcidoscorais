@@ -1,0 +1,77 @@
+---
+import { siteConfig, type Lang } from "../config";
+import { languagesList, langLabels } from "../i18n/ui";
+import type { Translation } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+  page?: string;
+}
+
+const { lang, t, page = "" } = Astro.props;
+// 当前页的基础路径（用于语言切换时保持同一页）
+const pageSeg = page ? `${page}` : "";
+---
+
+<header class="site-nav" id="siteNav">
+  <div class="site-nav__inner">
+    <a class="site-nav__brand" href={`/${lang}/`}>
+      <span class="site-nav__brand-mark">🪸</span>
+      <span>{t.site.shortName}</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="site-nav__links" id="navLinks">
+        {
+          t.nav.map((item) => (
+            <li>
+              <a href={`/${lang}/#${item.id}`}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="site-nav__spacer"></div>
+
+    <div class="site-nav__actions">
+      <div class="lang-menu" id="langMenu">
+        <button
+          class="lang-menu__btn"
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          id="langMenuBtn"
+        >
+          <span>{langLabels[lang].code}</span>
+          <span aria-hidden="true">▾</span>
+        </button>
+        <ul class="lang-menu__list" role="menu">
+          {
+            languagesList.map((l) => (
+              <li>
+                <a
+                  href={pageSeg ? `/${l}/${pageSeg}` : `/${l}/`}
+                  role="menuitem"
+                  aria-current={l === lang ? "true" : "false"}
+                >
+                  <span>{langLabels[l].code}</span>
+                  <span class="lang-native">{langLabels[l].native}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-toggle__icon">🌙</span>
+      </button>
+
+      <button class="nav-toggle" type="button" id="navToggle" aria-label="Menu">
+        ☰
+      </button>
+    </div>
+  </div>
+</header>

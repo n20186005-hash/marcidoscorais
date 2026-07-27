@@ -1,0 +1,38 @@
+---
+import type { Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section id="transport" class="section section--alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-head__eyebrow">{t.transportation.eyebrow}</span>
+      <h2 class="section-head__title">{t.transportation.title}</h2>
+      <p class="section-head__subtitle">{t.transportation.subtitle}</p>
+    </div>
+
+    <div class="prose reveal" style="text-align:center">
+      {t.transportation.intro}
+    </div>
+
+    <div class="grid grid-2" style="margin-top:32px">
+      {
+        t.transportation.options.map((opt) => (
+          <div class="transport-option reveal">
+            <div class="transport-option__icon">{opt.icon}</div>
+            <div>
+              <div class="transport-option__title">{opt.title}</div>
+              <div class="transport-option__content">{opt.content}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

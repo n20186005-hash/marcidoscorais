@@ -1,0 +1,35 @@
+---
+import type { Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+import { renderRichText } from "../lib/richtext";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section id="architecture" class="section section--alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-head__eyebrow">{t.architecture.eyebrow}</span>
+      <h2 class="section-head__title">{t.architecture.title}</h2>
+      <p class="section-head__subtitle">{t.architecture.subtitle}</p>
+    </div>
+
+    <div class="prose reveal" set:html={renderRichText(t.architecture.intro)}></div>
+
+    <div class="grid grid-4" style="margin-top:32px">
+      {
+        t.architecture.elements.map((el) => (
+          <article class="card" style="padding:22px">
+            <div class="card__icon">{el.icon}</div>
+            <h3 class="card__title">{el.title}</h3>
+            <p class="card__text">{el.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+// 根路径重定向到默认语言 /pt/。
+// 生产环境由 public/_redirects（Cloudflare 边缘 302）拦截；
+// 此静态回退保证任何直接打开 index.html 的托管也能跳转，避免出现空白/过渡页。
+const target = "/pt/";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>Redirecionando… / Redirecting…</title>
+    <script is:inline define:vars={{ target }}>
+      window.location.replace(target);
+    </script>
+  </head>
+  <body>
+    <p>
+      Redirecionando… / Redirecting… <a href={target}>{target}</a>
+    </p>
+  </body>
+</html>

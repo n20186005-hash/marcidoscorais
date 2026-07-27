@@ -8,5 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootPage() {
-  redirect("/en");
+  // 默认语言为 pt；静态导出下此 redirect 仅作兜底，
+  // 真正的 HTTP 302 由 public/_redirects（Cloudflare 边缘）处理，避免 "Redirecting..." 过渡页。
+  redirect("/pt");
 }

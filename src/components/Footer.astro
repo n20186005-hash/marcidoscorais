@@ -1,0 +1,70 @@
+---
+import { type Lang } from "../config";
+import type { Translation } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+  t: Translation;
+  page?: string;
+}
+
+const { lang, t, page = "" } = Astro.props;
+const pageSeg = page ? `${page}` : "";
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <div class="site-footer__brand">
+          <span class="site-footer__brand-mark">🪸</span>
+          <span>{t.site.shortName}</span>
+        </div>
+        <p class="site-footer__about">{t.footer.about}</p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>{t.footer.exploreTitle}</h4>
+        <ul>
+          {
+            t.nav.map((item) => (
+              <li>
+                <a href={`/${lang}/#${item.id}`}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>{t.footer.legalTitle}</h4>
+        <ul>
+          {
+            t.footer.legal.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+        <h4 style="margin-top:22px">{t.footer.contactTitle}</h4>
+        <ul>
+          {
+            t.footer.social.map((item) => (
+              <li>
+                <a href={item.href} target="_blank" rel="noopener">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>{t.footer.rights}</span>
+      <span>{t.footer.builtWith}</span>
+    </div>
+  </div>
+</footer>
