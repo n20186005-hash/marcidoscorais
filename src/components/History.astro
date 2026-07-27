@@ -10,23 +10,19 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<!-- 容器：浅灰底 + 统一居中；放弃所有旧定位 CSS -->
-<section id="history" class="bg-slate-50 px-4 py-16">
-  <div class="mx-auto max-w-5xl">
-    <!-- Header：完全居中 -->
-    <div class="text-center">
+<!-- 外层容器：bg-slate-50；内容包裹框强制居中 w-full max-w-5xl mx-auto px-4 sm:px-6 -->
+<section id="history" class="bg-slate-50 py-16">
+  <div class="mx-auto w-full max-w-5xl px-4 sm:px-6">
+    <!-- Header：完全居中，统一收进 max-w-3xl mx-auto -->
+    <div class="mx-auto max-w-3xl text-center">
       <span
-        class="mb-2 block text-center text-xs font-bold uppercase tracking-widest text-slate-400"
+        class="mb-2 block text-xs font-bold uppercase tracking-widest text-slate-400"
         >{t.history.eyebrow}</span
       >
-      <h2
-        class="mb-3 text-center text-2xl font-bold text-slate-900 sm:text-3xl"
-      >
+      <h2 class="mb-3 text-2xl font-bold text-slate-900 sm:text-3xl">
         {t.history.title}
       </h2>
-      <p
-        class="mx-auto max-w-2xl text-center text-sm leading-relaxed text-slate-600"
-      >
+      <p class="text-sm leading-relaxed text-slate-600">
         {t.history.subtitle}
       </p>
     </div>
@@ -38,7 +34,7 @@ const { t } = Astro.props;
     >
     </div>
 
-    <!-- Core Features：3 列，白色统一卡片 -->
+    <!-- Core Features：3 列，白色统一卡片（位于 mx-auto 容器内） -->
     <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
       {
         t.history.highlights.map((h) => (
@@ -51,7 +47,7 @@ const { t } = Astro.props;
       }
     </div>
 
-    <!-- Timeline：4 列，年份 Badge 置于标题上方，白色统一卡片 -->
+    <!-- Timeline：4 列，年份 Badge 置顶，白色统一卡片 -->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {
         t.history.timeline.map((item) => (
