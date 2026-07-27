@@ -1023,7 +1023,7 @@ export const translations: Record<Lang, Translation> = {
         },
         {
           year: "2010 年代",
-          title: "数字 icon",
+          title: "数字地标",
           text: "成为网红与旅行内容的聚集地。",
         },
         {

@@ -83,6 +83,10 @@ html {
   scroll-padding-top: calc(var(--nav-h) + 16px);
 }
 
+section[id] {
+  scroll-margin-top: calc(var(--nav-h) + 24px);
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
