@@ -10,74 +10,69 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<!-- 主容器：无 absolute / 无负边距；外层限宽居中，内层用 space-y-12 统一垂直节奏 -->
-<section
-  id="history"
-  class="w-full bg-canvas px-4 py-16 scroll-mt-[calc(var(--nav-h)+24px)]"
->
-  <div class="mx-auto max-w-5xl space-y-12">
-    <!-- Header：全部居中 -->
+<!-- 容器：浅灰底 + 统一居中；放弃所有旧定位 CSS -->
+<section id="history" class="bg-slate-50 px-4 py-16">
+  <div class="mx-auto max-w-5xl">
+    <!-- Header：完全居中 -->
     <div class="text-center">
       <span
-        class="inline-block rounded-full bg-ocean/10 px-4 py-1.5 text-sm font-semibold text-ocean"
+        class="mb-2 block text-center text-xs font-bold uppercase tracking-widest text-slate-400"
         >{t.history.eyebrow}</span
       >
       <h2
-        class="mt-4 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
+        class="mb-3 text-center text-2xl font-bold text-slate-900 sm:text-3xl"
       >
         {t.history.title}
       </h2>
       <p
-        class="mx-auto mt-3 max-w-3xl text-base leading-relaxed text-muted"
+        class="mx-auto max-w-2xl text-center text-sm leading-relaxed text-slate-600"
       >
         {t.history.subtitle}
       </p>
     </div>
 
-    <!-- Intro：居中、优雅换行 -->
+    <!-- Intro：居中 -->
     <div
-      class="mx-auto max-w-3xl text-center text-base leading-relaxed text-ink/90"
+      class="mx-auto mb-10 max-w-2xl text-center text-sm leading-relaxed text-slate-600"
       set:html={renderRichText(t.history.intro)}
     >
     </div>
 
-    <!-- Core Features：3 列，卡片内图标与文本全部居中 -->
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+    <!-- Core Features：3 列，白色统一卡片 -->
+    <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
       {
         t.history.highlights.map((h) => (
-          <article class="flex flex-col items-center rounded-xl border border-line bg-surface p-5 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-            <div class="grid h-12 w-12 place-items-center rounded-xl bg-ocean/10 text-2xl">
-              {h.icon}
-            </div>
-            <h3 class="mt-4 text-lg font-bold text-ink">{h.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-muted">{h.text}</p>
+          <article class="rounded-xl border border-slate-200/80 bg-white p-6 text-center shadow-sm">
+            <div class="mb-3 text-3xl">{h.icon}</div>
+            <h3 class="mb-2 text-lg font-bold text-slate-900">{h.title}</h3>
+            <p class="text-sm leading-relaxed text-slate-600">{h.text}</p>
           </article>
         ))
       }
     </div>
 
-    <!-- Timeline：4 列，年份 Badge 置于标题上方 -->
+    <!-- Timeline：4 列，年份 Badge 置于标题上方，白色统一卡片 -->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {
         t.history.timeline.map((item) => (
-          <article class="flex flex-col items-center rounded-xl border border-line bg-surface p-5 text-center shadow-sm">
-            <span class="inline-flex w-fit items-center rounded-lg bg-ocean px-3 py-1.5 text-sm font-bold leading-none text-white">
+          <article class="rounded-xl border border-slate-200/80 bg-white p-5 text-center shadow-sm">
+            <span class="mb-3 inline-block rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-bold leading-none text-white">
               {item.year}
             </span>
-            <h3 class="mt-3 text-base font-bold leading-snug text-ink">{item.title}</h3>
-            <p class="mt-2 text-xs leading-relaxed text-muted">{item.text}</p>
+            <h3 class="mb-2 text-base font-bold leading-snug text-slate-900">{item.title}</h3>
+            <p class="text-xs leading-relaxed text-slate-600">{item.text}</p>
           </article>
         ))
       }
     </div>
 
-    <!-- Humanistic：2 列结尾 -->
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <!-- 后续节点：同样的 4 列白色统一卡片 -->
+    <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {
         t.history.localLife.map((item) => (
-          <div class="rounded-xl border border-line bg-surface p-5 text-center shadow-sm">
-            <h3 class="text-lg font-bold text-ink">{item.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
+          <div class="rounded-xl border border-slate-200/80 bg-white p-5 text-center shadow-sm">
+            <h3 class="mb-2 text-base font-bold leading-snug text-slate-900">{item.title}</h3>
+            <p class="text-xs leading-relaxed text-slate-600">{item.text}</p>
           </div>
         ))
       }
