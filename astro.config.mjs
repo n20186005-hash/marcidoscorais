@@ -3,8 +3,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  // Cloudflare Pages 构建输出目录固定为 out，故将 Astro 默认 dist 改为 out
-  outDir: "./out",
+  // Cloudflare Pages 当前构建输出目录设置为 dist，故 Astro 输出到 dist
+  outDir: "./dist",
   // 部署域名：优先读 CURRENT_SITE_DOMAIN 环境变量，回退 marcidoscorais.com
   site: process.env.CURRENT_SITE_DOMAIN
     ? `https://${process.env.CURRENT_SITE_DOMAIN}`

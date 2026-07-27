@@ -138,13 +138,13 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
 }
 
 .site-nav__brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-shrink: 0;
   white-space: nowrap;
   font-weight: 800;
@@ -164,6 +164,7 @@ img {
   border-radius: 10px;
   display: grid;
   place-items: center;
+  flex-shrink: 0;
   background: linear-gradient(
     135deg,
     var(--color-primary),
@@ -177,18 +178,22 @@ img {
 .site-nav__links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 20px;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
   list-style: none;
 }
 
 .site-nav__links a {
   display: inline-block;
-  padding: 8px 12px;
+  padding: 8px 4px;
   border-radius: 999px;
   text-decoration: none;
   color: var(--color-text-muted);
   font-weight: 600;
   font-size: 0.92rem;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
@@ -199,12 +204,14 @@ img {
 
 .site-nav__spacer {
   flex: 1;
+  min-width: 0;
 }
 
 .site-nav__actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .lang-menu {
@@ -1308,7 +1315,7 @@ img {
 }
 
 /* ---------- Mobile nav ---------- */
-@media (max-width: 880px) {
+@media (max-width: 1080px) {
   .site-nav__links {
     position: fixed;
     inset: var(--nav-h) 0 auto 0;
