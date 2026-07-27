@@ -145,11 +145,17 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
+  white-space: nowrap;
   font-weight: 800;
   font-size: 1.05rem;
   letter-spacing: -0.01em;
   text-decoration: none;
   color: var(--color-text);
+}
+
+.site-nav__brand > span:last-child {
+  white-space: nowrap;
 }
 
 .site-nav__brand-mark {
@@ -371,7 +377,7 @@ img {
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("/gallery/11.jpg");
+  background-image: url("/gallery/21.jpg");
   background-size: cover;
   background-position: center;
   transform: scale(1.05);

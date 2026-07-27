@@ -37,6 +37,6 @@ export const siteConfig = {
     addressCountry: "BR",
   },
 
-  ogImage: "/gallery/11.jpg",
+  ogImage: "/gallery/21.jpg",
   gaId: "G-YJTNXGWZNY",
 };
