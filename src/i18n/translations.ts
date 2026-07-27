@@ -4,6 +4,7 @@ export type Translation = {
   site: {
     shortName: string;
     legalName: string;
+    tagline: string;
   };
   nav: { id: string; label: string }[];
   hero: {
@@ -129,7 +130,11 @@ export type Translation = {
 
 export const translations: Record<Lang, Translation> = {
   pt: {
-    site: { shortName: "Marco dos Corais", legalName: "Marco dos Corais" },
+    site: {
+      shortName: "Marco dos Corais",
+      legalName: "Marco dos Corais",
+      tagline: "O cartão-postal da Orla de Atalaia, Maceió",
+    },
     nav: [
       { id: "history", label: "História" },
       { id: "architecture", label: "Arquitetura" },
@@ -545,7 +550,11 @@ export const translations: Record<Lang, Translation> = {
   },
 
   en: {
-    site: { shortName: "Marco dos Corais", legalName: "Marco dos Corais" },
+    site: {
+      shortName: "Marco dos Corais",
+      legalName: "Marco dos Corais",
+      tagline: "The postcard landmark of the Atalaia waterfront, Maceió",
+    },
     nav: [
       { id: "history", label: "History" },
       { id: "architecture", label: "Architecture" },
@@ -961,7 +970,11 @@ export const translations: Record<Lang, Translation> = {
   },
 
   zh: {
-    site: { shortName: "Marco dos Corais", legalName: "Marco dos Corais" },
+    site: {
+      shortName: "Marco dos Corais",
+      legalName: "Marco dos Corais",
+      tagline: "马塞约阿塔拉亚滨海大道的明信片地标",
+    },
     nav: [
       { id: "history", label: "历史" },
       { id: "architecture", label: "建筑" },

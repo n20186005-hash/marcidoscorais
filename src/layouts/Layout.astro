@@ -18,10 +18,11 @@ const { lang, t, page = "", title } = Astro.props;
 const baseUrl = siteConfig.baseUrl;
 const pageSeg = page ? `${page}/` : "";
 const canonical = `${baseUrl}/${lang}/${pageSeg}`;
-const description = t.site.description;
+const description = t.hero.subtitle;
 
-const htmlLang = lang === "zh" ? "zh-CN" : lang === "en" ? "en" : "pt-BR";
-const resolvedTitle = title ?? `${t.site.name} · ${t.site.tagline}`;
+const pageHtmlLang = htmlLang[lang];
+const siteName = siteConfig.name[lang] ?? t.site.shortName;
+const resolvedTitle = title ?? `${siteName} · ${t.site.tagline}`;
 const jsonLd = getJsonLd(t, lang, baseUrl);
 const alternates = [
   {
@@ -36,14 +37,14 @@ const alternates = [
 ---
 
 <!doctype html>
-<html lang={htmlLang} data-theme="light">
+<html lang={pageHtmlLang} data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{resolvedTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content={siteConfig.themeColor} />
+    <meta name="theme-color" content="#0e7490" />
 
     <!-- hreflang alternates -->
     {
@@ -57,9 +58,9 @@ const alternates = [
     <meta property="og:title" content={resolvedTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:site_name" content={t.site.name} />
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:image" content={`${baseUrl}${siteConfig.ogImage}`} />
-    <meta property="og:locale" content={htmlLang} />
+    <meta property="og:locale" content={pageHtmlLang.replace("-", "_")} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

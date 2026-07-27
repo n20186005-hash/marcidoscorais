@@ -1,6 +1,7 @@
 ---
 import { siteConfig, type Lang } from "../config";
 import type { Translation } from "../i18n/translations";
+import { renderRichText } from "../lib/richtext";
 
 interface Props {
   lang: Lang;
@@ -17,8 +18,11 @@ const { t } = Astro.props;
       <p class="section-head__subtitle">{t.location.subtitle}</p>
     </div>
 
-    <div class="prose reveal" style="text-align:center">
-      {t.location.intro}
+    <div
+      class="prose reveal"
+      style="text-align:center"
+      set:html={renderRichText(t.location.intro)}
+    >
     </div>
 
     <div class="location-grid reveal" style="margin-top:32px">
