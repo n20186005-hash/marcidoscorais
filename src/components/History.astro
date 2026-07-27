@@ -12,9 +12,10 @@ const { t } = Astro.props;
 
 <section
   id="history"
-  class="bg-canvas px-5 py-24 scroll-mt-[calc(var(--nav-h)+24px)] sm:px-8 sm:py-28"
+  class="bg-canvas px-4 py-24 scroll-mt-[calc(var(--nav-h)+24px)] sm:px-6 sm:py-28 lg:px-8"
 >
-  <div class="mx-auto w-full max-w-[1120px]">
+  <div class="mx-auto w-full max-w-6xl">
+    <!-- Header: eyebrow / title / subtitle 统一左对齐，纵向间距清晰 -->
     <div class="reveal max-w-2xl">
       <span
         class="inline-block rounded-full bg-ocean/10 px-4 py-1.5 text-sm font-semibold text-ocean"
@@ -25,19 +26,21 @@ const { t } = Astro.props;
       >
         {t.history.title}
       </h2>
-      <p class="mt-3 text-muted">{t.history.subtitle}</p>
+      <p class="mt-3 text-base leading-relaxed text-muted">{t.history.subtitle}</p>
     </div>
 
+    <!-- Intro: 与标题左对齐，移除 .prose 居中导致的错位 -->
     <div
-      class="prose reveal mt-8 max-w-3xl text-ink/90"
+      class="reveal mt-6 max-w-3xl text-base leading-relaxed text-ink/90"
       set:html={renderRichText(t.history.intro)}
     >
     </div>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Highlights: 独立的 3 列响应式 Grid -->
+    <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         t.history.highlights.map((h) => (
-          <article class="reveal h-full rounded-2xl border border-line bg-surface p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:p-7">
+          <article class="reveal flex h-full flex-col rounded-2xl border border-line bg-surface p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
             <div class="grid h-12 w-12 place-items-center rounded-xl bg-ocean/10 text-2xl">
               {h.icon}
             </div>
@@ -48,15 +51,16 @@ const { t } = Astro.props;
       }
     </div>
 
-    <div class="mt-12 grid gap-6 border-t border-line pt-10 lg:grid-cols-2">
+    <!-- Timeline: 独立的 2 列响应式 Grid，年份作为 Badge 不压标题 -->
+    <div class="mt-12 grid grid-cols-1 gap-6 border-t border-line pt-10 lg:grid-cols-2">
       {
         t.history.timeline.map((item) => (
-          <article class="reveal h-full rounded-2xl border border-line bg-surface p-6 shadow-sm sm:p-7">
+          <article class="reveal flex h-full flex-col rounded-2xl border border-line bg-surface p-6 shadow-sm">
             <div class="flex flex-wrap items-center gap-3">
-              <div class="inline-flex w-fit shrink-0 items-center rounded-xl bg-ocean px-3 py-2 text-sm font-bold leading-none text-white">
+              <span class="inline-flex w-fit shrink-0 items-center rounded-lg bg-ocean px-3 py-1.5 text-sm font-bold leading-none text-white">
                 {item.year}
-              </div>
-              <h3 class="min-w-0 flex-1 text-lg font-bold text-ink">{item.title}</h3>
+              </span>
+              <h3 class="min-w-0 flex-1 text-lg font-bold leading-snug text-ink">{item.title}</h3>
             </div>
             <p class="mt-4 text-sm leading-relaxed text-muted">{item.text}</p>
           </article>
@@ -64,10 +68,11 @@ const { t } = Astro.props;
       }
     </div>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+    <!-- Local life: 独立的 2 列响应式 Grid -->
+    <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
       {
         t.history.localLife.map((item) => (
-          <div class="reveal rounded-2xl border border-line bg-surface-2 p-6 sm:p-7">
+          <div class="reveal rounded-2xl border border-line bg-surface-2 p-6">
             <h3 class="text-lg font-bold text-ink">{item.title}</h3>
             <p class="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
           </div>
