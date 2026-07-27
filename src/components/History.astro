@@ -40,7 +40,7 @@ const { t } = Astro.props;
     <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         t.history.highlights.map((h) => (
-          <article class="reveal flex h-full flex-col rounded-2xl border border-line bg-surface p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <article class="reveal flex h-full flex-col rounded-xl border border-line bg-surface p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
             <div class="grid h-12 w-12 place-items-center rounded-xl bg-ocean/10 text-2xl">
               {h.icon}
             </div>
@@ -55,7 +55,7 @@ const { t } = Astro.props;
     <div class="mt-12 grid grid-cols-1 gap-6 border-t border-line pt-10 lg:grid-cols-2">
       {
         t.history.timeline.map((item) => (
-          <article class="reveal flex h-full flex-col rounded-2xl border border-line bg-surface p-6 shadow-sm">
+          <article class="reveal flex h-full flex-col rounded-xl border border-line bg-surface p-5 shadow-sm">
             <div class="flex flex-wrap items-center gap-3">
               <span class="inline-flex w-fit shrink-0 items-center rounded-lg bg-ocean px-3 py-1.5 text-sm font-bold leading-none text-white">
                 {item.year}
@@ -72,7 +72,7 @@ const { t } = Astro.props;
     <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
       {
         t.history.localLife.map((item) => (
-          <div class="reveal rounded-2xl border border-line bg-surface-2 p-6">
+          <div class="reveal rounded-xl border border-line bg-surface p-5 shadow-sm">
             <h3 class="text-lg font-bold text-ink">{item.title}</h3>
             <p class="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
           </div>
