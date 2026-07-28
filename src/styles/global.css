@@ -517,6 +517,18 @@ img {
   font-size: 0.97rem;
 }
 
+.card__year {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: var(--color-primary);
+  background-color: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
 .grid {
   display: grid;
   gap: clamp(16px, 2.4vw, 24px);
