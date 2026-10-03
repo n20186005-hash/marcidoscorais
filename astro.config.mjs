@@ -5,6 +5,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // Cloudflare Pages 当前构建输出目录设置为 dist，故 Astro 输出到 dist
   outDir: "./dist",
+  // 统一使用无尾斜线 URL：/pt（而非 /pt/），避免 Google 同时索引两个版本造成权重分散。
+  // 旧的 /pt/ 等带尾斜线 URL 由 public/_redirects 做 301 回退。
+  trailingSlash: "never",
   // 部署域名：优先读 CURRENT_SITE_DOMAIN 环境变量，回退 marcidoscorais.com
   site: process.env.CURRENT_SITE_DOMAIN
     ? `https://${process.env.CURRENT_SITE_DOMAIN}`

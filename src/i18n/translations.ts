@@ -6,6 +6,13 @@ export type Translation = {
     legalName: string;
     tagline: string;
   };
+  // 页面级 SEO：自定义 <title> 与 meta description（覆盖默认 siteName · tagline）
+  meta: {
+    metaTitle: string;
+    metaDescription: string;
+  };
+  // 页脚“探索 Maceió”区块：内链到内容集群子页，强化主题相关性与抓取路径（可选，按语言逐步补齐）
+  guides?: { label: string; href: string }[];
   nav: { id: string; label: string }[];
   hero: {
     eyebrow: string;
@@ -118,6 +125,7 @@ export type Translation = {
     builtWith: string;
     social: { label: string; href: string }[];
     legal: { label: string; href: string }[];
+    guidesTitle?: string;
   };
   notFound?: { title: string; description: string; home: string };
   curiosities?: {
@@ -133,8 +141,31 @@ export const translations: Record<Lang, Translation> = {
     site: {
       shortName: "Marco dos Corais",
       legalName: "Marco dos Corais",
-      tagline: "O cartão-postal da Orla de Atalaia, Maceió",
+      tagline: "O cartão-postal da Orla de Ponta Verde, Maceió",
     },
+    meta: {
+      metaTitle:
+        "Marco dos Corais em Maceió: Ponta Verde, Pôr do Sol e Como Visitar",
+      metaDescription:
+        "Conheça o Marco dos Corais, na orla de Ponta Verde em Maceió. Veja como chegar, melhor horário para visitar, pôr do sol, fotos, dicas e atrações próximas.",
+    },
+    guides: [
+      {
+        label: "Pontos turísticos de Maceió",
+        href: "/pt/pontos-turisticos-maceio",
+      },
+      { label: "O que fazer em Maceió", href: "/pt/o-que-fazer-em-maceio" },
+      {
+        label: "Pôr do sol no Marco dos Corais",
+        href: "/pt/por-do-sol-marco-dos-corais",
+      },
+      { label: "Ponta Verde", href: "/pt/ponta-verde" },
+      {
+        label: "Lugares para conhecer em Maceió",
+        href: "/pt/lugares-para-conhecer-em-maceio",
+      },
+      { label: "Praias de Maceió", href: "/pt/praias-de-maceio" },
+    ],
     nav: [
       { id: "history", label: "História" },
       { id: "architecture", label: "Arquitetura" },
@@ -148,8 +179,8 @@ export const translations: Record<Lang, Translation> = {
       { id: "location", label: "Localização" },
     ],
     hero: {
-      eyebrow: "Maceió · Alagoas · Brasil",
-      title: "Marco dos Corais",
+      eyebrow: "Ponta Verde · Maceió · Alagoas · Brasil",
+      title: "Marco dos Corais em Maceió",
       subtitle:
         "O marco de concreto e vidro que marca o encontro entre a cidade e o mar, na Orla de Atalaia. Um mirante de frente para os recifes de coral e o pôr do sol mais fotografado de Maceió.",
       primaryCta: { label: "Como chegar", href: "#location" },
@@ -546,6 +577,7 @@ export const translations: Record<Lang, Translation> = {
         { label: "Termos", href: "/pt/terms" },
         { label: "Cookies", href: "/pt/cookies" },
       ],
+      guidesTitle: "Guias de Maceió",
     },
   },
 
@@ -553,8 +585,30 @@ export const translations: Record<Lang, Translation> = {
     site: {
       shortName: "Marco dos Corais",
       legalName: "Marco dos Corais",
-      tagline: "The postcard landmark of the Atalaia waterfront, Maceió",
+      tagline: "The postcard landmark of the Ponta Verde waterfront, Maceió",
     },
+    meta: {
+      metaTitle: "Marco dos Corais in Maceió: Ponta Verde, Sunset & How to Visit",
+      metaDescription:
+        "Discover Marco dos Corais on the Ponta Verde waterfront in Maceió. How to get there, best time to visit, sunset, photos, tips and nearby attractions.",
+    },
+    guides: [
+      {
+        label: "Maceió tourist attractions",
+        href: "/en/pontos-turisticos-maceio",
+      },
+      { label: "Things to do in Maceió", href: "/en/o-que-fazer-em-maceio" },
+      {
+        label: "Sunset at Marco dos Corais",
+        href: "/en/por-do-sol-marco-dos-corais",
+      },
+      { label: "Ponta Verde", href: "/en/ponta-verde" },
+      {
+        label: "Places to visit in Maceió",
+        href: "/en/lugares-para-conhecer-em-maceio",
+      },
+      { label: "Beaches of Maceió", href: "/en/praias-de-maceio" },
+    ],
     nav: [
       { id: "history", label: "History" },
       { id: "architecture", label: "Architecture" },
@@ -568,8 +622,8 @@ export const translations: Record<Lang, Translation> = {
       { id: "location", label: "Location" },
     ],
     hero: {
-      eyebrow: "Maceió · Alagoas · Brazil",
-      title: "Marco dos Corais",
+      eyebrow: "Ponta Verde · Maceió · Alagoas · Brazil",
+      title: "Marco dos Corais in Maceió",
       subtitle:
         "The concrete-and-glass landmark where the city meets the sea, on the Atalaia waterfront. A viewpoint facing the coral reefs and the most photographed sunset in Maceió.",
       primaryCta: { label: "How to get there", href: "#location" },
@@ -966,6 +1020,7 @@ export const translations: Record<Lang, Translation> = {
         { label: "Terms", href: "/en/terms" },
         { label: "Cookies", href: "/en/cookies" },
       ],
+      guidesTitle: "Maceió Guides",
     },
   },
 
@@ -973,7 +1028,12 @@ export const translations: Record<Lang, Translation> = {
     site: {
       shortName: "Marco dos Corais",
       legalName: "Marco dos Corais",
-      tagline: "马塞约阿塔拉亚滨海大道的明信片地标",
+      tagline: "马塞约 Ponta Verde（庞塔韦尔德）滨海大道的明信片地标",
+    },
+    meta: {
+      metaTitle: "马塞约 Marco dos Corais：Ponta Verde、日落与参观指南",
+      metaDescription:
+        "了解位于马塞约 Ponta Verde 滨海大道的 Marco dos Corais。如何到达、最佳游览时间、日落、照片、贴士与周边景点。",
     },
     nav: [
       { id: "history", label: "历史" },
@@ -988,8 +1048,8 @@ export const translations: Record<Lang, Translation> = {
       { id: "location", label: "位置" },
     ],
     hero: {
-      eyebrow: "巴西 · 阿拉戈斯州 · 马塞约",
-      title: "Marco dos Corais",
+      eyebrow: "Ponta Verde · 马塞约 · 阿拉戈斯州 · 巴西",
+      title: "马塞约的 Marco dos Corais",
       subtitle:
         "位于阿塔拉亚滨海大道的混凝土与玻璃地标，是城市与大海交汇之处。正对珊瑚礁、坐拥马塞约最上镜的日落。",
       primaryCta: { label: "如何到达", href: "#location" },
@@ -1381,6 +1441,442 @@ export const translations: Record<Lang, Translation> = {
         { label: "条款", href: "/zh/terms" },
         { label: "Cookie", href: "/zh/cookies" },
       ],
+      guidesTitle: "马塞约指南",
+    },
+  },
+};
+
+  es: {
+    site: {
+      shortName: "Marco dos Corais",
+      legalName: "Marco dos Corais",
+      tagline: "El postal de la orilla de Ponta Verde, Maceió",
+    },
+    meta: {
+      metaTitle:
+        "Marco dos Corais en Maceió: Ponta Verde, Puesta de Sol y Cómo Visitar",
+      metaDescription:
+        "Conoce el Marco dos Corais, en la orilla de Ponta Verde en Maceió. Cómo llegar, mejor horario para visitar, puesta de sol, fotos, consejos y atracciones cercanas.",
+    },
+    guides: [
+      { label: "Qué hacer en Maceió", href: "/es/o-que-fazer-em-maceio" },
+      {
+        label: "Lugares para conocer en Maceió",
+        href: "/es/lugares-para-visitar-em-maceio",
+      },
+    ],
+    nav: [
+      { id: "history", label: "Historia" },
+      { id: "architecture", label: "Arquitectura" },
+      { id: "monuments", label: "Monumentos" },
+      { id: "best-time", label: "Mejor Época" },
+      { id: "visiting", label: "Visita" },
+      { id: "transport", label: "Transporte" },
+      { id: "gallery", label: "Galería" },
+      { id: "reviews", label: "Opiniones" },
+      { id: "faq", label: "Preguntas" },
+      { id: "location", label: "Ubicación" },
+    ],
+    hero: {
+      eyebrow: "Ponta Verde · Maceió · Alagoas · Brasil",
+      title: "Marco dos Corais en Maceió",
+      subtitle:
+        "El hito de concreto y vidrio donde la ciudad se encuentra con el mar, en la orilla de Ponta Verde. Un mirador frente a los arrecifes de coral y la puesta de sol más fotografiada de Maceió.",
+      primaryCta: { label: "Cómo llegar", href: "#location" },
+      secondaryCta: { label: "Ver galería", href: "#gallery" },
+      stats: [
+        { num: "4.9", label: "Valoración media" },
+        { num: "15.670", label: "Opiniones" },
+        { num: "24h", label: "Acceso libre" },
+      ],
+    },
+    history: {
+      eyebrow: "Raíces",
+      title: "Historia del Marco dos Corais",
+      subtitle:
+        "De la pesca local a la selfie obligatoria: cómo un punto de referencia se volvió símbolo de Maceió.",
+      intro:
+        "El **Marco dos Corais** nació como un punto de apoyo para las embarcaciones que salían de la **orilla de Ponta Verde** hacia los arrecifes naturales. Con el tiempo ganó iluminación, un mirador y se convirtió en el postal donde locales y turistas se reúnen para mirar el mar.",
+      highlights: [
+        {
+          icon: "🧭",
+          title: "Punto de referencia",
+          text: "Antes de las redes sociales, ya era el lugar convenido para encontrar amigos en la playa.",
+        },
+        {
+          icon: "🌅",
+          title: "Puesta de sol famosa",
+          text: "Apertura de 180° al horizonte; el cielo se vuelve rosa y naranja casi todos los días.",
+        },
+        {
+          icon: "📸",
+          title: "Postal",
+          text: "Entre los lugares más fotografiados de Maceió en las guías de viaje.",
+        },
+      ],
+      timeline: [
+        {
+          year: "Década de 1990",
+          title: "Estructura original",
+          text: "Primer marcador de concreto instalado en la orilla de Ponta Verde como guía visual.",
+        },
+        {
+          year: "Años 2000",
+          title: "Renovación",
+          text: "Ganó iluminación escénica y una plataforma de observación pública.",
+        },
+        {
+          year: "Años 2010",
+          title: "Ícono digital",
+          text: "Se volvió punto de encuentro para influencers y contenido de viaje.",
+        },
+        {
+          year: "Hoy",
+          title: "Patrimonio afectivo",
+          text: "Considerado uno de los símbolos vivos de la identidad de Maceió.",
+        },
+      ],
+      localLife: [
+        {
+          title: "Plaza de la vida real",
+          text: "Vendedores de coco, corredores de la orilla y familias comparten el mismo paseo.",
+        },
+        {
+          title: "Eventos en la orilla",
+          text: "Espectáculos culturales y ferias ocurren cerca del hito los fines de semana.",
+        },
+      ],
+    },
+    architecture: {
+      eyebrow: "Forma",
+      title: "Arquitectura y Estructura",
+      subtitle: "Líneas limpias, vidrio y concreto pensados para enmarcar el mar.",
+      intro:
+        "La estructura actual combina **concreto visto** y **paneles de vidrio** que reflejan el cielo. Una escalera de caracol lleva al mirador superior, desde donde se ve toda la orilla de Ponta Verde.",
+      elements: [
+        {
+          icon: "🏛️",
+          title: "Torre de observación",
+          text: "Cuerpo vertical con plataforma superior para fotos panorámicas.",
+        },
+        {
+          icon: "🪟",
+          title: "Paneles de vidrio",
+          text: "Reflejan el horizonte y reducen el peso visual de la estructura.",
+        },
+        {
+          icon: "🌿",
+          title: "Integración con la orilla",
+          text: "Paseo continuo que une el hito con las playas vecinas.",
+        },
+        {
+          icon: "💡",
+          title: "Iluminación escénica",
+          text: "Luces LED resaltan la silueta tras la puesta de sol.",
+        },
+      ],
+    },
+    monuments: {
+      eyebrow: "Memoria",
+      title: "Monumentos y Referencias",
+      subtitle: "Placas y marcadores que cuentan la historia de la frontera entre ciudad y mar.",
+      intro:
+        "Alrededor del hito principal, placas educativas y esculturas menores homenajean la fauna de los arrecifes y la cultura pesquera de Alagoas.",
+      items: [
+        {
+          era: "Contemporáneo",
+          name: "Placa de los Arrecifes",
+          description:
+            "Panel explicativo sobre la formación de los arrecifes de coral de Maceió.",
+          culture: "Valora la educación ambiental para los visitantes.",
+        },
+        {
+          era: "Popular",
+          name: "Estatua del Pescador",
+          description: "Escultura que homenajea a las comunidades pesqueras locales.",
+          culture: "Reafirma la identidad costera de la orilla.",
+        },
+        {
+          era: "Simbólico",
+          name: "Hito Cero",
+          description: "Referencia para medir distancias y encuentros en la playa.",
+          culture: "Punto de encuentro generacional de las familias de Maceió.",
+        },
+      ],
+    },
+    bestTime: {
+      eyebrow: "Calendario",
+      title: "Mejor Época para Visitar",
+      subtitle: "Maceió tiene sol casi todo el año, pero cada estación tiene su encanto.",
+      intro:
+        "El clima es **tropical** y cálido, con poca variación de temperatura. El gran secreto es la hora del día: ven al final de la tarde para la puesta de sol.",
+      seasons: [
+        {
+          name: "Septiembre a marzo",
+          description: "Estación seca y cielo más limpio; ideal para fotos y baño de mar.",
+          tip: "Mejor periodo general",
+        },
+        {
+          name: "Diciembre a febrero",
+          description: "Temporada alta, con más movimiento y eventos en la orilla.",
+          tip: "Vida nocturna y fiestas",
+        },
+        {
+          name: "Abril a agosto",
+          description: "Algunas lluvias rápidas, pero menos turistas y mejores precios.",
+          tip: "Más tranquilidad",
+        },
+      ],
+    },
+    visiting: {
+      eyebrow: "En la práctica",
+      title: "Consejos de Visita",
+      subtitle: "Todo lo que necesitas saber antes de ir.",
+      intro:
+        "La visita es **gratuita** y el acceso es libre durante el día. Reunimos lo esencial para disfrutarlo sin complicaciones.",
+      paragraphs: [
+        "El Marco dos Corais está en la orilla de Ponta Verde, una de las zonas mejor equipadas de Maceió, con ciclovía, quioscos y estacionamiento.",
+        "No hay boletería ni reja: caminas libremente por el paseo y subes al mirador cuando quieras.",
+      ],
+      essentials: [
+        {
+          icon: "🕐",
+          name: "Horario",
+          description: "Abierto 24 h; el mirador suele cerrar de noche, pero el paseo es libre.",
+        },
+        {
+          icon: "🎟️",
+          name: "Entrada",
+          description: "Gratis. No se requiere reserva.",
+        },
+        {
+          icon: "🅿️",
+          name: "Estacionamiento",
+          description: "Estacionamiento gratuito y de pago cerca de la orilla.",
+        },
+      ],
+      bring: [
+        {
+          icon: "📷",
+          name: "Cámara",
+          description: "La puesta de sol pide fotos: lleva el móvil o cámara cargados.",
+        },
+        {
+          icon: "🧴",
+          name: "Protector solar",
+          description: "El sol de Maceió es fuerte todo el año; aplícalo y reaplica.",
+        },
+        {
+          icon: "💧",
+          name: "Agua",
+          description: "Mantente hidratado, especialmente por la tarde.",
+        },
+      ],
+    },
+    transportation: {
+      eyebrow: "Llegada",
+      title: "Cómo Llegar",
+      subtitle: "De la ciudad al hito, de la forma más simple.",
+      intro:
+        "La orilla de Ponta Verde es céntrica y está bien señalizada. En coche llegas en pocos minutos desde cualquier punto de Maceió.",
+      options: [
+        {
+          icon: "✈️",
+          title: "Del aeropuerto al hito",
+          text: "El Aeropuerto de Maceió (MCZ) queda a unos 25 km; taxi, app o alquiler cubren el trayecto en 30–40 min.",
+          content:
+            "El Aeropuerto Internacional de Maceió – Zumbi dos Palmares (MCZ) queda a unos 25 km de la orilla de Ponta Verde. Taxi, app de transporte o coche alquilado cubren el trayecto en 30–40 minutos según el tráfico.",
+          steps: [
+            "Al desembarcar, sigue la señalización hasta la parada de taxis en planta baja.",
+            "En la app, pon como destino \"Marco dos Corais, Orla de Ponta Verde\"; la carrera cuesta unos 60–90 BRL.",
+            "Toma la carretera AL-101 Sur hacia la costa, manteniéndote a la derecha hacia \"Ponta Verde\".",
+            "Recorre la Avenida Brigadeiro Eduardo Gomes hasta ver el letrero del Marco dos Corais y la orilla a la izquierda.",
+            "Baja cerca de la entrada de la orilla, donde hay estacionamiento y puntos de app.",
+          ],
+        },
+        {
+          icon: "🚗",
+          title: "En coche",
+          text: "Sigue la Avenida Brigadeiro Eduardo Gomes hasta la orilla de Ponta Verde; hay señales para el Marco dos Corais.",
+          content:
+            "Sigue la Avenida Brigadeiro Eduardo Gomes hasta la orilla de Ponta Verde; hay señales para el Marco dos Corais. Estacionamiento cerca.",
+          steps: [
+            "Desde cualquier punto de Maceió, conduce por la AL-101 o las avenidas costeras hacia la orilla de Ponta Verde.",
+            "Entra en la Avenida Brigadeiro Eduardo Gomes y mantente en el carril izquierdo cerca de la playa.",
+            "Busca el letrero turístico \"Marco dos Corais\" y estaciona en la orilla o en cocheras privadas.",
+          ],
+        },
+        {
+          icon: "🚕",
+          title: "App de transporte",
+          text: "Uber y 99 operan en Maceió y dejan muy cerca de la entrada de la orilla.",
+          content:
+            "Uber y 99 operan en Maceió y dejan muy cerca de la entrada de la orilla. Ideal si quieres evitar el estacionamiento.",
+          steps: [
+            "Abre Uber o 99 y pon como destino \"Marco dos Corais, Orla de Ponta Verde\".",
+            "Confirma el viaje y espera al conductor en el punto de recogida más cercano.",
+            "Pide bajar justo en la entrada de la orilla, evitando el estacionamiento de pago si prefieres caminar.",
+          ],
+        },
+        {
+          icon: "🚌",
+          title: "Autobús",
+          text: "Líneas municipales pasan por la orilla de Ponta Verde desde el centro.",
+          content:
+            "Líneas municipales pasan por la orilla de Ponta Verde desde el centro. Los autobuses 401 y 402 sirven la zona.",
+          steps: [
+            "En la terminal de integración del centro, busca las líneas hacia la orilla de Ponta Verde.",
+            "Sube a los autobuses 401 o 402 y quédate hasta la parada final o cerca del hito.",
+            "Baja y camina unos minutos por el paseo de la orilla hasta avistar el Marco dos Corais.",
+          ],
+        },
+        {
+          icon: "🚶",
+          title: "A pie / en bici",
+          text: "La ciclovía de la orilla conecta el hito con playas vecinas.",
+          content:
+            "La ciclovía de la orilla conecta el hito con playas vecinas. Paseo plano y agradable al atardecer.",
+          steps: [
+            "Usa la ciclovía continua de la orilla de Ponta Verde, que une el hito con playas como Pajuçara y Ponta Verde.",
+            "Para caminar, sigue el paseo junto al mar en terreno plano y bien iluminado.",
+            "Disfruta el paseo al atardecer, cuando la luz es ideal para fotos en el hito.",
+          ],
+        },
+      ],
+    },
+    gallery: {
+      eyebrow: "Imágenes",
+      title: "Galería de Fotos",
+      subtitle: "Un pedacito de lo que te espera en la orilla de Ponta Verde.",
+      items: Array.from({ length: 22 }, (_, i) => ({
+        src: `/gallery/${i + 1}.jpg`,
+        caption: `Marco dos Corais ${i + 1}`,
+        story: {
+          lead: "Luz, mar y concreto se encuentran.",
+          detail:
+            "Cada ángulo del hito cuenta una historia diferente según se mueve el sol.",
+        },
+      })),
+    },
+    reviews: {
+      eyebrow: "Voces",
+      title: "Lo que dicen los visitantes",
+      subtitle: "Opiniones reales de quienes estuvieron allí.",
+      intro:
+        "Miles de visitantes han pasado por el Marco dos Corais. Mira lo que destacan.",
+      items: [
+        {
+          name: "Mariana Souza",
+          date: "Marzo de 2026",
+          rating: 5,
+          text: "Fuimos al final de la tarde y la puesta de sol quitaba el aliento. ¡La vista desde el mirador es increíble!",
+          source: "Google",
+        },
+        {
+          name: "Carlos Mendes",
+          date: "Febrero de 2026",
+          rating: 5,
+          text: "Lugar tranquilo para caminar y sacar fotos. La iluminación nocturna lo hace mágico.",
+          source: "TripAdvisor",
+        },
+        {
+          name: "Ana Lima",
+          date: "Enero de 2026",
+          rating: 4,
+          text: "Lugar simple, pero muy fotogénico. Vale la parada rápida si estás en la orilla.",
+          source: "Google",
+        },
+        {
+          name: "João Pedro",
+          date: "Diciembre de 2025",
+          rating: 5,
+          text: "Llevé a mis padres y les encantó. Fácil acceso y vista privilegiada del mar.",
+          source: "Google",
+        },
+        {
+          name: "Beatriz Rocha",
+          date: "Noviembre de 2025",
+          rating: 5,
+          text: "El mejor lugar para la puesta de sol en Maceió, en mi opinión. ¡Volveré sin duda!",
+          source: "TripAdvisor",
+        },
+        {
+          name: "Rafael Alves",
+          date: "Octubre de 2025",
+          rating: 4,
+          text: "Buena estructura, bien integrada con la orilla. Solo faltó un poco más de señalización.",
+          source: "Google",
+        },
+      ],
+    },
+    faq: {
+      eyebrow: "Dudas",
+      title: "Preguntas Frecuentes",
+      subtitle: "Todo lo que necesitas saber antes de visitar.",
+      items: [
+        {
+          question: "¿Se paga entrada?",
+          answer: "No. La visita es gratuita y el acceso al paseo es libre.",
+        },
+        {
+          question: "¿Cuál es el mejor horario para ir?",
+          answer: "Al final de la tarde, por la puesta de sol. El cielo es espectacular casi todos los días.",
+        },
+        {
+          question: "¿Hay estacionamiento?",
+          answer: "Sí, estacionamiento gratuito y de pago cerca de la orilla de Ponta Verde.",
+        },
+        {
+          question: "¿El mirador es accesible?",
+          answer: "La base es plana y accesible; la subida a la plataforma superior es por escalera de caracol.",
+        },
+        {
+          question: "¿Se puede llegar en transporte público?",
+          answer: "Sí. Autobuses municipales pasan por la orilla de Ponta Verde desde el centro.",
+        },
+        {
+          question: "¿Es seguro de noche?",
+          answer: "La orilla tiene movimiento e iluminación, pero como en cualquier ciudad, evita objetos de valor y prefiere horas concurridas.",
+        },
+      ],
+    },
+    location: {
+      eyebrow: "En el mapa",
+      title: "Ubicación y Contacto",
+      subtitle: "Encuentra el Marco dos Corais en la orilla de Ponta Verde.",
+      intro:
+        "El hito está en la **orilla de Ponta Verde**, Maceió — AL. Usa el mapa para trazar tu ruta.",
+      address: "88M3+JC, Maceió - AL",
+      openMaps: "Abrir en Google Maps",
+      contact: {
+        phone: "+55 82 3312-0000",
+        note: "Información turística: Secretaría de Turismo de Maceió",
+      },
+      tips: [
+        "Llega 30 min antes de la puesta de sol para asegurar lugar en el mirador.",
+        "Combina la visita con un café en la orilla.",
+        "Usa calzado cómodo para caminar por el paseo.",
+      ],
+    },
+    footer: {
+      about:
+        "Guía independiente del Marco dos Corais, el postal de la orilla de Ponta Verde en Maceió. Hecha para quien quiere conocer lo mejor de la costa de Alagoas.",
+      exploreTitle: "Explorar",
+      legalTitle: "Legal",
+      contactTitle: "Contacto",
+      rights: `© ${new Date().getFullYear()} Marco dos Corais. Todos los derechos reservados.`,
+      builtWith: "Construido con Astro + Tailwind CSS",
+      social: [
+        { label: "Instagram", href: "https://instagram.com" },
+        { label: "Facebook", href: "https://facebook.com" },
+        { label: "YouTube", href: "https://youtube.com" },
+      ],
+      legal: [
+        { label: "Privacidad", href: "/es/privacy" },
+        { label: "Términos", href: "/es/terms" },
+        { label: "Cookies", href: "/es/cookies" },
+      ],
+      guidesTitle: "Guías de Maceió",
     },
   },
 };

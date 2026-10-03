@@ -1,3 +1,23 @@
 # Cloudflare Pages 边缘重定向
-# 访问根路径 / 时直接返回 HTTP 302 到默认语言 /pt/，避免静态导出下的客户端 "Redirecting..." 过渡页
-/ /pt/ 302
+# 根路径 / 直接返回 HTTP 302 到默认语言 /pt（无尾斜线），避免静态导出下的客户端 "Redirecting..." 过渡页
+/ /pt 302
+
+# 统一无尾斜线规范：将已收录的旧尾斜线版本 301 到规范 URL，集中权重
+/pt/ /pt 301
+/en/ /en 301
+/zh/ /zh 301
+/es/ /es 301
+
+# 法律页旧尾斜线版本
+/pt/privacy/ /pt/privacy 301
+/pt/terms/ /pt/terms 301
+/pt/cookies/ /pt/cookies 301
+/en/privacy/ /en/privacy 301
+/en/terms/ /en/terms 301
+/en/cookies/ /en/cookies 301
+/zh/privacy/ /zh/privacy 301
+/zh/terms/ /zh/terms 301
+/zh/cookies/ /zh/cookies 301
+/es/privacy/ /es/privacy 301
+/es/terms/ /es/terms 301
+/es/cookies/ /es/cookies 301

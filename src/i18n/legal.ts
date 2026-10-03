@@ -82,6 +82,30 @@ export const legal: Record<DocKey, Record<Lang, LegalDoc>> = {
         },
       ],
     },
+    es: {
+      title: "Política de Privacidad",
+      updated: "Última actualización: 27 de julho de 2026",
+      intro:
+        "Esta guía es independiente e informativa. Respetamos tu privacidad y explicamos cómo tratamos los datos.",
+      sections: [
+        {
+          heading: "Recolección de datos",
+          body: "No recopilamos datos personales directamente. Usamos herramientas de analítica para entender el uso del sitio de forma agregada.",
+        },
+        {
+          heading: "Google Analytics",
+          body: "Este sitio usa **Google Analytics** para medir el tráfico. Los datos son anonimizados y tratados según la política de Google. Puedes desactivar la analítica en tu navegador.",
+        },
+        {
+          heading: "Cookies",
+          body: "Usamos cookies esenciales y de medición. Consulta la página de **Cookies** para gestionar tus preferencias.",
+        },
+        {
+          heading: "Tus derechos",
+          body: "Puedes solicitar aclaraciones o la eliminación de datos contactándonos.",
+        },
+      ],
+    },
   },
 
   terms: {
@@ -155,6 +179,29 @@ export const legal: Record<DocKey, Record<Lang, LegalDoc>> = {
         },
       ],
     },
+    es: {
+      title: "Términos de Uso",
+      updated: "Última actualización: 27 de julho de 2026",
+      intro: "Al usar este sitio, aceptas los términos a continuación.",
+      sections: [
+        {
+          heading: "Precisión del contenido",
+          body: "El contenido es informativo y puede cambiar. No garantizamos disponibilidad o condiciones del lugar en tiempo real.",
+        },
+        {
+          heading: "Responsabilidad",
+          body: "No nos hacemos responsables por decisiones tomadas con base en esta guía. Planifica tu visita con fuentes oficiales.",
+        },
+        {
+          heading: "Enlaces externos",
+          body: "Podemos enlazar sitios de terceros. No controlamos su contenido ni políticas.",
+        },
+        {
+          heading: "Cambios",
+          body: "Estos términos pueden actualizarse en cualquier momento en esta página.",
+        },
+      ],
+    },
   },
 
   cookies: {
@@ -212,6 +259,25 @@ export const legal: Record<DocKey, Record<Lang, LegalDoc>> = {
         {
           heading: "管理",
           body: "您可在浏览器设置中阻止或删除 Cookie。部分功能可能受影响。",
+        },
+      ],
+    },
+    es: {
+      title: "Configuración de Cookies",
+      updated: "Última actualización: 27 de julho de 2026",
+      intro: "Usamos cookies para mejorar tu experiencia.",
+      sections: [
+        {
+          heading: "Qué son las cookies",
+          body: "Las cookies son pequeños archivos guardados en tu navegador para recordar preferencias y medir el tráfico.",
+        },
+        {
+          heading: "Categorías",
+          body: "**Esenciales**: necesarias para el funcionamiento. **Medición**: Google Analytics (opcional, puede desactivarse).",
+        },
+        {
+          heading: "Gestión",
+          body: "Puedes bloquear o eliminar cookies en la configuración de tu navegador. Algunas funciones pueden verse afectadas.",
         },
       ],
     },

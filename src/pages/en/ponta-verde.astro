@@ -1,0 +1,21 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopicPage from "../../components/TopicPage.astro";
+import { getTranslation } from "../../i18n/translations";
+import { getTopic, type TopicSlug } from "../../i18n/topics";
+
+const lang = "en";
+const t = getTranslation(lang);
+const slug: TopicSlug = "ponta-verde";
+const topic = getTopic(lang, slug)!;
+---
+<Layout
+  lang={lang}
+  t={t}
+  page={slug}
+  title={topic.metaTitle}
+  description={topic.metaDescription}
+  availableLangs={["pt", "en"]}
+>
+  <TopicPage lang={lang} topic={topic} t={t} />
+</Layout>

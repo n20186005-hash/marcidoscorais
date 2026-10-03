@@ -10,28 +10,44 @@ import Footer from "../components/Footer.astro";
 interface Props {
   lang: Lang;
   t: Translation;
-  page?: string; // 子页路径，如 "privacy"，用于语言切换时保持同页
-  title?: string; // 可选：子页自定义标题（如法律页），未提供则用站点名
+  page?: string; // 子页路径，如 "privacy" 或 "pontos-turisticos-maceio"，用于语言切换时保持同页
+  title?: string; // 可选：自定义标题（优先于翻译中的 metaTitle）
+  description?: string; // 可选：自定义描述（优先于翻译中的 metaDescription）
+  noindex?: boolean; // 法律页等无检索价值页设为 true → noindex,follow
+  availableLangs?: Lang[]; // 子页仅部分语言存在时，限制 hreflang 输出范围
 }
-const { lang, t, page = "", title } = Astro.props;
+const {
+  lang,
+  t,
+  page = "",
+  title,
+  description,
+  noindex = false,
+  availableLangs,
+} = Astro.props;
 
 const baseUrl = siteConfig.baseUrl;
-const pageSeg = page ? `${page}/` : "";
-const canonical = `${baseUrl}/${lang}/${pageSeg}`;
-const description = t.hero.subtitle;
+const pagePath = page ? `${page}` : "";
+const canonical = pagePath
+  ? `${baseUrl}/${lang}/${pagePath}`
+  : `${baseUrl}/${lang}`;
+const descriptionResolved =
+  description ?? t.meta?.metaDescription ?? t.hero.subtitle;
 
 const pageHtmlLang = htmlLang[lang];
 const siteName = siteConfig.name[lang] ?? t.site.shortName;
-const resolvedTitle = title ?? `${siteName} · ${t.site.tagline}`;
-const jsonLd = getJsonLd(t, lang, baseUrl);
+const resolvedTitle =
+  title ?? t.meta?.metaTitle ?? `${siteName} · ${t.site.tagline}`;
+const jsonLd = getJsonLd(t, lang, baseUrl, pagePath, title);
+const altLangs = availableLangs ?? languagesList;
 const alternates = [
   {
     hreflang: "x-default",
-    href: `${baseUrl}/${defaultLang}/${pageSeg}`,
+    href: `${baseUrl}/${defaultLang}${pagePath ? "/" + pagePath : ""}`,
   },
-  ...languagesList.map((l) => ({
+  ...altLangs.map((l) => ({
     hreflang: htmlLang[l],
-    href: `${baseUrl}/${l}/${pageSeg}`,
+    href: `${baseUrl}/${l}${pagePath ? "/" + pagePath : ""}`,
   })),
 ];
 ---
@@ -42,8 +58,9 @@ const alternates = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{resolvedTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={descriptionResolved} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
     <meta name="theme-color" content="#0e7490" />
 
     <!-- hreflang alternates -->
@@ -56,7 +73,7 @@ const alternates = [
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={resolvedTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={descriptionResolved} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:image" content={`${baseUrl}${siteConfig.ogImage}`} />
@@ -65,7 +82,7 @@ const alternates = [
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={resolvedTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={descriptionResolved} />
     <meta name="twitter:image" content={`${baseUrl}${siteConfig.ogImage}`} />
 
     <!-- Google Analytics (gtag.js) -->
@@ -109,7 +126,7 @@ const alternates = [
     <main>
       <slot />
     </main>
-    <Footer lang={lang} t={t} />
+    <Footer lang={lang} t={t} page={page} />
     <script>
       import "../scripts/main.ts";
     </script>

@@ -1,12 +1,18 @@
 ---
-import { type Lang } from "../config";
+import { siteConfig, type Lang } from "../config";
 import type { Translation } from "../i18n/translations";
+import { getTopic } from "../i18n/topics";
 
 interface Props {
   lang: Lang;
   t: Translation;
 }
-const { t } = Astro.props;
+const { lang, t } = Astro.props;
+const mapsUrl = siteConfig.mapsUrl;
+const sunsetTopic = getTopic(lang, "por-do-sol-marco-dos-corais");
+const sunsetHref = sunsetTopic
+  ? `/${lang}/por-do-sol-marco-dos-corais`
+  : "#top";
 ---
 
 <!-- 限高容器：严禁无休止拉长；背景图绝对铺满 + 半透明遮罩 -->
@@ -55,6 +61,40 @@ const { t } = Astro.props;
         href={t.hero.secondaryCta.href}
       >
         {t.hero.secondaryCta.label}
+      </a>
+    </div>
+
+    <!-- 移动端优先的快捷入口：直达到达 / 地图 / 日落 / 照片 -->
+    <div class="mt-5 flex flex-wrap gap-2">
+      <a
+        class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3.5 py-2 text-sm font-semibold text-white ring-1 ring-white/25 backdrop-blur-md transition hover:bg-white/25"
+        href="#location"
+      >
+        🧭 {t.hero.primaryCta.label}
+      </a>
+      <a
+        class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3.5 py-2 text-sm font-semibold text-white ring-1 ring-white/25 backdrop-blur-md transition hover:bg-white/25"
+        href={mapsUrl}
+        target="_blank"
+        rel="noopener"
+      >
+        🗺️ Ver no mapa
+      </a>
+      {
+        sunsetTopic && (
+          <a
+            class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3.5 py-2 text-sm font-semibold text-white ring-1 ring-white/25 backdrop-blur-md transition hover:bg-white/25"
+            href={sunsetHref}
+          >
+            🌅 Pôr do sol
+          </a>
+        )
+      }
+      <a
+        class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3.5 py-2 text-sm font-semibold text-white ring-1 ring-white/25 backdrop-blur-md transition hover:bg-white/25"
+        href="#gallery"
+      >
+        📷 Fotos
       </a>
     </div>
 

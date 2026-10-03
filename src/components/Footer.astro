@@ -29,11 +29,27 @@ const pageSeg = page ? `${page}` : "";
           {
             t.nav.map((item) => (
               <li>
-                <a href={`/${lang}/#${item.id}`}>{item.label}</a>
+                <a href={`/${lang}#${item.id}`}>{item.label}</a>
               </li>
             ))
           }
         </ul>
+        {
+          t.guides?.length > 0 && (
+            <>
+              <h4 style="margin-top:22px">{t.guidesTitle ?? "Maceió"}</h4>
+              <ul>
+                {
+                  t.guides.map((g) => (
+                    <li>
+                      <a href={g.href}>{g.label}</a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </>
+          )
+        }
       </div>
 
       <div class="site-footer__col">

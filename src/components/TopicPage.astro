@@ -1,0 +1,120 @@
+---
+import { siteConfig, type Lang } from "../config";
+import type { TopicContent } from "../i18n/topics";
+import { getTopic } from "../i18n/topics";
+import type { Translation } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+  topic: TopicContent;
+  t: Translation;
+}
+const { lang, topic, t } = Astro.props;
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: topic.faq.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.answer,
+    },
+  })),
+};
+
+const related = topic.related
+  .map((slug) => ({ slug, content: getTopic(lang, slug) }))
+  .filter((r) => r.content) as { slug: string; content: TopicContent }[];
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">{topic.eyebrow}</span>
+      <h1 class="section-head__title">{topic.title}</h1>
+      <p class="section-head__subtitle">{topic.intro}</p>
+    </div>
+  </div>
+</section>
+
+{
+  topic.sections.map((sec) => (
+    <section id={sec.id} class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-head__title">{sec.title}</h2>
+        </div>
+        <div class="prose">
+          {sec.blocks.map((b) => {
+            if (b.type === "p") {
+              return <p>{b.text}</p>;
+            }
+            if (b.type === "list") {
+              return (
+                <ul class="tip-list">
+                  {b.items.map((i) => (
+                    <li>{i}</li>
+                  ))}
+                </ul>
+              );
+            }
+            return (
+              <div class="my-4 rounded-xl border-l-4 border-coral bg-coral/10 p-4 text-ink/90">
+                {b.text}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  ))
+}
+
+<section id="faq" class="section section--alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">{t.faq.eyebrow}</span>
+      <h2 class="section-head__title">{t.faq.title}</h2>
+      <p class="section-head__subtitle">{t.faq.subtitle}</p>
+    </div>
+    <div class="grid grid-2">
+      {
+        topic.faq.map((f) => (
+          <div class="card">
+            <h3 class="card__title">{f.question}</h3>
+            <div class="prose">
+              <p>{f.answer}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+{
+  related.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-head__title">{t.footer.guidesTitle}</h2>
+        </div>
+        <div class="grid grid-3">
+          {related.map((r) => (
+            <a class="card no-underline" href={`/${lang}/${r.slug}`}>
+              <h3 class="card__title">{r.content.title}</h3>
+              <p class="card__text">{r.content.intro}</p>
+              <span class="btn btn--outline mt-3 inline-block">
+                {t.hero.secondaryCta.label}
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<script type="application/ld+json" set:html={JSON.stringify(faqLd)}></script>
