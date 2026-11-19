@@ -1,4 +1,6 @@
-export type Lang = "pt" | "en" | "zh";
+import type { Lang } from "../config";
+
+export type { Lang } from "../config";
 
 export type Translation = {
   site: {
@@ -1444,8 +1446,6 @@ export const translations: Record<Lang, Translation> = {
       guidesTitle: "马塞约指南",
     },
   },
-};
-
   es: {
     site: {
       shortName: "Marco dos Corais",
