@@ -186,7 +186,7 @@ export const translations: Record<Lang, Translation> = {
       eyebrow: "Ponta Verde · Maceió · Alagoas · Brasil",
       title: "Marco dos Corais em Maceió",
       subtitle:
-        "O marco de concreto e vidro que marca o encontro entre a cidade e o mar, na Orla de Atalaia. Um mirante de frente para os recifes de coral e o pôr do sol mais fotografado de Maceió.",
+        "O mirante fica na Avenida Sílvio Carlos Viana, na orla de Ponta Verde. Para ver a luz do entardecer, chegue antes do pôr do sol e escolha um ponto com vista aberta no calçadão.",
       primaryCta: { label: "Como chegar", href: "#location" },
       secondaryCta: { label: "Ver galeria", href: "#gallery" },
       stats: [
@@ -201,7 +201,7 @@ export const translations: Record<Lang, Translation> = {
       subtitle:
         "Da pescaria caiçara à selfie obrigatória: como um ponto de referência virou símbolo de Maceió.",
       intro:
-        "O **Marco dos Corais** nasceu como um ponto de apoio para as embarcações que saíam da **Orla de Atalaia** em direção aos recifes naturais. Com o tempo, a estrutura ganhou iluminação, mirante e se tornou o cartão-postal onde moradores e turistas se encontram para ver o mar.",
+        "O **Marco dos Corais** nasceu como um ponto de apoio para as embarcações que saíam da **orla de Ponta Verde** em direção aos recifes naturais. Com o tempo, a estrutura ganhou iluminação, mirante e se tornou o cartão-postal onde moradores e turistas se encontram para ver o mar.",
       highlights: [
         {
           icon: "🧭",
@@ -223,7 +223,7 @@ export const translations: Record<Lang, Translation> = {
         {
           year: "Década de 1990",
           title: "Estrutura original",
-          text: "Primeiro marco de concreto instalado na Orla de Atalaia como balizador visual.",
+          text: "Primeiro marco de concreto instalado na orla de Ponta Verde como balizador visual.",
         },
         {
           year: "2000s",
@@ -257,7 +257,7 @@ export const translations: Record<Lang, Translation> = {
       title: "Arquitetura e Estrutura",
       subtitle: "Linhas limpas, vidro e concreto pensados para emoldar o mar.",
       intro:
-        "A estrutura atual combina **concreto aparente** e **panos de vidro** que refletem o céu. Uma escada em caracol leva ao mirante superior, onde a vista abrange toda a Orla de Atalaia.",
+        "A estrutura atual combina **concreto aparente** e **panos de vidro** que refletem o céu. Uma escada em caracol leva ao mirante superior, onde a vista abrange toda a orla de Ponta Verde.",
       elements: [
         {
           icon: "🏛️",
@@ -340,7 +340,7 @@ export const translations: Record<Lang, Translation> = {
       intro:
         "A visitação é **gratuita** e o acesso é livre durante o dia. Reunimos o essencial para aproveitar sem perrengues.",
       paragraphs: [
-        "O Marco dos Corais fica na Orla de Atalaia, uma das áreas mais estruturadas de Maceió, com ciclovia, quiosques e estacionamento.",
+        "O Marco dos Corais fica na orla de Ponta Verde, uma das áreas mais estruturadas de Maceió, com ciclovia, quiosques e estacionamento.",
         "Não há bilheteria nem grade de fechamento — você caminha livremente pelo calçadão e sobe ao mirante quando quiser.",
       ],
       essentials: [
@@ -380,79 +380,46 @@ export const translations: Record<Lang, Translation> = {
     },
     transportation: {
       eyebrow: "Chegada",
-      title: "Como Chegar",
-      subtitle: "Da cidade ao marco, do jeito mais simples.",
-      intro:
-        "A Orla de Atalaia é central e bem sinalizada. De carro, você chega em poucos minutos de qualquer ponto de Maceió.",
+      title: "Como chegar ao Marco dos Corais",
+      subtitle: "Avenida Sílvio Carlos Viana, Ponta Verde, Maceió – AL",
+      intro: "Use Marco dos Corais, Ponta Verde, como destino. Se estiver na Pajuçara, siga pelo calçadão em direção a Ponta Verde até o mirante.",
       options: [
         {
           icon: "✈️",
           title: "Do aeroporto ao marco",
-          text: "O Aeroporto de Maceió (MCZ) fica a cerca de 25 km; táxi, app ou aluguel de carro cobrem o trajeto em 30–40 min.",
-          content:
-            "O Aeroporto Internacional de Maceió – Zumbi dos Palmares (MCZ) fica a cerca de 25 km da Orla de Atalaia. Táxi, app de transporte ou carro alugado cobrem o trajeto em 30–40 minutos, dependendo do trânsito.",
-          steps: [
-            "Ao desembarcar, siga a sinalização de desembarque e procure o ponto de táxi (táxi comum ou executivo) no pavimento térreo.",
-            "No app, defina o destino como \"Marco dos Corais, Orla de Atalaia\"; a corrida custa em torno de R$ 60–90.",
-            "A rodovia AL-101 Sul liga o aeroporto ao litoral; mantenha-se na faixa da direita seguindo placas para \"Atalaia\".",
-            "Pegue a Avenida Brigadeiro Eduardo Gomes até avistar a sinalização do Marco dos Corais e a orla à esquerda.",
-            "Desça próximo à entrada da orla; há estacionamento e ponto de app nas redondezas.",
-          ],
+          text: "Siga do Aeroporto Internacional Zumbi dos Palmares até Ponta Verde.",
+          content: "Consulte o trajeto até a orla de Ponta Verde ao desembarcar. Táxi e transporte por aplicativo são opções para ir direto ao mirante.",
         },
         {
           icon: "🚗",
           title: "De carro",
-          text: "Siga pela Avenida Brigadeiro Eduardo Gomes até a Orla de Atalaia; há sinalização para o Marco dos Corais.",
-          content:
-            "Siga pela Avenida Brigadeiro Eduardo Gomes até a Orla de Atalaia; há sinalização para o Marco dos Corais. Estacionamento nas redondezas.",
-          steps: [
-            "De qualquer ponto de Maceió, dirija pela AL-101 ou pelas avenidas litorâneas em direção à Orla de Atalaia.",
-            "Entre na Avenida Brigadeiro Eduardo Gomes e mantenha a faixa à esquerda perto da praia.",
-            "Observe a sinalização turística do \"Marco dos Corais\" e estacione nas vagas da orla ou estacionamentos privados.",
-          ],
+          text: "A referência de chegada é a Avenida Sílvio Carlos Viana.",
+          content: "Use o mapa para seguir até a Avenida Sílvio Carlos Viana. Observe a sinalização de trânsito e estacionamento na orla.",
         },
         {
           icon: "🚕",
           title: "App de transporte",
-          text: "Uber e 99 operam em Maceió e deixam bem próximo à entrada da orla.",
-          content:
-            "Uber e 99 operam em Maceió e deixam bem próximo à entrada da orla. Combina bem para quem quer evitar o estacionamento.",
-          steps: [
-            "Abra o Uber ou 99 e defina o destino como \"Marco dos Corais, Orla de Atalaia\".",
-            "Confirme a corrida e aguarde o motorista no ponto de embarque mais próximo.",
-            "Peça para descer bem na entrada da orla, evitando o estacionamento pago se preferir caminhar.",
-          ],
+          text: "Selecione Marco dos Corais, Ponta Verde, como destino.",
+          content: "Confirme se o ponto de desembarque fica na orla de Ponta Verde, perto do mirante, antes de solicitar a corrida.",
         },
         {
           icon: "🚌",
           title: "Ônibus",
-          text: "Linhas municipais passam pela Orla de Atalaia saindo do centro.",
-          content:
-            "Linhas municipais passam pela Orla de Atalaia saindo do centro. Ônibus 401 e 402 atendem a região.",
-          steps: [
-            "No Terminal de Integração do Centro, procure as linhas que seguem para a Orla de Atalaia.",
-            "Embarque nos ônibus 401 ou 402 e permaneça a bordo até o ponto final ou próximo ao marco.",
-            "Desça e caminhe alguns minutos pela calçadão da orla até avistar o Marco dos Corais.",
-          ],
+          text: "Consulte as linhas atualizadas para Ponta Verde.",
+          content: "Confira as linhas e os pontos para Ponta Verde no dia da visita. Use o endereço do mirante para calcular a caminhada a partir do ponto de descida.",
         },
         {
           icon: "🚶",
-          title: "A pé / bike",
-          text: "A ciclovia da orla conecta o marco a praias vizinhas.",
-          content:
-            "A ciclovia da orla conecta o marco a praias vizinhas. Caminhada plana e agradável ao entardecer.",
-          steps: [
-            "Use a ciclovia contínua da Orla de Atalaia, que liga o marco a praias como Pajuçara e Ponta Verde.",
-            "Para caminhada, siga o calçadão à beira-mar em terreno plano e bem iluminado.",
-            "Aproveite o passeio ao entardecer, quando a luz fica ideal para fotos no marco.",
-          ],
+          title: "A pé ou de bicicleta",
+          text: "O calçadão liga a Pajuçara à orla de Ponta Verde.",
+          content: "Caminhe pelo calçadão de Pajuçara até o mirante. Se estiver de bicicleta, siga a sinalização da ciclovia.",
         },
       ],
     },
     gallery: {
       eyebrow: "Imagens",
       title: "Galeria de Fotos",
-      subtitle: "Um pedacinho do que te espera na Orla de Atalaia.",
+      subtitle: "Um pedacinho do que te espera na orla de Ponta Verde.",
       items: Array.from({ length: 22 }, (_, i) => ({
         src: `/gallery/${i + 1}.jpg`,
         caption: `Marco dos Corais ${i + 1}`,
@@ -529,7 +496,7 @@ export const translations: Record<Lang, Translation> = {
         },
         {
           question: "Tem estacionamento?",
-          answer: "Sim, há estacionamento livre e pago nas redondezas da Orla de Atalaia.",
+          answer: "Sim, há estacionamento livre e pago nas redondezas da orla de Ponta Verde.",
         },
         {
           question: "O mirante é acessível?",
@@ -537,7 +504,7 @@ export const translations: Record<Lang, Translation> = {
         },
         {
           question: "Dá para ir de transporte público?",
-          answer: "Sim. Ônibus municipais passam pela Orla de Atalaia saindo do centro da cidade.",
+          answer: "Sim. Ônibus municipais passam pela orla de Ponta Verde saindo do centro da cidade.",
         },
         {
           question: "É seguro à noite?",
@@ -548,24 +515,24 @@ export const translations: Record<Lang, Translation> = {
     location: {
       eyebrow: "No mapa",
       title: "Localização e Contato",
-      subtitle: "Encontre o Marco dos Corais na Orla de Atalaia.",
+      subtitle: "Encontre o Marco dos Corais na orla de Ponta Verde.",
       intro:
-        "O marco fica na **Orla de Atalaia**, Maceió — AL. Use o mapa abaixo para traçar sua rota.",
-      address: "88M3+JC, Maceió - AL", 
+        "O Marco dos Corais fica à beira-mar em Ponta Verde, Maceió. Use o mapa para traçar sua rota.",
+      address: "Avenida Sílvio Carlos Viana, Ponta Verde, Maceió – AL",
       openMaps: "Abrir no Google Maps",
       contact: {
         phone: "+55 82 3312-0000",
         note: "Informações turísticas: Secretaria de Turismo de Maceió",
       },
       tips: [
-        "Chegue 30 min antes do pôr do sol para garantir lugar no mirante.",
+        "Consulte a hora do pôr do sol para a data da visita e reserve tempo para chegar antes.",
         "Combine o passeio com um café na orla.",
         "Leve calçado confortável para caminhar no calçadão.",
       ],
     },
     footer: {
       about:
-        "Guia independente do Marco dos Corais, o cartão-postal da Orla de Atalaia em Maceió. Feito para quem quer conhecer o melhor da costa alagoana.",
+        "Guia independente do Marco dos Corais, o cartão-postal da orla de Ponta Verde em Maceió. Feito para quem quer conhecer o melhor da costa alagoana.",
       exploreTitle: "Explorar",
       legalTitle: "Legal",
       contactTitle: "Contato",

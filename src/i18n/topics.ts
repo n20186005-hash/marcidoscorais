@@ -14,12 +14,14 @@ export type TopicSlug =
 export type TopicBlock =
   | { type: "p"; text: string }
   | { type: "list"; items: string[] }
+  | { type: "steps"; items: string[] }
   | { type: "callout"; text: string };
 
 export type TopicSection = {
   id: string;
   title: string;
   blocks: TopicBlock[];
+  links?: { label: string; href: string }[];
 };
 
 export type TopicContent = {
@@ -42,9 +44,9 @@ export const topics: Record<
   pt: {
     ...pajucaraGuides,
     "pontos-turisticos-maceio": {
-      metaTitle: "Pontos Turísticos de Maceió: O que Visitar na Cidade",
+      metaTitle: "Pontos turísticos de Maceió por bairro: o que visitar",
       metaDescription:
-        "Guia dos principais pontos turísticos de Maceió: orla de Ponta Verde, Marco dos Corais, Pajuçara, Jaraguá, praias urbanas e muito mais.",
+        "Encontre o Marco dos Corais em Ponta Verde, as jangadas de Pajuçara e os museus de Jaraguá. Veja onde fica cada atração e como combinar as paradas.",
       eyebrow: "Guias de Maceió",
       title: "Pontos Turísticos de Maceió",
       intro:
@@ -52,11 +54,12 @@ export const topics: Record<
       sections: [
         {
           id: "ponta-verde",
-          title: "Orla de Ponta Verde e o Marco dos Corais",
+          links: [{ label: "Como chegar ao Marco dos Corais", href: "/pt#transport" }],
+          title: "Ponta Verde: Marco dos Corais e calçadão",
           blocks: [
             {
               type: "p",
-              text: "A Orla de Ponta Verde é o coração de Maceió. É lá que fica o Marco dos Corais, o mirante de concreto e vidro que virou símbolo da cidade e o ponto de encontro para o pôr do sol.",
+              text: "O Marco dos Corais fica na Avenida Sílvio Carlos Viana, à beira-mar em Ponta Verde. É uma parada para observar a orla e fotografar a luz do fim da tarde.",
             },
             {
               type: "p",
@@ -66,7 +69,8 @@ export const topics: Record<
         },
         {
           id: "pajucara",
-          title: "Pajuçara e o Passeio de Jangada",
+          links: [{ label: "Praia de Pajuçara e embarque de jangada", href: "/pt/praia-de-pajucara" }],
+          title: "Pajuçara: praia e passeio de jangada",
           blocks: [
             {
               type: "p",
@@ -75,7 +79,7 @@ export const topics: Record<
             {
               type: "list",
               items: [
-                "Saídas pela manhã, na baixa-mar, em frente à praia de Pajuçara.",
+                "Os embarques ficam na orla da Avenida Dr. Antônio Gouveia. Confirme com o operador o ponto e o horário da saída, que varia com a maré.",
                 "É comum avistar peixes e águas translucentes nas piscinas naturais.",
                 "Combine com um café na orla antes ou depois do passeio.",
               ],
@@ -84,11 +88,11 @@ export const topics: Record<
         },
         {
           id: "jaragua",
-          title: "Centro Histórico de Jaraguá",
+          title: "Jaraguá: patrimônio e museus",
           blocks: [
             {
               type: "p",
-              text: "Jaraguá foi o primiero bairro de Maceió e hoje abriga casarões coloniais, o Museu da Imagem e do Som e a vida noturna ao redor da Praça Bompart.",
+              text: "Use a Rua Sá e Albuquerque como referência para explorar Jaraguá. O Museu da Imagem e do Som de Alagoas é uma parada para conhecer a memória audiovisual do estado. Confira a programação antes de sair.",
             },
             {
               type: "callout",
@@ -98,11 +102,12 @@ export const topics: Record<
         },
         {
           id: "mirante",
+          links: [{ label: "Roteiro a pé pela orla", href: "/pt/orla-pajucara-ponta-verde" }],
           title: "Mirante e Vista da Cidade",
           blocks: [
             {
               type: "p",
-              text: "De Ponta Verde e da própria estrutura do Marco dos Corais é possível ver boa parte da orla. Para uma vista mais ampla, o Mirante do Jaraguá panorâmico vale a parada.",
+              text: "De Ponta Verde e da própria estrutura do Marco dos Corais é possível ver boa parte da orla. Se quiser ver a mudança da paisagem ao longo da orla, siga a pé entre Pajuçara e Ponta Verde.",
             },
           ],
         },
@@ -134,25 +139,55 @@ export const topics: Record<
             "Sim. Jaraguá, o Museu Théo Brandão de Antropologia e a cena de forró e cachaça são atrações culturais consolidadas.",
         },
       ],
+      sources: [
+        { label: "Prefeitura de Maceió — percurso da Faixa Verde", href: "https://maceio.al.gov.br/noticias/dmtt/faixa-verde-da-orla-maritima-e-ampliada-para-2-5-quilometros-de-extensao" },
+        { label: "Secretaria de Estado da Cultura — Museu da Imagem e do Som", href: "https://cultura.al.gov.br/equipamentos/museu-da-imagem-e-do-som-de-alagoas-misa" },
+      ],
       related: ["praia-de-pajucara", "orla-pajucara-ponta-verde", "o-que-fazer-em-maceio", "ponta-verde", "praias-de-maceio"],
     },
 
     "o-que-fazer-em-maceio": {
-      metaTitle: "O que Fazer em Maceió: Roteiros e Dicas",
+      metaTitle: "O que fazer em Maceió: roteiros de meio dia e 1 dia",
       metaDescription:
-        "O que fazer em Maceió: passeio de jangada, feiras, trilhas, gastronomia, vida noturna e o pôr do sol no Marco dos Corais.",
+        "Monte um roteiro de meio dia ou um dia em Maceió, com Pajuçara, Jaraguá e pôr do sol no Marco dos Corais. Inclui alternativa sem jangada.",
       eyebrow: "Guias de Maceió",
       title: "O que Fazer em Maceió",
       intro:
-        "Seja sua primeira ou décima vez na cidade, Maceió oferece desde relax na orla até aventura nos recifes. Veja sugestões organizadas por perfil de viagem.",
+        "Com meio dia, fique entre Pajuçara e Ponta Verde. Com um dia inteiro, acrescente Jaraguá. Se quiser passear de jangada, organize as demais paradas em torno do horário de embarque.",
       sections: [
+        {
+          id: "meio-dia",
+          title: "Roteiro de meio dia pela orla",
+          blocks: [{
+            type: "steps",
+            items: [
+              "Comece no calçadão de Pajuçara, na Avenida Dr. Antônio Gouveia. Se tiver embarque confirmado, deixe tempo para a ida e a volta.",
+              "Siga a pé pelo calçadão até Ponta Verde. Se estiver com pouco tempo, comece diretamente em Ponta Verde e reserve o restante para o mirante.",
+              "Termine no Marco dos Corais. Se o passeio for à tarde, confira a hora do pôr do sol da data e chegue antes para escolher onde ficar.",
+            ],
+          }],
+          links: [{ label: "Ver o percurso a pé com mapa", href: "/pt/orla-pajucara-ponta-verde" }],
+        },
+        {
+          id: "um-dia",
+          title: "Roteiro de um dia com Jaraguá",
+          blocks: [{
+            type: "steps",
+            items: [
+              "Comece por Jaraguá e confira se o Museu da Imagem e do Som estará aberto. Se o seu embarque de jangada for cedo, comece por Pajuçara e inverta essas duas paradas.",
+              "Almoce na região da orla e reserve parte da tarde para o calçadão de Pajuçara. Se não houver jangada, pare no Parque Massay-ó-k para ver a orla da praia.",
+              "Siga para Ponta Verde e encerre no Marco dos Corais. Decida antes se a volta será a pé ou de carro por aplicativo.",
+            ],
+          }],
+          links: [{ label: "Ver como funciona o embarque em Pajuçara", href: "/pt/praia-de-pajucara" }],
+        },
         {
           id: "relax",
           title: "Relaxar na Orla",
           blocks: [
             {
               type: "p",
-              text: "Comece o dia caminhando ou pedalingo pela ciclovia de Ponta Verde e terminando no pôr do sol no Marco dos Corais.",
+              text: "Para caminhar, use o calçadão ou a faixa sinalizada para pedestres. Para pedalar, siga a sinalização da ciclovia.",
             },
           ],
         },
@@ -213,7 +248,7 @@ export const topics: Record<
             "Ponta Verde e Pajuçara são ligadas por calçadão. Para Jaraguá e outras regiões, use app de transporte ou carro.",
         },
       ],
-      related: ["pontos-turisticos-maceio", "ponta-verde", "praias-de-maceio"],
+      related: ["pontos-turisticos-maceio", "ponta-verde", "orla-pajucara-ponta-verde", "praia-de-pajucara", "praias-de-maceio"],
     },
 
     "por-do-sol-marco-dos-corais": {
@@ -388,7 +423,7 @@ export const topics: Record<
             "Na própria Orla de Ponta Verde, Maceió — AL.",
         },
       ],
-      related: ["pontos-turisticos-maceio", "praias-de-maceio", "o-que-fazer-em-maceio"],
+      related: ["orla-pajucara-ponta-verde", "pontos-turisticos-maceio", "praias-de-maceio", "o-que-fazer-em-maceio"],
     },
 
     "lugares-para-conhecer-em-maceio": {

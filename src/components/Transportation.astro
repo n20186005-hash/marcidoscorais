@@ -6,7 +6,7 @@ interface Props {
   lang: Lang;
   t: Translation;
 }
-const { t } = Astro.props;
+const { lang, t } = Astro.props;
 ---
 
 <section id="transport" class="section section--alt">
@@ -19,6 +19,11 @@ const { t } = Astro.props;
 
     <div class="prose reveal" style="text-align:center">
       {t.transportation.intro}
+      {lang === "pt" && (
+        <p>
+          <a class="underline" href="/pt/orla-pajucara-ponta-verde">Roteiro a pé de Pajuçara ao Marco dos Corais</a>
+        </p>
+      )}
     </div>
 
     <div class="grid grid-2" style="margin-top:32px">

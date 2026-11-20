@@ -7,7 +7,7 @@ interface Props {
   lang: Lang;
   t: Translation;
 }
-const { t } = Astro.props;
+const { lang, t } = Astro.props;
 ---
 
 <section id="visiting" class="section">
@@ -22,6 +22,13 @@ const { t } = Astro.props;
       class="prose reveal"
       set:html={t.visiting.paragraphs.join("<br/><br/>")}
     ></div>
+
+    {lang === "pt" && (
+      <div class="prose reveal">
+        <p><a class="underline" href="/pt/o-que-fazer-em-maceio">Roteiros de meio dia e um dia em Maceió</a></p>
+        <p><a class="underline" href="/pt/pontos-turisticos-maceio">Pontos turísticos de Maceió por bairro</a></p>
+      </div>
+    )}
 
     <WeatherWidget />
 

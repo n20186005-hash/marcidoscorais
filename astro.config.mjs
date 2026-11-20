@@ -5,6 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // Cloudflare Pages 当前构建输出目录设置为 dist，故 Astro 输出到 dist
   outDir: "./dist",
+  // Cloudflare serves flat HTML files at their extensionless paths.
+  build: { format: "file" },
   // 统一使用无尾斜线 URL：/pt（而非 /pt/），避免 Google 同时索引两个版本造成权重分散。
   // 旧的 /pt/ 等带尾斜线 URL 由 public/_redirects 做 301 回退。
   trailingSlash: "never",

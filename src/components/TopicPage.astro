@@ -51,6 +51,9 @@ const related = topic.related
             if (b.type === "p") {
               return <p>{b.text}</p>;
             }
+            if (b.type === "steps") {
+              return <ol class="list-decimal space-y-2 pl-6">{b.items.map((item) => <li>{item}</li>)}</ol>;
+            }
             if (b.type === "list") {
               return (
                 <ul class="tip-list">
@@ -66,6 +69,7 @@ const related = topic.related
               </div>
             );
           })}
+          {sec.links?.map(({ label, href }) => <p><a class="underline" href={href}>{label}</a></p>)}
         </div>
       </div>
     </section>
