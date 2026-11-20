@@ -2,6 +2,7 @@ import type { Lang } from "../config";
 
 export const interfaceCopy = {
   pt: {
+    visitEssentials: "Informações para a visita", bring: "O que levar",
     primary: "Navegação principal", menu: "Menu de navegação", theme: "Alternar tema", close: "Fechar", language: "Escolher idioma",
     map: "Ver no mapa", sunset: "Pôr do sol", photos: "Fotos", cookieSettings: "Configurações de cookies",
     photoNumber: "Foto do Marco dos Corais", previousPhoto: "Foto anterior", nextPhoto: "Próxima foto",
@@ -16,6 +17,7 @@ export const interfaceCopy = {
     },
   },
   en: {
+    visitEssentials: "Visitor essentials", bring: "What to bring",
     primary: "Main navigation", menu: "Navigation menu", theme: "Toggle theme", close: "Close", language: "Choose language",
     map: "View on map", sunset: "Sunset", photos: "Photos", cookieSettings: "Cookie settings",
     photoNumber: "Photo of Marco dos Corais", previousPhoto: "Previous photo", nextPhoto: "Next photo",
@@ -30,6 +32,7 @@ export const interfaceCopy = {
     },
   },
   zh: {
+    visitEssentials: "游览实用信息", bring: "携带物品",
     primary: "主导航", menu: "导航菜单", theme: "切换显示主题", close: "关闭", language: "选择语言",
     map: "查看地图", sunset: "日落", photos: "照片", cookieSettings: "Cookie 设置",
     photoNumber: "珊瑚地标照片", previousPhoto: "上一张照片", nextPhoto: "下一张照片",
@@ -44,6 +47,7 @@ export const interfaceCopy = {
     },
   },
   es: {
+    visitEssentials: "Información práctica", bring: "Qué llevar",
     primary: "Navegación principal", menu: "Menú de navegación", theme: "Cambiar tema", close: "Cerrar", language: "Elegir idioma",
     map: "Ver en el mapa", sunset: "Puesta de sol", photos: "Fotos", cookieSettings: "Configuración de cookies",
     photoNumber: "Foto de Marco dos Corais", previousPhoto: "Foto anterior", nextPhoto: "Foto siguiente",
@@ -69,8 +73,8 @@ export const portugueseGuidesCopy = {
 
 
 export const nearbyCopy = {
-  pt: { link: "Arredores", title: portugueseGuidesCopy.nearbyTitle, intro: portugueseGuidesCopy.nearbyIntro, directory: "Ver todos os guias" },
-  en: { link: "Nearby places", title: "Things to see near Marco dos Corais", intro: "Browse 35 guides to nearby beaches, historic sites and museums. The guides are in Portuguese.", directory: "Browse the Portuguese guides" },
-  zh: { link: "周边景点", title: "珊瑚地标周边景点", intro: "查看 35 篇周边游览指南，涵盖海滩、历史街区和博物馆。指南为葡语版。", directory: "查看葡语周边指南" },
-  es: { link: "Alrededores", title: "Qué visitar cerca de Marco dos Corais", intro: "Explora 35 guías de playas, lugares históricos y museos cercanos. Las guías están en portugués.", directory: "Ver las guías en portugués" },
-} satisfies Record<Lang, { link: string; title: string; intro: string; directory: string }>;
+  pt: { link: "Arredores", title: portugueseGuidesCopy.nearbyTitle, intro: portugueseGuidesCopy.nearbyIntro },
+  en: { link: "Nearby places", title: "Things to see near Marco dos Corais", intro: "Browse 35 guides to nearby beaches, historic sites and museums. The guides are in Portuguese." },
+  zh: { link: "周边景点", title: "珊瑚地标周边景点", intro: "查看 35 篇周边游览指南，涵盖海滩、历史街区和博物馆。指南为葡语版。" },
+  es: { link: "Alrededores", title: "Qué visitar cerca de Marco dos Corais", intro: "Explora 35 guías de playas, lugares históricos y museos cercanos. Las guías están en portugués." },
+} satisfies Record<Lang, { link: string; title: string; intro: string }>;

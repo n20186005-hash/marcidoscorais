@@ -1,5 +1,6 @@
 ---
 import type { Lang } from "../config";
+import { directoryArea, directoryTitle } from "../i18n/nearby-directory";
 import { nearbyCopy } from "../i18n/interface-copy";
 import { maceioPlaces } from "../data/maceio-places";
 import { pajucaraGuides } from "../data/pajucara-guides";
@@ -16,19 +17,17 @@ const areas = [...new Set(nearby.map(([, topic]) => topic.eyebrow))];
       <h2 class="section-head__title">{copy.title}</h2>
       <p class="section-head__subtitle">{copy.intro}</p>
     </div>
-    {lang === "pt" ? <div class="grid grid-3">
+    <div class="grid grid-3 nearby-grid">
       {areas.map((area) => (
         <div class="card">
-          <h3 class="card__title">{area}</h3>
-          <ul class="tip-list">
+          <h3 class="card__title">{directoryArea(lang, area)}</h3>
+          <ul class="nearby-links">
             {nearby.filter(([, topic]) => topic.eyebrow === area).map(([slug, topic]) => (
-              <li><a class="underline" href={`/pt/${slug}`}>{topic.title}</a></li>
+              <li><a href={`/pt/${slug}`} hreflang="pt-BR">{directoryTitle(lang, slug, topic.title)}</a></li>
             ))}
           </ul>
         </div>
       ))}
-    </div> : (
-      <a class="btn btn--outline" href="/pt#arredores">{copy.directory}</a>
-    )}
+    </div>
   </div>
 </section>

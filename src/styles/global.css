@@ -72,12 +72,6 @@
   --color-primary-dark: #0ea5e9;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h) + 16px);
@@ -95,10 +89,6 @@ body {
   min-height: 100vh;
   transition: background-color 0.35s ease, color 0.35s ease;
   -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: inherit;
 }
 
 img {
@@ -1311,9 +1301,20 @@ img {
 /* ---------- Responsive nav ---------- */
 @media (min-width: 1280px) {
   .site-nav__primary {
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
+    max-height: var(--nav-h);
+    overflow: auto;
     scrollbar-width: thin;
+  }
+
+  .site-nav__links {
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+
+  .site-nav__links a {
+    display: block;
+    padding-block: 5px;
+    padding-inline: 8px;
   }
 }
 

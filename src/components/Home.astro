@@ -1,4 +1,5 @@
 ---
+import "../styles/home.css";
 import Hero from "../components/Hero.astro";
 import History from "../components/History.astro";
 import Architecture from "../components/Architecture.astro";
@@ -21,15 +22,17 @@ interface Props {
 const { lang, t } = Astro.props;
 ---
 
-<Hero lang={lang} t={t} />
-<History lang={lang} t={t} />
-<Architecture lang={lang} t={t} />
-<Monuments lang={lang} t={t} />
-<BestTime lang={lang} t={t} />
-<Visiting lang={lang} t={t} />
-<NearbyPlaces lang={lang} />
-<Transportation lang={lang} t={t} />
-<Gallery lang={lang} t={t} />
-<Reviews lang={lang} t={t} />
-<Faq lang={lang} t={t} />
-<Location lang={lang} t={t} />
+<div class="site-home">
+  <Hero lang={lang} t={t} />
+  <History lang={lang} t={t} />
+  <Architecture lang={lang} t={t} />
+  <Monuments lang={lang} t={t} />
+  <BestTime lang={lang} t={t} />
+  <Visiting lang={lang} t={t} />
+  <NearbyPlaces lang={lang} />
+  <Transportation lang={lang} t={t} />
+  <Gallery lang={lang} t={t} />
+  <Reviews lang={lang} t={t} />
+  <Faq lang={lang} t={t} />
+  <Location lang={lang} t={t} />
+</div>

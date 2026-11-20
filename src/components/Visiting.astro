@@ -1,5 +1,5 @@
 ---
-import { portugueseGuidesCopy } from "../i18n/interface-copy";
+import { interfaceCopy, portugueseGuidesCopy } from "../i18n/interface-copy";
 import { renderRichText } from "../lib/richtext";
 import type { Lang } from "../config";
 import type { Translation } from "../i18n/translations";
@@ -34,8 +34,8 @@ const { lang, t } = Astro.props;
 
     <WeatherWidget lang={lang} />
 
-    <h3 class="card__title reveal" style="margin:8px 0 14px">
-      ✅ {t.visiting.essentials.map((e) => e.name).join(" · ")}
+    <h3 class="card__title reveal visit-group-title">
+      {interfaceCopy[lang].visitEssentials}
     </h3>
     <div class="info-band reveal">
       {
@@ -49,8 +49,8 @@ const { lang, t } = Astro.props;
       }
     </div>
 
-    <h3 class="card__title reveal" style="margin:28px 0 14px">
-      🎒 {t.visiting.bring.map((b) => b.name).join(" · ")}
+    <h3 class="card__title reveal visit-group-title">
+      {interfaceCopy[lang].bring}
     </h3>
     <div class="info-band reveal">
       {

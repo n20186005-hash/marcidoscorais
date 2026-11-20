@@ -19,18 +19,18 @@ const sunsetHref = sunsetTopic
 <!-- Keep the photo behind the content as the hero grows with wrapped text. -->
 <section
   id="top"
-  class="relative grid w-full min-h-[clamp(480px,60vh,600px)] overflow-hidden"
+  class="home-hero relative grid w-full min-h-[clamp(480px,60vh,600px)] overflow-hidden"
 >
   <img
     src="/gallery/21.jpg"
     alt=""
     class="absolute inset-0 h-full w-full object-cover"
   />
-  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="home-hero__shade absolute inset-0"></div>
 
   <!-- 内容底部对齐 -->
   <div
-    class="relative z-10 mx-auto flex w-full min-w-0 max-w-5xl flex-col justify-end px-4 pt-8 pb-14 text-white sm:pt-10"
+    class="container home-hero__content relative z-10 flex min-w-0 flex-col justify-end text-white"
   >
     <span
       class="inline-flex max-w-full w-fit items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium backdrop-blur-md"
@@ -106,7 +106,7 @@ const sunsetHref = sunsetTopic
     </div>
 
     <div
-      class="mt-6 grid max-w-2xl grid-cols-3 gap-2 sm:mt-8 sm:gap-4"
+      class="home-hero__stats mt-6 max-w-2xl sm:mt-8"
     >
       {
         t.hero.stats.map((s) => (

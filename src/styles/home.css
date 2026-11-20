@@ -1,0 +1,132 @@
+.site-home {
+  --section-pad: clamp(44px, 6vw, 88px);
+  overflow-wrap: anywhere;
+}
+
+.site-home > section:not(#top) {
+  scroll-margin-top: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.home-hero {
+  background: #102327;
+}
+
+.home-hero__shade {
+  background: linear-gradient(180deg, rgb(8 22 27 / 30%), rgb(8 22 27 / 82%));
+}
+
+.home-hero__content {
+  padding-block: calc(var(--nav-h) + clamp(24px, 5vw, 56px)) clamp(52px, 6vw, 76px);
+}
+
+.home-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(8px, 2vw, 16px);
+}
+
+.site-home .section-head {
+  max-width: 44rem;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.site-home .section-head__title {
+  text-wrap: balance;
+}
+
+.site-home .section-head__subtitle,
+.site-home .prose {
+  line-height: 1.7;
+}
+
+.site-home .prose {
+  margin-bottom: clamp(16px, 3vw, 28px);
+}
+
+.site-home .grid > *,
+.site-home .info-band > *,
+.site-home .location-grid > * {
+  min-width: 0;
+}
+
+.site-home .card,
+.site-home .info-card,
+.site-home .transport-option,
+.site-home .review-card {
+  padding: clamp(16px, 2.5vw, 24px);
+  border-radius: var(--radius-md);
+}
+
+.site-home .card__title {
+  line-height: 1.35;
+}
+
+.site-home .visit-group-title {
+  margin-top: clamp(24px, 4vw, 40px);
+}
+
+.site-home .info-band {
+  margin-top: 12px;
+}
+
+.site-home .nearby-grid {
+  align-items: start;
+}
+
+.site-home .nearby-links {
+  display: grid;
+  margin-top: 12px;
+}
+
+.site-home .nearby-links a {
+  display: block;
+  padding-block: 8px;
+  color: var(--color-primary);
+  line-height: 1.45;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-home .nearby-links li + li {
+  border-top: 1px solid var(--color-border);
+}
+
+.site-home .map-wrap {
+  aspect-ratio: 4 / 3;
+}
+
+.site-home .weather-card {
+  flex-wrap: wrap;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.site-home .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+body:has(.site-home) .site-footer {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .site-home .transport-option {
+    gap: 12px;
+  }
+
+  .site-home .transport-option__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .site-home .weather-card__note {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  body:has(.site-home) .site-footer__grid {
+    gap: 24px;
+  }
+}
