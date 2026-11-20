@@ -59,7 +59,8 @@ const related = topic.related
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">{topic.visitorInfo.heading ?? "Sobre o local"}</h2>
-        <p class="section-head__subtitle">{topic.visitorInfo.management}</p>
+        <p class="section-head__subtitle"><strong>Gestão do local</strong> · {topic.visitorInfo.management}</p>
+        {topic.visitorInfo.background && <p class="section-head__subtitle">{topic.visitorInfo.background}</p>}
       </div>
       <h3 class="card__title">Informações práticas</h3>
       <dl class="grid grid-2">

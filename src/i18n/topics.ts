@@ -36,7 +36,7 @@ export type TopicContent = {
   faq: { question: string; answer: string }[];
   related: TopicSlug[];
   location?: { address: string; query: string; directions?: string };
-  visitorInfo?: { heading?: string; management: string; type: string; transport: string; access: string };
+  visitorInfo?: { heading?: string; background?: string; management: string; type: string; transport: string; access: string };
   photo?: { src: string; alt: string; credit: string; source: string; width: number; height: number };
   reviewPlaces?: { label: string; query: string; snapshot?: { text: string; source: string } }[];
   sources?: { label: string; href: string }[];
