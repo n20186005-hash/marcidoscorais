@@ -9,6 +9,7 @@ import Transportation from "../components/Transportation.astro";
 import Gallery from "../components/Gallery.astro";
 import Reviews from "../components/Reviews.astro";
 import Faq from "../components/FAQ.astro";
+import NearbyPlaces from "./NearbyPlaces.astro";
 import Location from "../components/Location.astro";
 import { type Lang } from "../config";
 import type { Translation } from "../i18n/translations";
@@ -26,6 +27,7 @@ const { lang, t } = Astro.props;
 <Monuments lang={lang} t={t} />
 <BestTime lang={lang} t={t} />
 <Visiting lang={lang} t={t} />
+{lang === "pt" && <NearbyPlaces />}
 <Transportation lang={lang} t={t} />
 <Gallery lang={lang} t={t} />
 <Reviews lang={lang} t={t} />

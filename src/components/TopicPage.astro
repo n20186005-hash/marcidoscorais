@@ -37,7 +37,9 @@ const related = topic.related
       <span class="section-head__eyebrow">{topic.eyebrow}</span>
       <h1 class="section-head__title">{topic.title}</h1>
       <p class="section-head__subtitle">{topic.intro}</p>
-      {topic.photo && topic.location && <a class="btn btn--outline mt-3 inline-block" href="#localizacao">Ver localização</a>}
+      {topic.photo && topic.location && (
+        <a class="btn btn--outline mt-3 inline-block" href={mapsSearch(topic.location.query)} target="_blank" rel="noopener">Ver no mapa</a>
+      )}
     </div>
   </div>
 </section>
@@ -56,7 +58,7 @@ const related = topic.related
   <section id="informacoes" class="section section--alt">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-head__title">Sobre o local</h2>
+        <h2 class="section-head__title">{topic.visitorInfo.heading ?? "Sobre o local"}</h2>
         <p class="section-head__subtitle">{topic.visitorInfo.management}</p>
       </div>
       <h3 class="card__title">Informações práticas</h3>

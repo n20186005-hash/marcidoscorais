@@ -1,11 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import TopicPage from "../../components/TopicPage.astro";
+import { maceioPlaces } from "../../data/maceio-places";
 import { pajucaraGuides } from "../../data/pajucara-guides";
 import { getTranslation } from "../../i18n/translations";
 
 export function getStaticPaths() {
-  return Object.entries(pajucaraGuides).map(([slug, topic]) => ({
+  return Object.entries({ ...pajucaraGuides, ...maceioPlaces }).map(([slug, topic]) => ({
     params: { pajucaraGuide: slug },
     props: { topic },
   }));

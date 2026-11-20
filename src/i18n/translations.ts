@@ -178,6 +178,7 @@ export const translations: Record<Lang, Translation> = {
       { id: "monuments", label: "Monumentos" },
       { id: "best-time", label: "Melhor Época" },
       { id: "visiting", label: "Visitação" },
+      { id: "arredores", label: "Arredores" },
       { id: "transport", label: "Transporte" },
       { id: "gallery", label: "Galeria" },
       { id: "reviews", label: "Avaliações" },

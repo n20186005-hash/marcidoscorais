@@ -1,0 +1,27 @@
+---
+import { maceioPlaces } from "../data/maceio-places";
+import { pajucaraGuides } from "../data/pajucara-guides";
+
+const nearby = Object.entries({ ...pajucaraGuides, ...maceioPlaces });
+const areas = [...new Set(nearby.map(([, topic]) => topic.eyebrow))];
+---
+<section class="section section--alt" id="arredores">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-head__title">O que visitar perto do Marco dos Corais</h2>
+      <p class="section-head__subtitle">Escolha uma parada na orla ou combine o passeio com o patrimônio de Maceió.</p>
+    </div>
+    <div class="grid grid-3">
+      {areas.map((area) => (
+        <div class="card">
+          <h3 class="card__title">{area}</h3>
+          <ul class="tip-list">
+            {nearby.filter(([, topic]) => topic.eyebrow === area).map(([slug, topic]) => (
+              <li><a class="underline" href={`/pt/${slug}`}>{topic.title}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

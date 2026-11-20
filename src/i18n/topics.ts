@@ -1,4 +1,5 @@
 import type { Lang } from "../config";
+import { maceioPlaces, type MaceioPlaceSlug } from "../data/maceio-places";
 import { pajucaraGuides } from "../data/pajucara-guides";
 
 export type TopicSlug =
@@ -9,7 +10,8 @@ export type TopicSlug =
   | "lugares-para-conhecer-em-maceio"
   | "praias-de-maceio"
   | "lugares-para-visitar-em-maceio"
-  | keyof typeof pajucaraGuides;
+  | keyof typeof pajucaraGuides
+  | MaceioPlaceSlug;
 
 export type TopicBlock =
   | { type: "p"; text: string }
@@ -34,7 +36,7 @@ export type TopicContent = {
   faq: { question: string; answer: string }[];
   related: TopicSlug[];
   location?: { address: string; query: string; directions?: string };
-  visitorInfo?: { management: string; type: string; transport: string; access: string };
+  visitorInfo?: { heading?: string; management: string; type: string; transport: string; access: string };
   photo?: { src: string; alt: string; credit: string; source: string; width: number; height: number };
   reviewPlaces?: { label: string; query: string; snapshot?: { text: string; source: string } }[];
   sources?: { label: string; href: string }[];
@@ -46,6 +48,7 @@ export const topics: Record<
 > = {
   pt: {
     ...pajucaraGuides,
+    ...maceioPlaces,
     "pontos-turisticos-maceio": {
       metaTitle: "Pontos turísticos de Maceió por bairro: o que visitar",
       metaDescription:

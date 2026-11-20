@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { maceioPlaces } from "../data/maceio-places";
 import { pajucaraGuides } from "../data/pajucara-guides";
 
 const staticPages = Object.keys(import.meta.glob("./{pt,en,zh,es}/*.astro"))
@@ -6,7 +7,7 @@ const staticPages = Object.keys(import.meta.glob("./{pt,en,zh,es}/*.astro"))
   .map((path) => path.slice(1).replace(/(?:\/index)?\.astro$/, ""));
 
 export const GET: APIRoute = ({ site }) => {
-  const paths = [...staticPages, ...Object.keys(pajucaraGuides).map((slug) => `/pt/${slug}`)];
+  const paths = [...staticPages, ...Object.keys({ ...pajucaraGuides, ...maceioPlaces }).map((slug) => `/pt/${slug}`)];
   const entries = paths.sort().map((path) => `  <url><loc>${new URL(path, site)}</loc></url>`);
   return new Response([
     '<?xml version="1.0" encoding="UTF-8"?>',

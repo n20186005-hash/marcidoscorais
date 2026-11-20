@@ -1,4 +1,5 @@
 import type { TopicContent } from "../i18n/topics";
+import { maceioPhotos } from "./maceio-photos";
 
 const waterfrontSource = {
   label: "Prefeitura de Maceió — percurso da Faixa Verde",
@@ -16,7 +17,9 @@ export const pajucaraGuides = {
       address: "Av. Dr. Antônio Gouveia, orla da Pajuçara, Maceió – AL",
       query: "Praia de Pajuçara, Avenida Doutor Antônio Gouveia, Maceió, AL",
     },
+    photo: { ...maceioPhotos["praia-de-pajucara"], alt: "Trecho da Praia de Pajuçara em Maceió", credit: "Wikimedia Commons · ficha da fotografia" },
     visitorInfo: {
+      heading: "Sobre a Praia de Pajuçara",
       management: "A Prefeitura de Maceió regulamenta o trecho de atuação das jangadas na orla; os operadores informam as condições do passeio.",
       type: "Praia urbana e ponto de embarque de jangadas",
       transport: "A pé pelo calçadão desde Ponta Verde ou de carro pela Avenida Dr. Antônio Gouveia.",
@@ -61,7 +64,9 @@ export const pajucaraGuides = {
       query: "Parque Massay-ó-k, Pajuçara, Maceió, AL",
       directions: "https://www.google.com/maps/dir/?api=1&origin=Parque+Massay-%C3%B3-k%2C+Macei%C3%B3&destination=Marco+dos+Corais%2C+Macei%C3%B3&travelmode=walking",
     },
+    photo: { ...maceioPhotos["orla-pajucara-ponta-verde"], alt: "Praia de Ponta Verde, trecho final da caminhada pela orla", credit: "Wikimedia Commons · ficha da fotografia" },
     visitorInfo: {
+      heading: "Sobre o calçadão de Pajuçara a Ponta Verde",
       management: "A Prefeitura de Maceió implantou a Faixa Verde por meio do DMTT.",
       type: "Roteiro a pé pelo calçadão, entre Pajuçara e Ponta Verde",
       transport: "Comece no Parque Massay-ó-k ou faça o trajeto inverso a partir do Marco dos Corais.",
@@ -104,6 +109,7 @@ export const pajucaraGuides = {
     intro: "A torre listrada ao largo da Praia de Ponta Verde é um sinal de navegação da costa de Maceió. Da orla, procure um campo aberto de visão para enquadrar a torre, os recifes e o mar.",
     location: { address: "Ao largo da Praia de Ponta Verde, Maceió – AL", query: "Farol da Ponta Verde, Maceió, AL" },
     visitorInfo: {
+      heading: "Sobre o Farol da Ponta Verde",
       management: "A Capitania dos Portos de Alagoas, da Marinha do Brasil, documenta a sinalização náutica do farol.",
       type: "Farol costeiro em atividade",
       transport: "Chegue ao calçadão de Ponta Verde pela Avenida Sílvio Carlos Viana e observe o farol a partir da margem.",
@@ -147,6 +153,7 @@ export const pajucaraGuides = {
     intro: "O parque ocupa a antiga Praça Multieventos, na orla de Pajuçara. O espaço reúne áreas de convivência, canteiros e assentos, ao lado da roda-gigante que se tornou ponto de referência na paisagem.",
     location: { address: "Av. Dr. Antônio Gouveia, antiga Praça Multieventos, Pajuçara, Maceió – AL", query: "Parque Massay-ó-k antiga Praça Multieventos, Pajuçara, Maceió, AL" },
     visitorInfo: {
+      heading: "Sobre o Parque Massay-ó-k",
       management: "O Instituto de Pesquisa, Planejamento e Licenciamento Urbano e Ambiental da Prefeitura de Maceió documenta a requalificação do parque. A roda-gigante tem operação própria.",
       type: "Parque urbano na orla de Pajuçara",
       transport: "Chegue pelo calçadão da Pajuçara ou use a antiga Praça Multieventos como referência para desembarque na Av. Dr. Antônio Gouveia.",
