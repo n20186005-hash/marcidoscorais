@@ -35,9 +35,9 @@ export const siteConfig = {
     longitude: -35.6853,
   },
 
-  // 评价数据以最新 Google 公开快照为准（2026-10）
+  // 评价数据为用户提供的 Google 地图最新数值（2026-11-20）
   rating: "4.9",
-  reviewCount: "15670",
+  reviewCount: "15944",
 
   address: {
     streetAddress: "Ponta Verde",

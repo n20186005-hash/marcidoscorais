@@ -1,5 +1,5 @@
 ---
-import { interfaceCopy } from "../i18n/interface-copy";
+import { interfaceCopy, nearbyCopy } from "../i18n/interface-copy";
 import { siteConfig, type Lang } from "../config";
 import type { Translation } from "../i18n/translations";
 import { getTopic } from "../i18n/topics";
@@ -96,6 +96,12 @@ const sunsetHref = sunsetTopic
         href="#gallery"
       >
         📷 {interfaceCopy[lang].photos}
+      </a>
+      <a
+        class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3.5 py-2 text-sm font-semibold text-white ring-1 ring-white/25 backdrop-blur-md transition hover:bg-white/20"
+        href="#arredores"
+      >
+        {nearbyCopy[lang].link}
       </a>
     </div>
 

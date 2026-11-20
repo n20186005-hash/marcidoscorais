@@ -1,4 +1,5 @@
-import type { Lang } from "../config";
+import { siteConfig, type Lang } from "../config";
+import { htmlLang } from "./ui";
 
 export type { Lang } from "../config";
 
@@ -193,8 +194,8 @@ export const translations: Record<Lang, Translation> = {
       primaryCta: { label: "Como chegar", href: "#location" },
       secondaryCta: { label: "Ver galeria", href: "#gallery" },
       stats: [
-        { num: "4.7", label: "Avaliação média" },
-        { num: "23.374", label: "Avaliações" },
+        { num: Number(siteConfig.rating).toLocaleString(htmlLang.pt, { minimumFractionDigits: 1 }), label: "Avaliação média" },
+        { num: Number(siteConfig.reviewCount).toLocaleString(htmlLang.pt), label: "Avaliações" },
         { num: "24h", label: "Acesso livre" },
       ],
     },
@@ -589,6 +590,7 @@ export const translations: Record<Lang, Translation> = {
       { id: "monuments", label: "Monuments" },
       { id: "best-time", label: "Best Time" },
       { id: "visiting", label: "Visiting" },
+      { id: "arredores", label: "Nearby places" },
       { id: "transport", label: "Transport" },
       { id: "gallery", label: "Gallery" },
       { id: "reviews", label: "Reviews" },
@@ -603,8 +605,8 @@ export const translations: Record<Lang, Translation> = {
       primaryCta: { label: "How to get there", href: "#location" },
       secondaryCta: { label: "See gallery", href: "#gallery" },
       stats: [
-        { num: "4.7", label: "Average rating" },
-        { num: "23,374", label: "Reviews" },
+        { num: Number(siteConfig.rating).toLocaleString(htmlLang.en, { minimumFractionDigits: 1 }), label: "Average rating" },
+        { num: Number(siteConfig.reviewCount).toLocaleString(htmlLang.en), label: "Reviews" },
         { num: "24h", label: "Free access" },
       ],
     },
@@ -1015,6 +1017,7 @@ export const translations: Record<Lang, Translation> = {
       { id: "monuments", label: "纪念碑" },
       { id: "best-time", label: "最佳季节" },
       { id: "visiting", label: "游览" },
+      { id: "arredores", label: "周边景点" },
       { id: "transport", label: "交通" },
       { id: "gallery", label: "图集" },
       { id: "reviews", label: "评价" },
@@ -1029,8 +1032,8 @@ export const translations: Record<Lang, Translation> = {
       primaryCta: { label: "如何到达", href: "#location" },
       secondaryCta: { label: "查看图集", href: "#gallery" },
       stats: [
-        { num: "4.7", label: "平均评分" },
-        { num: "23,374", label: "评价数" },
+        { num: Number(siteConfig.rating).toLocaleString(htmlLang.zh, { minimumFractionDigits: 1 }), label: "平均评分" },
+        { num: Number(siteConfig.reviewCount).toLocaleString(htmlLang.zh), label: "评价数" },
         { num: "24小时", label: "免费开放" },
       ],
     },
@@ -1443,6 +1446,7 @@ export const translations: Record<Lang, Translation> = {
       { id: "monuments", label: "Monumentos" },
       { id: "best-time", label: "Mejor Época" },
       { id: "visiting", label: "Visita" },
+      { id: "arredores", label: "Alrededores" },
       { id: "transport", label: "Transporte" },
       { id: "gallery", label: "Galería" },
       { id: "reviews", label: "Opiniones" },
@@ -1457,8 +1461,8 @@ export const translations: Record<Lang, Translation> = {
       primaryCta: { label: "Cómo llegar", href: "#location" },
       secondaryCta: { label: "Ver galería", href: "#gallery" },
       stats: [
-        { num: "4.9", label: "Valoración media" },
-        { num: "15.670", label: "Opiniones" },
+        { num: Number(siteConfig.rating).toLocaleString(htmlLang.es, { minimumFractionDigits: 1 }), label: "Valoración media" },
+        { num: Number(siteConfig.reviewCount).toLocaleString(htmlLang.es), label: "Opiniones" },
         { num: "24h", label: "Acceso libre" },
       ],
     },

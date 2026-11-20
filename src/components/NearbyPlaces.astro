@@ -1,18 +1,22 @@
 ---
-import { portugueseGuidesCopy } from "../i18n/interface-copy";
+import type { Lang } from "../config";
+import { nearbyCopy } from "../i18n/interface-copy";
 import { maceioPlaces } from "../data/maceio-places";
 import { pajucaraGuides } from "../data/pajucara-guides";
 
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const copy = nearbyCopy[lang];
 const nearby = Object.entries({ ...pajucaraGuides, ...maceioPlaces });
 const areas = [...new Set(nearby.map(([, topic]) => topic.eyebrow))];
 ---
 <section class="section section--alt" id="arredores">
   <div class="container">
     <div class="section-head">
-      <h2 class="section-head__title">{portugueseGuidesCopy.nearbyTitle}</h2>
-      <p class="section-head__subtitle">{portugueseGuidesCopy.nearbyIntro}</p>
+      <h2 class="section-head__title">{copy.title}</h2>
+      <p class="section-head__subtitle">{copy.intro}</p>
     </div>
-    <div class="grid grid-3">
+    {lang === "pt" ? <div class="grid grid-3">
       {areas.map((area) => (
         <div class="card">
           <h3 class="card__title">{area}</h3>
@@ -23,6 +27,8 @@ const areas = [...new Set(nearby.map(([, topic]) => topic.eyebrow))];
           </ul>
         </div>
       ))}
-    </div>
+    </div> : (
+      <a class="btn btn--outline" href="/pt#arredores">{copy.directory}</a>
+    )}
   </div>
 </section>

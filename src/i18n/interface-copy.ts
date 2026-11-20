@@ -66,3 +66,11 @@ export const portugueseGuidesCopy = {
   attractions: "Pontos turísticos de Maceió por bairro",
   waterfrontWalk: "Roteiro a pé de Pajuçara ao Marco dos Corais",
 };
+
+
+export const nearbyCopy = {
+  pt: { link: "Arredores", title: portugueseGuidesCopy.nearbyTitle, intro: portugueseGuidesCopy.nearbyIntro, directory: "Ver todos os guias" },
+  en: { link: "Nearby places", title: "Things to see near Marco dos Corais", intro: "Browse 35 guides to nearby beaches, historic sites and museums. The guides are in Portuguese.", directory: "Browse the Portuguese guides" },
+  zh: { link: "周边景点", title: "珊瑚地标周边景点", intro: "查看 35 篇周边游览指南，涵盖海滩、历史街区和博物馆。指南为葡语版。", directory: "查看葡语周边指南" },
+  es: { link: "Alrededores", title: "Qué visitar cerca de Marco dos Corais", intro: "Explora 35 guías de playas, lugares históricos y museos cercanos. Las guías están en portugués.", directory: "Ver las guías en portugués" },
+} satisfies Record<Lang, { link: string; title: string; intro: string; directory: string }>;
