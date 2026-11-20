@@ -152,6 +152,8 @@ export const translations: Record<Lang, Translation> = {
         "Veja onde fica o Marco dos Corais, como chegar ao mirante de Ponta Verde e quando ir para o pôr do sol. Confira também o roteiro a pé até Pajuçara.",
     },
     guides: [
+      { label: "Farol da Ponta Verde", href: "/pt/farol-da-ponta-verde" },
+      { label: "Parque Massay-ó-k", href: "/pt/parque-massay-o-k" },
       { label: "Praia de Pajuçara e jangadas", href: "/pt/praia-de-pajucara" },
       { label: "Orla de Maceió a pé", href: "/pt/orla-pajucara-ponta-verde" },
       {

@@ -10,6 +10,8 @@ interface Props {
   t: Translation;
 }
 const { lang, topic, t } = Astro.props;
+const mapsSearch = (query: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
 const faqLd = {
   "@context": "https://schema.org",
@@ -35,9 +37,38 @@ const related = topic.related
       <span class="section-head__eyebrow">{topic.eyebrow}</span>
       <h1 class="section-head__title">{topic.title}</h1>
       <p class="section-head__subtitle">{topic.intro}</p>
+      {topic.photo && topic.location && <a class="btn btn--outline mt-3 inline-block" href="#localizacao">Ver localização</a>}
     </div>
   </div>
 </section>
+
+{topic.photo && (
+  <figure class="container">
+    <img class="mx-auto block h-auto max-h-[520px] w-auto max-w-full rounded-xl" src={topic.photo.src}
+      alt={topic.photo.alt} width={topic.photo.width} height={topic.photo.height} decoding="async" />
+    <figcaption class="mt-2 text-center text-sm text-muted">
+      <a class="underline" href={topic.photo.source}>{topic.photo.credit}</a>
+    </figcaption>
+  </figure>
+)}
+
+{topic.visitorInfo && (
+  <section id="informacoes" class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-head__title">Sobre o local</h2>
+        <p class="section-head__subtitle">{topic.visitorInfo.management}</p>
+      </div>
+      <h3 class="card__title">Informações práticas</h3>
+      <dl class="grid grid-2">
+        <div class="card"><dt class="card__title">Tipo de visita</dt><dd>{topic.visitorInfo.type}</dd></div>
+        <div class="card"><dt class="card__title">Acesso e funcionamento</dt><dd>{topic.visitorInfo.access}</dd></div>
+        <div class="card"><dt class="card__title">Como chegar</dt><dd>{topic.visitorInfo.transport}</dd></div>
+        {topic.location && <div class="card"><dt class="card__title">Localização</dt><dd>{topic.location.address}</dd></div>}
+      </dl>
+    </div>
+  </section>
+)}
 
 {
   topic.sections.map((sec) => (
@@ -84,7 +115,7 @@ const related = topic.related
           <h2 class="section-head__title">Localização e rota</h2>
           <p class="section-head__subtitle">{topic.location.address}</p>
         </div>
-        <a class="btn btn--outline" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(topic.location.query)}`} target="_blank" rel="noopener">
+        <a class="btn btn--outline" href={mapsSearch(topic.location.query)} target="_blank" rel="noopener">
           Abrir ponto no Google Maps
         </a>
         {topic.location.directions && (
@@ -118,6 +149,24 @@ const related = topic.related
     </div>
   </div>
 </section>
+
+{topic.reviewPlaces?.length && (
+  <section id="avaliacoes" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-head__title">Avaliações no Google Maps</h2>
+      </div>
+      <ul class="tip-list">
+        {topic.reviewPlaces.map(({ label, query, snapshot }) => (
+          <li>
+            <a class="underline" href={mapsSearch(query)} target="_blank" rel="noopener">Ver avaliações de {label}</a>
+            {snapshot && <p>{snapshot.text} · <a class="underline" href={snapshot.source}>Registro publicado pelo Prime Gourmet</a></p>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
 
 {
   related.length > 0 && (

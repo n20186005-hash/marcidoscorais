@@ -34,6 +34,9 @@ export type TopicContent = {
   faq: { question: string; answer: string }[];
   related: TopicSlug[];
   location?: { address: string; query: string; directions?: string };
+  visitorInfo?: { management: string; type: string; transport: string; access: string };
+  photo?: { src: string; alt: string; credit: string; source: string; width: number; height: number };
+  reviewPlaces?: { label: string; query: string; snapshot?: { text: string; source: string } }[];
   sources?: { label: string; href: string }[];
 };
 
@@ -259,6 +262,14 @@ export const topics: Record<
       title: "Pôr do Sol no Marco dos Corais",
       intro:
         "O pôr do sol no Marco dos Corais é um dos mais fotografados de Maceió. A estrutura abre 180° para o horizonte e o céu fica rosa e laranja quase todos os dias.",
+      visitorInfo: {
+        management: "A Prefeitura de Maceió atua no espaço público da orla de Ponta Verde.",
+        type: "Mirante urbano à beira-mar",
+        transport: "Use o calçadão de Ponta Verde ou indique Marco dos Corais como destino de carro.",
+        access: "Confira a hora do pôr do sol e a sinalização na orla no dia da visita.",
+      },
+      location: { address: "Av. Sílvio Carlos Viana, Ponta Verde, Maceió – AL", query: "Marco dos Corais, Ponta Verde, Maceió, AL" },
+      reviewPlaces: [{ label: "Marco dos Corais", query: "Marco dos Corais, Ponta Verde, Maceió, AL" }],
       sections: [
         {
           id: "horario",
@@ -351,6 +362,14 @@ export const topics: Record<
       title: "Ponta Verde, Maceió",
       intro:
         "Ponta Verde é o bairro à beira-mar onde fica o Marco dos Corais e a orla mais estruturada de Maceió. É base ideal para quem quer praia, caminhada e gastronomia a poucos passos.",
+      visitorInfo: {
+        management: "A Prefeitura de Maceió cuida das intervenções na orla. A sinalização náutica do farol é tratada pela Marinha do Brasil.",
+        type: "Praia urbana, calçadão e mirantes",
+        transport: "A pé desde Pajuçara pelo calçadão ou de carro até a Avenida Sílvio Carlos Viana.",
+        access: "A orla é espaço público. Consulte a sinalização local para atividades na praia.",
+      },
+      location: { address: "Av. Sílvio Carlos Viana, Ponta Verde, Maceió – AL", query: "Praia de Ponta Verde, Maceió, AL" },
+      reviewPlaces: [{ label: "Praia de Ponta Verde", query: "Praia de Ponta Verde, Maceió, AL" }],
       sections: [
         {
           id: "bairro",
@@ -423,7 +442,7 @@ export const topics: Record<
             "Na própria Orla de Ponta Verde, Maceió — AL.",
         },
       ],
-      related: ["orla-pajucara-ponta-verde", "pontos-turisticos-maceio", "praias-de-maceio", "o-que-fazer-em-maceio"],
+      related: ["farol-da-ponta-verde", "orla-pajucara-ponta-verde", "pontos-turisticos-maceio", "praias-de-maceio", "o-que-fazer-em-maceio"],
     },
 
     "lugares-para-conhecer-em-maceio": {
