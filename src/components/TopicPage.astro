@@ -33,16 +33,19 @@ const directionsDestination = visitPlan?.kind === "lighthouse"
   ? "Marco dos Corais, Ponta Verde, Maceió, AL"
   : visitPlan?.kind === "boat"
     ? "Embarque de Jangadas, Praia de Pajuçara, Maceió, AL"
-    : topic.location?.query;
+    : topic.location?.accessQuery ?? topic.location?.query;
 const mapDirections = directionsDestination && new URLSearchParams({
   api: "1",
   destination: directionsDestination,
 });
 
+const faq = visitPlan
+  ? [...topic.faq, { question: labels.shortVisitQuestion, answer: visitPlan.visitAnswer }]
+  : topic.faq;
 const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: topic.faq.map((f) => ({
+  mainEntity: faq.map((f) => ({
     "@type": "Question",
     name: f.question,
     acceptedAnswer: {
@@ -65,6 +68,7 @@ const quickFacts = visitPlan && topic.visitorInfo ? [
 
 const relatedSlugs = visitPlan ? [...new Set([visitPlan.nextStop, ...topic.related])] : topic.related;
 const pageSections = [
+  ["sobre-o-local", labels.about],
   ["dicas-de-visita", labels.visitTips],
   ["informacoes", labels.atAGlance],
   ["descobrir", labels.discover],
@@ -108,6 +112,18 @@ const related = relatedSlugs
   </figure>
 )}
 
+{visitPlan && topic.visitorInfo && (
+  <section id="sobre-o-local" class="section section--alt">
+    <div class="container">
+      <div class="card">
+        <h2 class="card__title">{topic.visitorInfo.heading ?? labels.about}</h2>
+        <p><strong>{labels.management}</strong> · {topic.visitorInfo.management}</p>
+        <p class="mt-3">{topic.visitorInfo.background}</p>
+      </div>
+    </div>
+  </section>
+)}
+
 {visitPlan && (
   <nav class="container mt-6" aria-label={labels.pageContents}>
     <ul class="flex flex-wrap justify-center gap-x-4 gap-y-2">
@@ -137,8 +153,8 @@ const related = relatedSlugs
   <section id="informacoes" class="section section--alt">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-head__title">{topic.visitorInfo.heading ?? labels.about}</h2>
-        <p class="section-head__subtitle"><strong>{labels.management}</strong> · {topic.visitorInfo.management}</p>
+        <h2 class="section-head__title">{visitPlan ? labels.practical : topic.visitorInfo.heading ?? labels.about}</h2>
+        {!visitPlan && <p class="section-head__subtitle"><strong>{labels.management}</strong> · {topic.visitorInfo.management}</p>}
         {!visitPlan && topic.visitorInfo.background && <p class="section-head__subtitle">{topic.visitorInfo.background}</p>}
       </div>
       {visitPlan ? (
@@ -181,11 +197,10 @@ const related = relatedSlugs
   <section id="descobrir" class="section">
     <div class="container">
       <div class="section-head"><h2 class="section-head__title">{labels.discover}</h2></div>
-      {topic.visitorInfo?.background && <p class="prose">{topic.visitorInfo.background}</p>}
     </div>
+    {discoverySections.map((section) => <TopicSection section={section} />)}
   </section>
 )}
-{discoverySections.map((section) => <TopicSection section={section} />)}
 {mainSections.map((section) => <TopicSection section={section} />)}
 
 {visitPlan && (
@@ -219,6 +234,19 @@ const related = relatedSlugs
         </div>
       </section>
     )}
+    {topic.additionalPhotos?.length ? (
+      <div class="container grid grid-2">
+        {topic.additionalPhotos.map((photo) => (
+          <figure class="card">
+            <img class="mx-auto block h-auto max-h-[440px] max-w-full rounded-xl" src={photo.src}
+              alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+            <figcaption class="mt-2 text-center text-sm text-muted">
+              {photo.alt} · <a class="underline" href={photo.source}>{photo.credit}</a>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    ) : null}
     <section id="hospedagem" class="section">
       <div class="container">
         <div class="section-head"><h2 class="section-head__title">{labels.stay}</h2></div>
@@ -237,7 +265,7 @@ const related = relatedSlugs
     </div>
     <div class="grid grid-2">
       {
-        topic.faq.map((f) => (
+        faq.map((f) => (
           <div class="card">
             <h3 class="card__title">{f.question}</h3>
             <div class="prose">

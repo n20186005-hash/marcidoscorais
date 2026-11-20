@@ -27,6 +27,8 @@ export type TopicSection = {
   links?: { label: string; href: string }[];
 };
 
+export type TopicPhoto = { src: string; alt: string; credit: string; source: string; width: number; height: number };
+
 export type TopicContent = {
   metaTitle: string;
   metaDescription: string;
@@ -36,9 +38,10 @@ export type TopicContent = {
   sections: TopicSection[];
   faq: { question: string; answer: string }[];
   related: TopicSlug[];
-  location?: { address: string; query: string; placeId?: string; directions?: string };
+  location?: { address: string; query: string; accessQuery?: string; placeId?: string; directions?: string };
   visitorInfo?: { heading?: string; background?: string; management: string; type: string; transport: string; access: string };
-  photo?: { src: string; alt: string; credit: string; source: string; width: number; height: number };
+  photo?: TopicPhoto;
+  additionalPhotos?: TopicPhoto[];
   reviewPlaces?: { label: string; query: string; snapshot?: { text: string; source: string } }[];
   sources?: { label: string; href: string }[];
 };

@@ -10,7 +10,7 @@ import es from "./nearby/es.json";
 import zh from "./nearby/zh.json";
 
 const dictionaries: Record<Exclude<Lang, "pt">, Record<string, string>> = { en, es, zh };
-const stableKeys = new Set(["id", "href", "src", "source", "query", "placeId", "directions", "related"]);
+const stableKeys = new Set(["id", "href", "src", "source", "query", "accessQuery", "placeId", "directions", "related"]);
 
 export const nearbyGuides = { ...pajucaraGuides, ...maceioPlaces };
 export type NearbySlug = keyof typeof nearbyGuides;
@@ -88,6 +88,7 @@ export function getNearbyVisitPlan(lang: Lang, slug: NearbySlug) {
     advice: details.advice[lang],
     highlight: details.highlight[lang],
     notice: details.notice[lang],
+    visitAnswer: details.visitAnswer[lang],
     nextStop: details.nextStop,
   };
 }

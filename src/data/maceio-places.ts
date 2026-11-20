@@ -1,5 +1,5 @@
 import type { TopicContent } from "../i18n/topics";
-import { maceioPhotos } from "./maceio-photos";
+import { extraMaceioPhotos, maceioPhotos } from "./maceio-photos";
 
 const tourism = "https://visitealagoas.com.br/destinos/maceio/maceio";
 const heritage = "https://www.gov.br/iphan/pt-br/superintendencias/alagoas";
@@ -83,7 +83,7 @@ const places = {
   "pontal-da-barra": {
     name: "Pontal da Barra", area: "Orla sul", address: "Rua Alípio Barbosa da Silva, Pontal da Barra, Maceió – AL", manager: "Prefeitura de Maceió nos espaços públicos; oficinas e lojas têm gestão própria.",
     summary: "Visite as rendeiras e faça uma pausa à beira da Lagoa Mundaú.",
-    history: "O bairro se desenvolveu junto à Lagoa Mundaú e é conhecido pela tradição do bordado filé.",
+    history: "O bairro se desenvolveu junto à Lagoa Mundaú. A Prefeitura identifica o filé como uma tradição transmitida entre gerações e registra o reconhecimento do Pontal da Barra como patrimônio histórico de Alagoas. Na rua de comércio, repare como as oficinas e lojas mantêm a técnica presente no cotidiano do bairro.",
     feature: "Na rua de comércio, observe a trama aberta e as cores do bordado. Na margem, a paisagem muda da escala das lojas para a lagoa.",
     route: "Vá até a rua das rendeiras e percorra o comércio a pé. Encerre a visita na margem da lagoa e combine ali o retorno.",
     visitTip: "Reserve primeiro um tempo para conversar nas lojas de filé. Depois, siga até a lagoa sem precisar voltar pelo comércio para fotografar a paisagem.",
@@ -129,7 +129,7 @@ const places = {
   "museu-da-imagem-e-do-som": {
     name: "Museu da Imagem e do Som de Alagoas", area: "Jaraguá", address: "Rua Sá e Albuquerque, 275, em frente à Praça Dois Leões, Jaraguá, Maceió – AL", manager: "Secretaria de Estado da Cultura e Economia Criativa de Alagoas.",
     summary: "A memória audiovisual de Alagoas ocupa um edifício histórico de Jaraguá.",
-    history: "O MISA preserva a memória audiovisual alagoana e ocupa o edifício que abrigou a Recebedoria Central do Estado.",
+    history: "Criado em 1981, o MISA começou em dependências do Teatro Deodoro e mudou-se em 1982 para a antiga Recebedoria Central do Estado. A fachada voltada para a Praça Dois Leões é um bom ponto de partida para entender a passagem de edifício administrativo a museu da memória audiovisual alagoana.",
     feature: "Observe a composição da fachada voltada para a praça e a adaptação do prédio administrativo para uso cultural.",
     route: "Comece na Praça Dois Leões, atravesse até o museu e depois siga pela Rua Sá e Albuquerque para comparar os edifícios históricos.",
     visitTip: "Comece pela praça para ver a antiga Recebedoria por inteiro. Consulte a mostra em cartaz antes de reservar tempo para a visita interna.",
@@ -266,7 +266,7 @@ const places = {
   "teatro-deodoro": {
     name: "Teatro Deodoro", area: "Centro histórico", address: "Rua Barão de Maceió, s/n, Praça Marechal Deodoro, Centro, Maceió – AL", manager: "Diretoria de Teatros do Estado de Alagoas (Diteal).",
     summary: "Um teatro histórico do Centro para observar da praça ou conhecer em dia de espetáculo.",
-    history: "O teatro histórico marca a consolidação de um espaço dedicado às artes cênicas no Centro de Maceió.",
+    history: "A construção do Teatro Deodoro começou em 1905 e a inauguração ocorreu em 21 de novembro de 1910, durante as comemorações da Proclamação da República. Da praça, observe a composição simétrica; se entrar para um espetáculo, compare a escala da fachada com a sala e seu lustre.",
     feature: "Observe a simetria da fachada. Em caso de visita interna, repare na relação entre o lustre, o teto e a sala de espetáculos.",
     route: "Vá à Praça Marechal Deodoro. Faça a leitura da fachada e confirme na bilheteria as condições de entrada para o espetáculo.",
     visitTip: "Se tiver ingresso, chegue com antecedência para ver a fachada ainda da praça. Confira o endereço da entrada indicado pela produção.",
@@ -386,6 +386,7 @@ const places = {
 export type MaceioPlaceSlug = keyof typeof places;
 
 const visitingSources: Partial<Record<MaceioPlaceSlug, string[]>> = {
+  "pontal-da-barra": ["https://maceio.al.gov.br/p/superintendencias/pontal-da-barra"],
   "igreja-dos-martirios": [
     "https://visitealagoas.com.br/atividades/igreja-bom-jesus-dos-martirios"
   ],
@@ -393,6 +394,7 @@ const visitingSources: Partial<Record<MaceioPlaceSlug, string[]>> = {
     "https://alagoasdigital.al.gov.br/orgao/14"
   ],
   "teatro-deodoro": [
+    "https://pesquisaescolar.fundaj.gov.br/pt-br/artigo/teatro-deodoro-maceio-al/",
     "https://www.diteal.al.gov.br/perguntas-frequentes"
   ],
   "pinacoteca-universitaria": [
@@ -412,6 +414,7 @@ const visitingSources: Partial<Record<MaceioPlaceSlug, string[]>> = {
     "https://cadastro.museus.gov.br/museus/museu-de-arte-sacra-pierre-chalita-mapc/"
   ],
   "museu-da-imagem-e-do-som": [
+    "https://www.misa.al.gov.br/visite-o-misa",
     "https://alagoasdigital.al.gov.br/servico/347"
   ]
 };
@@ -433,7 +436,12 @@ function makeTopic(slug: MaceioPlaceSlug, place: Place): TopicContent {
       transport: place.route,
       access: place.access,
     },
-    location: { address: place.address, query },
+    location: {
+      address: place.address,
+      query,
+      ...(slug === "porto-de-maceio" ? { accessQuery: "Passeio do Porto, Jaraguá, Maceió, AL" } : {}),
+    },
+    additionalPhotos: extraMaceioPhotos[slug],
     photo: { ...photo, alt: place.name, credit: photo.credit ?? "Wikimedia Commons · ficha da fotografia" },
     reviewPlaces: [{ label: place.name, query }],
     sections: [

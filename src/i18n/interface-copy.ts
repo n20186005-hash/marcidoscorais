@@ -10,6 +10,7 @@ export const interfaceCopy = {
     topic: {
       atAGlance: "Visão geral", discover: "História, paisagem e experiência", visitNotice: "Cuidados na visita", pairWith: "Combine com",
       pageContents: "Nesta página", readGuide: "Ler guia", relatedIntro: "Combine esta visita com outros pontos de Maceió. Os guias abaixo incluem informações para planejar a próxima parada.", allNearby: "Ver diretório dos 35 lugares",
+      shortVisitQuestion: "Como aproveitar uma visita curta?",
       duration: "Duração sugerida", minutes: "min", visitTips: "Dicas para planejar a visita", highlights: "O que torna o local especial", currentRating: "Avaliação atual no Google Maps", directions: "Traçar rota até o local",
       kinds: { beach: "Praia", walk: "Caminhada", lighthouse: "Farol", park: "Parque", district: "Bairro", boat: "Passeio de jangada", market: "Mercado de artesanato", memorial: "Memorial", monument: "Monumento", museum: "Museu", square: "Praça", viewpoint: "Mirante", church: "Igreja", theatre: "Teatro", gallery: "Galeria de arte" },
       hours: "Horário", visitorReviews: "Consultar avaliações dos visitantes", about: "Sobre o local", management: "Gestão do local",
@@ -29,6 +30,7 @@ export const interfaceCopy = {
     topic: {
       atAGlance: "At a glance", discover: "History, setting and what to see", visitNotice: "What to know before visiting", pairWith: "Pair this stop with",
       pageContents: "On this page", readGuide: "Read guide", relatedIntro: "Pair this visit with other stops in Maceió. The guides below have details to help you plan your next stop.", allNearby: "Browse all 35 places",
+      shortVisitQuestion: "What should I prioritize on a short visit?",
       duration: "Suggested visit length", minutes: "min", visitTips: "Plan your visit", highlights: "Why visit", currentRating: "Current rating on Google Maps", directions: "Get directions",
       kinds: { beach: "Beach", walk: "Walking route", lighthouse: "Lighthouse", park: "Park", district: "Neighborhood", boat: "Sailing raft trip", market: "Craft market", memorial: "Memorial", monument: "Monument", museum: "Museum", square: "Square", viewpoint: "Viewpoint", church: "Church", theatre: "Theater", gallery: "Art gallery" },
       hours: "Hours", visitorReviews: "Read visitor reviews", about: "About the attraction", management: "Managed by",
@@ -48,6 +50,7 @@ export const interfaceCopy = {
     topic: {
       atAGlance: "基本信息一览", discover: "发现景点：历史、景观与体验", visitNotice: "游览须知", pairWith: "推荐连游",
       pageContents: "本页导航", readGuide: "阅读景点指南", relatedIntro: "可把本页景点与下列地点连游。打开专题，可查下一站的入口、游览路线和参观条件。", allNearby: "查看全部 35 处周边景点",
+      shortVisitQuestion: "时间不多，应该先看什么？",
       duration: "建议停留", minutes: "分钟", visitTips: "游览建议", highlights: "景点特色", currentRating: "查看 Google 地图实时评分", directions: "规划前往路线",
       kinds: { beach: "海滩", walk: "步行路线", lighthouse: "灯塔", park: "公园", district: "历史街区", boat: "传统帆筏游览", market: "手工艺市场", memorial: "纪念馆", monument: "纪念碑", museum: "博物馆", square: "广场", viewpoint: "观景台", church: "教堂", theatre: "剧院", gallery: "美术馆" },
       hours: "开放时间", visitorReviews: "查看游客评价", about: "关于景点", management: "管理主体",
@@ -67,6 +70,7 @@ export const interfaceCopy = {
     topic: {
       atAGlance: "Información esencial", discover: "Historia, entorno y qué ver", visitNotice: "Qué saber antes de visitar", pairWith: "Combina esta parada con",
       pageContents: "En esta página", readGuide: "Leer guía", relatedIntro: "Combina esta visita con otras paradas en Maceió. Las guías incluyen información para planificar la siguiente visita.", allNearby: "Ver los 35 lugares",
+      shortVisitQuestion: "¿Qué conviene priorizar en una visita breve?",
       duration: "Duración sugerida", minutes: "min", visitTips: "Consejos para la visita", highlights: "Qué hace especial al lugar", currentRating: "Puntuación actual en Google Maps", directions: "Cómo llegar al lugar",
       kinds: { beach: "Playa", walk: "Ruta a pie", lighthouse: "Faro", park: "Parque", district: "Barrio", boat: "Paseo en jangada", market: "Mercado de artesanía", memorial: "Memorial", monument: "Monumento", museum: "Museo", square: "Plaza", viewpoint: "Mirador", church: "Iglesia", theatre: "Teatro", gallery: "Galería de arte" },
       hours: "Horario", visitorReviews: "Consultar opiniones de visitantes", about: "Sobre el lugar", management: "Gestión del lugar",

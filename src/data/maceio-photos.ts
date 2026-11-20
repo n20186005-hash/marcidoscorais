@@ -1,3 +1,5 @@
+import type { TopicPhoto } from "../i18n/topics";
+
 export const maceioPhotos: Record<string, { src: string; width: number; height: number; source: string; credit?: string }> = {
   "bairro-historico-de-jaragua": {
     "src": "/gallery/nearby/bairro-historico-de-jaragua.webp",
@@ -200,4 +202,27 @@ export const maceioPhotos: Record<string, { src: string; width: number; height: 
     "height": 680,
     "source": "https://commons.wikimedia.org/wiki/File:Lustre_Teatro_Deodoro.jpg"
   }
+};
+
+export const extraMaceioPhotos: Partial<Record<string, TopicPhoto[]>> = {
+  "catedral-metropolitana-de-maceio": [
+    {
+      "src": "/gallery/nearby/catedral-fachada.webp",
+      "width": 570,
+      "height": 760,
+      "source": "https://commons.wikimedia.org/wiki/File:Catedral_Metropolitana_de_Macei%C3%B3,_AL.jpg",
+      "credit": "Joannes Paulus / Wikimedia Commons",
+      "alt": "Fachada da Catedral Metropolitana de Maceió"
+    }
+  ],
+  "teatro-deodoro": [
+    {
+      "src": "/gallery/nearby/teatro-deodoro-fachada.webp",
+      "width": 1000,
+      "height": 563,
+      "source": "https://commons.wikimedia.org/wiki/File:Teatro_Deodoro,_Pra%C3%A7a_Marechal_Deodoro,_RELU.jpg",
+      "credit": "RELU / Wikimedia Commons",
+      "alt": "Fachada do Teatro Deodoro voltada para a praça"
+    }
+  ]
 };
