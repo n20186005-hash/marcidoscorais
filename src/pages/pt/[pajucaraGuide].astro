@@ -1,16 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import TopicPage from "../../components/TopicPage.astro";
-import { maceioVisitPlans } from "../../data/maceio-visit-plans";
-import { maceioPlaces } from "../../data/maceio-places";
-import { pajucaraGuides } from "../../data/pajucara-guides";
+import { getNearbyVisitPlan, nearbyGuides, nearbySlugs } from "../../i18n/nearby-guides";
 import { languagesList } from "../../i18n/ui";
 import { getTranslation } from "../../i18n/translations";
 
 export function getStaticPaths() {
-  return Object.entries({ ...pajucaraGuides, ...maceioPlaces }).map(([slug, topic]) => ({
+  return nearbySlugs.map((slug) => ({
     params: { pajucaraGuide: slug },
-    props: { topic, visitPlan: maceioVisitPlans[slug] },
+    props: { topic: nearbyGuides[slug], visitPlan: getNearbyVisitPlan("pt", slug) },
   }));
 }
 

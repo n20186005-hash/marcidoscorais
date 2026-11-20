@@ -186,6 +186,9 @@ export const pajucaraGuides = {
       { question: "Preciso comprar ingresso da roda-gigante para passear pelo parque?", answer: "Você pode percorrer o espaço público do parque. A roda-gigante tem bilheteria e funcionamento próprios." },
     ],
     related: ["praia-de-pajucara", "orla-pajucara-ponta-verde", "pontos-turisticos-maceio"],
-    sources: [{ label: "Prefeitura de Maceió — história do Parque Massay-ó-k", href: "https://maceio.al.gov.br/p/iplam/o-parque-massay-o-k" }],
+    sources: [
+      { label: "Prefeitura de Maceió — história do Parque Massay-ó-k", href: "https://maceio.al.gov.br/p/iplam/o-parque-massay-o-k" },
+      { label: "Prefeitura de Maceió — roda-gigante", href: "https://maceio.al.gov.br/p/iplam/roda-massay-o-k" },
+    ],
   },
 } satisfies Record<string, TopicContent>;

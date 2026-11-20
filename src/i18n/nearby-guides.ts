@@ -1,5 +1,6 @@
 import type { Lang } from "../config";
 import { maceioPlaces } from "../data/maceio-places";
+import { visitDetails } from "../data/maceio-visit-details";
 import { maceioVisitPlans } from "../data/maceio-visit-plans";
 import { pajucaraGuides } from "../data/pajucara-guides";
 import type { TopicContent } from "./topics";
@@ -79,5 +80,12 @@ export function getNearbyGuide(lang: Lang, slug: string): TopicContent | undefin
 export function getNearbyVisitPlan(lang: Lang, slug: NearbySlug) {
   const plan = maceioVisitPlans[slug];
   if (!plan) throw new Error(`Missing visit plan for ${slug}`);
-  return lang === "pt" ? plan : localize(plan, lang);
+  const details = visitDetails[slug];
+  return {
+    ...(lang === "pt" ? plan : localize(plan, lang)),
+    minutes: details.minutes,
+    kind: details.kind,
+    advice: details.advice[lang],
+    highlight: details.highlight[lang],
+  };
 }

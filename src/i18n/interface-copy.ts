@@ -8,6 +8,8 @@ export const interfaceCopy = {
     photoNumber: "Foto do Marco dos Corais", previousPhoto: "Foto anterior", nextPhoto: "Próxima foto",
     weather: ["Céu limpo", "Predomínio de sol", "Parcialmente nublado", "Nublado", "Neblina", "Garoa leve", "Garoa", "Chuva", "Chuva forte", "Neve", "Pancadas de chuva", "Trovoada"],
     topic: {
+      duration: "Duração sugerida", minutes: "min", visitTips: "Dicas para planejar a visita", highlights: "O que torna o local especial", currentRating: "Avaliação atual no Google Maps", directions: "Traçar rota até o local",
+      kinds: { beach: "Praia", walk: "Caminhada", lighthouse: "Farol", park: "Parque", district: "Bairro", boat: "Passeio de jangada", market: "Mercado de artesanato", memorial: "Memorial", monument: "Monumento", museum: "Museu", square: "Praça", viewpoint: "Mirante", church: "Igreja", theatre: "Teatro", gallery: "Galeria de arte" },
       hours: "Horário", visitorReviews: "Consultar avaliações dos visitantes", about: "Sobre o local", management: "Gestão do local",
       practical: "Informações práticas", type: "Tipo de visita", access: "Acesso e funcionamento", transport: "Como chegar",
       location: "Localização", opening: "Horário de funcionamento", tickets: "Preço e ingressos", itinerary: "Roteiro da visita",
@@ -23,6 +25,8 @@ export const interfaceCopy = {
     photoNumber: "Photo of Marco dos Corais", previousPhoto: "Previous photo", nextPhoto: "Next photo",
     weather: ["Clear", "Mostly clear", "Partly cloudy", "Overcast", "Fog", "Light drizzle", "Drizzle", "Rain", "Heavy rain", "Snow", "Showers", "Thunderstorm"],
     topic: {
+      duration: "Suggested visit length", minutes: "min", visitTips: "Plan your visit", highlights: "Why visit", currentRating: "Current rating on Google Maps", directions: "Get directions",
+      kinds: { beach: "Beach", walk: "Walking route", lighthouse: "Lighthouse", park: "Park", district: "Neighborhood", boat: "Sailing raft trip", market: "Craft market", memorial: "Memorial", monument: "Monument", museum: "Museum", square: "Square", viewpoint: "Viewpoint", church: "Church", theatre: "Theater", gallery: "Art gallery" },
       hours: "Hours", visitorReviews: "Read visitor reviews", about: "About the attraction", management: "Managed by",
       practical: "Visitor information", type: "Attraction type", access: "Access and operation", transport: "Getting there",
       location: "Location", opening: "Opening hours", tickets: "Admission and tickets", itinerary: "Suggested itinerary",
@@ -38,6 +42,8 @@ export const interfaceCopy = {
     photoNumber: "珊瑚地标照片", previousPhoto: "上一张照片", nextPhoto: "下一张照片",
     weather: ["晴", "大致晴朗", "局部多云", "阴", "雾", "轻微毛毛雨", "毛毛雨", "雨", "大雨", "雪", "阵雨", "雷暴"],
     topic: {
+      duration: "建议停留", minutes: "分钟", visitTips: "游览建议", highlights: "景点特色", currentRating: "查看 Google 地图实时评分", directions: "规划前往路线",
+      kinds: { beach: "海滩", walk: "步行路线", lighthouse: "灯塔", park: "公园", district: "历史街区", boat: "传统帆筏游览", market: "手工艺市场", memorial: "纪念馆", monument: "纪念碑", museum: "博物馆", square: "广场", viewpoint: "观景台", church: "教堂", theatre: "剧院", gallery: "美术馆" },
       hours: "开放时间", visitorReviews: "查看游客评价", about: "关于景点", management: "管理主体",
       practical: "实用信息", type: "景点类型", access: "开放与入场", transport: "交通方式",
       location: "位置", opening: "开放时间", tickets: "票价与门票", itinerary: "建议游览路线",
@@ -53,6 +59,8 @@ export const interfaceCopy = {
     photoNumber: "Foto de Marco dos Corais", previousPhoto: "Foto anterior", nextPhoto: "Foto siguiente",
     weather: ["Despejado", "Mayormente despejado", "Parcialmente nublado", "Cubierto", "Niebla", "Llovizna ligera", "Llovizna", "Lluvia", "Lluvia intensa", "Nieve", "Chubascos", "Tormenta"],
     topic: {
+      duration: "Duración sugerida", minutes: "min", visitTips: "Consejos para la visita", highlights: "Qué hace especial al lugar", currentRating: "Puntuación actual en Google Maps", directions: "Cómo llegar al lugar",
+      kinds: { beach: "Playa", walk: "Ruta a pie", lighthouse: "Faro", park: "Parque", district: "Barrio", boat: "Paseo en jangada", market: "Mercado de artesanía", memorial: "Memorial", monument: "Monumento", museum: "Museo", square: "Plaza", viewpoint: "Mirador", church: "Iglesia", theatre: "Teatro", gallery: "Galería de arte" },
       hours: "Horario", visitorReviews: "Consultar opiniones de visitantes", about: "Sobre el lugar", management: "Gestión del lugar",
       practical: "Información práctica", type: "Tipo de visita", access: "Acceso y funcionamiento", transport: "Cómo llegar",
       location: "Ubicación", opening: "Horario de apertura", tickets: "Precio y entradas", itinerary: "Itinerario de visita",

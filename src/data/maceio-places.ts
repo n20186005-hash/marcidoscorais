@@ -151,7 +151,7 @@ const places = {
     source: "https://museus.al.gov.br/lista-museus",
   },
   "museu-palacio-floriano-peixoto": {
-    name: "Museu Palácio Floriano Peixoto", area: "Centro histórico", address: "Praça Marechal Floriano Peixoto, Centro, Maceió – AL", manager: "Secretaria de Estado da Cultura e Economia Criativa de Alagoas.",
+    name: "Museu Palácio Floriano Peixoto", area: "Centro histórico", address: "Praça Marechal Floriano Peixoto, 517, Centro, Maceió – AL", manager: "Secretaria de Estado da Cultura e Economia Criativa de Alagoas.",
     summary: "O antigo palácio do governo compõe a paisagem da Praça dos Martírios.",
     history: "O palácio foi sede do governo alagoano. Sua conversão em museu permite conhecer o edifício e parte da história institucional do estado.",
     feature: "Na visita, compare a solenidade da fachada com o percurso interno da escadaria e dos salões.",
@@ -287,7 +287,7 @@ const places = {
     question: "É a igreja em frente ao palácio?", answer: "A Igreja do Livramento está na Rua do Comércio. A Igreja dos Martírios fica no entorno do palácio.",
   },
   "igreja-dos-martirios": {
-    name: "Igreja Bom Jesus dos Martírios", area: "Centro histórico", address: "Praça Marechal Floriano Peixoto, Centro, Maceió – AL", manager: "Comunidade católica local, na Arquidiocese de Maceió.",
+    name: "Igreja Bom Jesus dos Martírios", area: "Centro histórico", address: "Praça Marechal Floriano Peixoto, 517, Centro, Maceió – AL", manager: "Comunidade católica local, na Arquidiocese de Maceió.",
     summary: "A igreja que dá nome à praça forma um conjunto com o antigo palácio do governo.",
     history: "A igreja dá nome à Praça dos Martírios e compõe o conjunto histórico que inclui o antigo palácio do governo.",
     feature: "Procure o revestimento decorativo da fachada e compare sua escala com a do palácio na mesma praça.",
@@ -412,7 +412,13 @@ function makeTopic(slug: MaceioPlaceSlug, place: Place): TopicContent {
     ],
     faq: [{ question: place.question, answer: place.answer }],
     related: ["pontos-turisticos-maceio", "orla-pajucara-ponta-verde"],
-    sources: [{ label: "Informações de referência", href: place.source ?? (place.area === "Centro histórico" ? heritage : tourism) }],
+    sources: [
+      { label: "Informações de referência", href: place.source ?? (place.area === "Centro histórico" ? heritage : tourism) },
+      ...(slug === "museu-palacio-floriano-peixoto" ? [
+        { label: "Horários e endereço do museu", href: "https://visite.museus.gov.br/instituicoes/museu-palacio-floriano-peixoto/" },
+        { label: "Visita gratuita pela Secult", href: "https://alagoasdigital.al.gov.br/servico/3131" },
+      ] : []),
+    ],
   };
 }
 

@@ -1,7 +1,7 @@
 ---
-import { interfaceCopy } from "../i18n/interface-copy";
+import { interfaceCopy, nearbyCopy } from "../i18n/interface-copy";
 import type { Lang } from "../config";
-import type { VisitPlan } from "../data/maceio-visit-plans";
+import type { getNearbyVisitPlan } from "../i18n/nearby-guides";
 import TopicSection from "./TopicSection.astro";
 import type { TopicContent } from "../i18n/topics";
 import { getTopic } from "../i18n/topics";
@@ -11,7 +11,7 @@ interface Props {
   lang: Lang;
   topic: TopicContent;
   t: Translation;
-  visitPlan?: VisitPlan;
+  visitPlan?: ReturnType<typeof getNearbyVisitPlan>;
 }
 const { lang, topic, t, visitPlan } = Astro.props;
 const labels = interfaceCopy[lang].topic;
@@ -23,6 +23,15 @@ const earlySections = visitPlan ? earlyOrder.flatMap((id) => topic.sections.filt
 const photoSections = visitPlan ? topic.sections.filter(({ id }) => id === "fotos") : [];
 const mainSections = topic.sections.filter((section) => !earlySections.includes(section) && !photoSections.includes(section));
 const rating = topic.reviewPlaces?.find(({ snapshot }) => snapshot)?.snapshot;
+const directionsDestination = visitPlan?.kind === "lighthouse"
+  ? "Marco dos Corais, Ponta Verde, Maceió, AL"
+  : visitPlan?.kind === "boat"
+    ? "Embarque de Jangadas, Praia de Pajuçara, Maceió, AL"
+    : topic.location?.query;
+const mapDirections = directionsDestination && new URLSearchParams({
+  api: "1",
+  destination: directionsDestination,
+});
 
 const faqLd = {
   "@context": "https://schema.org",
@@ -52,10 +61,10 @@ const related = topic.related
       {visitPlan && (
         <div class="mt-4 space-y-2">
           <p><strong>{labels.hours}</strong> · {visitPlan.hours}</p>
-          <p><a class="underline" href="#avaliacoes">{rating?.text ?? labels.visitorReviews}</a></p>
+          <p><a class="underline" href="#avaliacoes">{rating?.text ?? labels.currentRating}</a></p>
         </div>
       )}
-      {topic.photo && topic.location && (
+      {topic.location && (
         <a class="btn btn--outline mt-3 inline-block" href={mapsSearch(topic.location.query)} target="_blank" rel="noopener">{interfaceCopy[lang].map}</a>
       )}
     </div>
@@ -72,6 +81,21 @@ const related = topic.related
   </figure>
 )}
 
+{visitPlan && (
+  <section id="dicas-de-visita" class="section">
+    <div class="container grid grid-2">
+      <div class="card">
+        <h2 class="card__title">{labels.visitTips}</h2>
+        <p>{visitPlan.advice}</p>
+      </div>
+      <div class="card" id="destaques">
+        <h2 class="card__title">{labels.highlights}</h2>
+        <p>{visitPlan.highlight}</p>
+      </div>
+    </div>
+  </section>
+)}
+
 {earlySections.map((section) => <TopicSection section={section} />)}
 
 {topic.visitorInfo && (
@@ -84,9 +108,10 @@ const related = topic.related
       </div>
       <h3 class="card__title">{labels.practical}</h3>
       <dl class="grid grid-2">
-        <div class="card"><dt class="card__title">{labels.type}</dt><dd>{topic.visitorInfo.type}</dd></div>
+        <div class="card"><dt class="card__title">{labels.type}</dt><dd>{visitPlan ? labels.kinds[visitPlan.kind] : topic.visitorInfo.type}</dd></div>
         <div class="card"><dt class="card__title">{labels.access}</dt><dd>{topic.visitorInfo.access}</dd></div>
         {!visitPlan && <div class="card"><dt class="card__title">{labels.transport}</dt><dd>{topic.visitorInfo.transport}</dd></div>}
+        {visitPlan && <div class="card"><dt class="card__title">{labels.duration}</dt><dd>{visitPlan.minutes} {labels.minutes}</dd></div>}
         {topic.location && <div class="card"><dt class="card__title">{labels.location}</dt><dd>{topic.location.address}</dd></div>}
       </dl>
       {visitPlan && (
@@ -189,6 +214,11 @@ const related = topic.related
         <a class="btn btn--outline" href={mapsSearch(topic.location.query)} target="_blank" rel="noopener">
           {labels.openMap}
         </a>
+        {visitPlan && !topic.location.directions && mapDirections && (
+          <a class="btn btn--outline" href={`https://www.google.com/maps/dir/?${mapDirections}`} target="_blank" rel="noopener">
+            {labels.directions}
+          </a>
+        )}
         {topic.location.directions && (
           <a class="btn btn--outline" href={topic.location.directions} target="_blank" rel="noopener">
             {labels.walking}
@@ -200,11 +230,12 @@ const related = topic.related
 }
 
 {
-  related.length > 0 && (
+  (visitPlan || related.length > 0) && (
     <section class="section">
       <div class="container">
         <div class="section-head">
           <h2 class="section-head__title">{t.footer.guidesTitle}</h2>
+          {visitPlan && <a class="btn btn--outline" href={`/${lang}#arredores`}>{nearbyCopy[lang].title}</a>}
         </div>
         <div class="grid grid-3">
           {related.map((r) => (
