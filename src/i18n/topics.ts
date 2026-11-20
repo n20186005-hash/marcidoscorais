@@ -1,3 +1,4 @@
+import { getNearbyGuide, nearbySlugs } from "./nearby-guides";
 import type { Lang } from "../config";
 import { maceioPlaces, type MaceioPlaceSlug } from "../data/maceio-places";
 import { pajucaraGuides } from "../data/pajucara-guides";
@@ -1272,9 +1273,9 @@ export function getTopic(
   lang: Lang,
   slug: TopicSlug
 ): TopicContent | undefined {
-  return topics[lang]?.[slug];
+  return topics[lang]?.[slug] ?? getNearbyGuide(lang, slug);
 }
 
 export function topicSlugsForLang(lang: Lang): TopicSlug[] {
-  return Object.keys(topics[lang] ?? {}) as TopicSlug[];
+  return [...new Set([...Object.keys(topics[lang] ?? {}), ...nearbySlugs])] as TopicSlug[];
 }

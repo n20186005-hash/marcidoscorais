@@ -1,6 +1,7 @@
 ---
 import type { Lang } from "../config";
 import { directoryArea, directoryTitle } from "../i18n/nearby-directory";
+import { htmlLang } from "../i18n/ui";
 import { nearbyCopy } from "../i18n/interface-copy";
 import { maceioPlaces } from "../data/maceio-places";
 import { pajucaraGuides } from "../data/pajucara-guides";
@@ -23,7 +24,7 @@ const areas = [...new Set(nearby.map(([, topic]) => topic.eyebrow))];
           <h3 class="card__title">{directoryArea(lang, area)}</h3>
           <ul class="nearby-links">
             {nearby.filter(([, topic]) => topic.eyebrow === area).map(([slug, topic]) => (
-              <li><a href={`/pt/${slug}`} hreflang="pt-BR">{directoryTitle(lang, slug, topic.title)}</a></li>
+              <li><a href={`/${lang}/${slug}`} hreflang={htmlLang[lang]}>{directoryTitle(lang, slug, topic.title)}</a></li>
             ))}
           </ul>
         </div>

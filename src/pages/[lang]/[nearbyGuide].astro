@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopicPage from "../../components/TopicPage.astro";
+import { getNearbyGuide, getNearbyVisitPlan, nearbySlugs } from "../../i18n/nearby-guides";
+import { getTranslation } from "../../i18n/translations";
+import { languagesList } from "../../i18n/ui";
+
+export function getStaticPaths() {
+  return languagesList.filter((lang) => lang !== "pt").flatMap((lang) =>
+    nearbySlugs.map((slug) => {
+      const topic = getNearbyGuide(lang, slug);
+      if (!topic) throw new Error(`Missing guide: ${slug}`);
+      return {
+        params: { lang, nearbyGuide: slug },
+        props: { lang, topic, visitPlan: getNearbyVisitPlan(lang, slug) },
+      };
+    }),
+  );
+}
+
+const { nearbyGuide } = Astro.params;
+const { lang, topic, visitPlan } = Astro.props;
+const t = getTranslation(lang);
+---
+<Layout lang={lang} t={t} page={nearbyGuide} title={topic.metaTitle} description={topic.metaDescription} availableLangs={languagesList}>
+  <TopicPage lang={lang} topic={topic} t={t} visitPlan={visitPlan} />
+</Layout>

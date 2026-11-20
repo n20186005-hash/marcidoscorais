@@ -74,7 +74,7 @@ export const portugueseGuidesCopy = {
 
 export const nearbyCopy = {
   pt: { link: "Arredores", title: portugueseGuidesCopy.nearbyTitle, intro: portugueseGuidesCopy.nearbyIntro },
-  en: { link: "Nearby places", title: "Things to see near Marco dos Corais", intro: "Browse 35 guides to nearby beaches, historic sites and museums. The guides are in Portuguese." },
-  zh: { link: "周边景点", title: "珊瑚地标周边景点", intro: "查看 35 篇周边游览指南，涵盖海滩、历史街区和博物馆。指南为葡语版。" },
-  es: { link: "Alrededores", title: "Qué visitar cerca de Marco dos Corais", intro: "Explora 35 guías de playas, lugares históricos y museos cercanos. Las guías están en portugués." },
+  en: { link: "Nearby places", title: "Things to see near Marco dos Corais", intro: "Browse 35 guides to nearby beaches, historic sites and museums." },
+  zh: { link: "周边景点", title: "珊瑚地标周边景点", intro: "查看 35 篇周边游览指南，涵盖海滩、历史街区和博物馆。" },
+  es: { link: "Alrededores", title: "Qué visitar cerca de Marco dos Corais", intro: "Explora 35 guías de playas, lugares históricos y museos cercanos." },
 } satisfies Record<Lang, { link: string; title: string; intro: string }>;
