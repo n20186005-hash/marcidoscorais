@@ -18,10 +18,11 @@ const labels = interfaceCopy[lang].topic;
 const mapsSearch = (query: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
-const earlyOrder = ["planeje-a-visita", "planejamento", "o-que-observar", "orla"];
+const earlyOrder = ["planeje-a-visita", "planejamento"];
+const discoverySections = visitPlan ? topic.sections.filter(({ id }) => id === "o-que-observar" || id === "orla") : [];
 const earlySections = visitPlan ? earlyOrder.flatMap((id) => topic.sections.filter((section) => section.id === id)) : [];
 const photoSections = visitPlan ? topic.sections.filter(({ id }) => id === "fotos") : [];
-const mainSections = topic.sections.filter((section) => !earlySections.includes(section) && !photoSections.includes(section));
+const mainSections = topic.sections.filter((section) => !earlySections.includes(section) && !photoSections.includes(section) && !discoverySections.includes(section));
 const rating = topic.reviewPlaces?.find(({ snapshot }) => snapshot)?.snapshot;
 const directionsDestination = visitPlan?.kind === "lighthouse"
   ? "Marco dos Corais, Ponta Verde, Maceió, AL"
@@ -45,6 +46,17 @@ const faqLd = {
     },
   })),
 };
+
+const nextStop = visitPlan && getTopic(lang, visitPlan.nextStop);
+const quickFacts = visitPlan && topic.visitorInfo ? [
+  [labels.type, labels.kinds[visitPlan.kind]],
+  [labels.location, topic.location?.address],
+  [labels.management, topic.visitorInfo.management],
+  [labels.duration, `${visitPlan.minutes} ${labels.minutes}`],
+  [labels.opening, visitPlan.hours],
+  [labels.tickets, visitPlan.fee],
+  [labels.access, topic.visitorInfo.access],
+] : [];
 
 const related = topic.related
   .map((slug) => ({ slug, content: getTopic(lang, slug) }))
@@ -104,16 +116,28 @@ const related = topic.related
       <div class="section-head">
         <h2 class="section-head__title">{topic.visitorInfo.heading ?? labels.about}</h2>
         <p class="section-head__subtitle"><strong>{labels.management}</strong> · {topic.visitorInfo.management}</p>
-        {topic.visitorInfo.background && <p class="section-head__subtitle">{topic.visitorInfo.background}</p>}
+        {!visitPlan && topic.visitorInfo.background && <p class="section-head__subtitle">{topic.visitorInfo.background}</p>}
       </div>
-      <h3 class="card__title">{labels.practical}</h3>
-      <dl class="grid grid-2">
-        <div class="card"><dt class="card__title">{labels.type}</dt><dd>{visitPlan ? labels.kinds[visitPlan.kind] : topic.visitorInfo.type}</dd></div>
-        <div class="card"><dt class="card__title">{labels.access}</dt><dd>{topic.visitorInfo.access}</dd></div>
-        {!visitPlan && <div class="card"><dt class="card__title">{labels.transport}</dt><dd>{topic.visitorInfo.transport}</dd></div>}
-        {visitPlan && <div class="card"><dt class="card__title">{labels.duration}</dt><dd>{visitPlan.minutes} {labels.minutes}</dd></div>}
-        {topic.location && <div class="card"><dt class="card__title">{labels.location}</dt><dd>{topic.location.address}</dd></div>}
-      </dl>
+      {visitPlan ? (
+        <table class="topic-page__facts">
+          <caption>{labels.atAGlance}</caption>
+          <tbody>
+            {quickFacts.map(([label, value]) => value && (
+              <tr><th scope="row">{label}</th><td>{value}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <>
+          <h3 class="card__title">{labels.practical}</h3>
+          <dl class="grid grid-2">
+            <div class="card"><dt class="card__title">{labels.type}</dt><dd>{topic.visitorInfo.type}</dd></div>
+            <div class="card"><dt class="card__title">{labels.access}</dt><dd>{topic.visitorInfo.access}</dd></div>
+            <div class="card"><dt class="card__title">{labels.transport}</dt><dd>{topic.visitorInfo.transport}</dd></div>
+            {topic.location && <div class="card"><dt class="card__title">{labels.location}</dt><dd>{topic.location.address}</dd></div>}
+          </dl>
+        </>
+      )}
       {visitPlan && (
         <div class="grid grid-2 mt-4">
           <section class="card" id="horario"><h3 class="card__title">{labels.opening}</h3><p>{visitPlan.hours}</p></section>
@@ -130,6 +154,15 @@ const related = topic.related
   </section>
 )}
 
+{visitPlan && (
+  <section id="descobrir" class="section">
+    <div class="container">
+      <div class="section-head"><h2 class="section-head__title">{labels.discover}</h2></div>
+      {topic.visitorInfo?.background && <p class="prose">{topic.visitorInfo.background}</p>}
+    </div>
+  </section>
+)}
+{discoverySections.map((section) => <TopicSection section={section} />)}
 {mainSections.map((section) => <TopicSection section={section} />)}
 
 {visitPlan && (
@@ -140,7 +173,18 @@ const related = topic.related
         <ol class="list-decimal space-y-2 pl-6">
           {visitPlan.route.map((step) => <li>{step}</li>)}
         </ol>
-        {topic.visitorInfo && <p class="mt-4"><strong>{labels.advice}</strong> · {topic.visitorInfo.access}</p>}
+        {nextStop && (
+          <p class="mt-4"><strong>{labels.pairWith}</strong> · <a class="underline" href={`/${lang}/${visitPlan.nextStop}`}>{nextStop.title}</a></p>
+        )}
+      </div>
+    </section>
+    <section id="orientacoes" class="section">
+      <div class="container">
+        <div class="section-head"><h2 class="section-head__title">{labels.visitNotice}</h2></div>
+        <ul class="tip-list">
+          <li>{visitPlan.notice}</li>
+          {topic.visitorInfo && <li>{topic.visitorInfo.access}</li>}
+        </ul>
       </div>
     </section>
     {photoSections.map((section) => <TopicSection section={section} />)}
@@ -296,6 +340,30 @@ const related = topic.related
   .topic-page :global(.card) {
     padding: clamp(16px, 2.5vw, 24px);
     border-radius: var(--radius-md);
+  }
+
+  .topic-page__facts {
+    width: 100%;
+    table-layout: fixed;
+    background: var(--color-surface);
+  }
+
+  .topic-page__facts caption {
+    font-weight: 700;
+    padding-block-end: 12px;
+    text-align: start;
+  }
+
+  .topic-page__facts th,
+  .topic-page__facts td {
+    border-block-end: 1px solid var(--color-border);
+    padding: clamp(8px, 2vw, 16px);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  .topic-page__facts th {
+    width: 34%;
   }
 
   .topic-page :global(.btn) {

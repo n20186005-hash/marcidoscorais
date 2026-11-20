@@ -87,5 +87,7 @@ export function getNearbyVisitPlan(lang: Lang, slug: NearbySlug) {
     kind: details.kind,
     advice: details.advice[lang],
     highlight: details.highlight[lang],
+    notice: details.notice[lang],
+    nextStop: details.nextStop,
   };
 }

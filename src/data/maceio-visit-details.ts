@@ -13,6 +13,13 @@ export const visitDetails = {
       "en": "Compare the sand, boarding area and raft sails to see how the beach serves as the departure point for the reefs.",
       "es": "Observa la arena, el embarque y las velas para entender cómo la playa sirve de punto de partida hacia los arrecifes.",
       "zh": "对照沙滩、上船区与帆筏的停泊位置，能看出这片海滩如何连接岸上步道与近海礁区。"
+    },
+    "nextStop": "feirinha-de-artesanato-da-pajucara",
+    "notice": {
+      "pt": "Se só for passear, atravesse a zona de embarque pelo calçadão e deixe livre a passagem das jangadas.",
+      "en": "If you are just walking, stay on the promenade by the boarding area and leave the raft passage clear.",
+      "es": "Si solo vas a pasear, sigue por el paseo junto al embarque y deja libre el paso de las jangadas.",
+      "zh": "只散步的话，经过上船区时沿滨海步道走，给帆筏作业留出通道。"
     }
   },
   "orla-pajucara-ponta-verde": {
@@ -29,6 +36,13 @@ export const visitDetails = {
       "en": "The clearest contrast is between the rafts in Pajuçara and the open horizon around the bend at Ponta Verde.",
       "es": "El contraste más claro está entre las jangadas de Pajuçara y el horizonte abierto en la curva de Ponta Verde.",
       "zh": "这条线路最鲜明的对比，是帕茹萨拉的帆筏活动与蓬塔韦尔迪转角处开阔的海平线。"
+    },
+    "nextStop": "farol-da-ponta-verde",
+    "notice": {
+      "pt": "Leve água para o trecho junto ao mar e use os bancos como pontos de pausa, sem contar com assentos em toda a rota.",
+      "en": "Bring water for the seafront stretch. Use benches for breaks where available along the route.",
+      "es": "Lleva agua para el tramo junto al mar y aprovecha los bancos que encuentres para descansar.",
+      "zh": "沿海一段建议带水，可在有座椅的地方休息，途中并非处处有座位。"
     }
   },
   "farol-da-ponta-verde": {
@@ -45,6 +59,13 @@ export const visitDetails = {
       "en": "The striped tower is a navigation aid. Notice how its vertical outline stands above the low reef line.",
       "es": "La torre a rayas orienta la navegación. Fíjate en cómo sobresale su silueta vertical sobre la línea baja del arrecife.",
       "zh": "条纹塔身是航海标志。站在岸上能看到高耸的塔身与低矮礁线形成对比。"
+    },
+    "nextStop": "monumento-almirante-tamandare",
+    "notice": {
+      "pt": "A referência de chegada é em terra firme; use zoom ou binóculos para observar a torre no mar a partir do passeio público.",
+      "en": "Use the onshore arrival point and a zoom lens or binoculars to view the offshore tower from the public promenade.",
+      "es": "Usa el punto de llegada en tierra y observa la torre marina con zoom o prismáticos desde el paseo público.",
+      "zh": "导航以岸上观景点为准，可在公共步道用变焦镜头或望远镜观察海上的灯塔。"
     }
   },
   "parque-massay-o-k": {
@@ -61,6 +82,13 @@ export const visitDetails = {
       "en": "The former Praça Multieventos explains the park’s broad, open layout. The 42-metre Ferris wheel added a vertical landmark to the waterfront.",
       "es": "La antigua plaza Multieventos explica el trazado abierto del parque. La noria de 42 metros añadió un referente vertical al litoral.",
       "zh": "公园的开阔格局延续了原多功能活动广场的尺度。高 42 米的摩天轮为滨海天际线增添了醒目标志。"
+    },
+    "nextStop": "pavilhao-do-artesanato",
+    "notice": {
+      "pt": "Se o objetivo for a roda-gigante, consulte a bilheteria dela antes de organizar o restante do passeio pelo parque.",
+      "en": "If the Ferris wheel is your main stop, check its ticket office before planning the rest of your park visit.",
+      "es": "Si tu prioridad es la noria, consulta su taquilla antes de organizar el resto del paseo por el parque.",
+      "zh": "如果主要是为了坐摩天轮，可先向摩天轮售票处确认当日安排，再规划公园游览顺序。"
     }
   },
   "praia-de-jatiuca": {
@@ -77,6 +105,13 @@ export const visitDetails = {
       "en": "The continuous frontage along the avenue shows Jatiúca’s urban character. Compare it with the bend at Ponta Verde.",
       "es": "El frente continuo de la avenida muestra el carácter urbano de Jatiúca. Compáralo con la curva de Ponta Verde.",
       "zh": "大道两侧连续的城市建筑是雅蒂乌卡的特色，可以和蓬塔韦尔迪转弯处更开阔的视野作对照。"
+    },
+    "nextStop": "farol-da-ponta-verde",
+    "notice": {
+      "pt": "Para uma parada curta, faça o percurso pelo calçadão e escolha um único acesso à areia para a ida e a volta.",
+      "en": "For a short stop, stay on the promenade and pick one beach access to use in both directions.",
+      "es": "Para una parada breve, sigue por el paseo y utiliza el mismo acceso a la arena para ir y volver.",
+      "zh": "若只短暂停留，可以沿步道游览，上下沙滩都走同一个出入口。"
     }
   },
   "praia-de-ipioca": {
@@ -93,6 +128,13 @@ export const visitDetails = {
       "en": "Look at the line of coconut palms from the sand and identify the paths connecting the beach to the north-coast road.",
       "es": "Observa la hilera de cocoteros desde la arena y localiza los accesos que unen la playa con la carretera del litoral norte.",
       "zh": "从沙滩回望椰林，留意从北部海岸公路穿过林带抵达海边的入口。"
+    },
+    "nextStop": "praia-da-sereia",
+    "notice": {
+      "pt": "Se reservar um beach club, confirme o que o valor inclui e identifique separadamente o acesso público que pretende usar.",
+      "en": "If booking a beach club, check what the price includes and identify the public access separately if you plan to use it.",
+      "es": "Si reservas un club de playa, pregunta qué incluye el precio y localiza por separado el acceso público que quieras usar.",
+      "zh": "若预约海滩俱乐部，先问清费用包含哪些服务。同时确认自己将使用哪个公共海滩入口。"
     }
   },
   "praia-da-sereia": {
@@ -109,6 +151,13 @@ export const visitDetails = {
       "en": "The sculpture gives the landscape a sense of scale. Notice the line of foam around the reefs.",
       "es": "La escultura da escala al paisaje. Observa la línea de espuma alrededor de los arrecifes.",
       "zh": "雕像适合用来判断景观尺度，也可留意浪花如何勾勒出礁带的边缘。"
+    },
+    "nextStop": "praia-de-ipioca",
+    "notice": {
+      "pt": "O ponto de observação da escultura é a faixa de areia. Use esse ponto também como referência para reunir o grupo.",
+      "en": "Use the beach onshore to view the sculpture and as a meeting point for your group.",
+      "es": "Observa la escultura desde la arena y usa ese lugar también como punto de encuentro del grupo.",
+      "zh": "从岸边沙滩看雕像即可，也可以把同一处位置用作同行者的集合点。"
     }
   },
   "praia-de-sauacui": {
@@ -125,6 +174,13 @@ export const visitDetails = {
       "en": "Look for the transition from coastal vegetation to sand that characterizes this stretch of Sauaçui.",
       "es": "Fíjate en la transición entre la vegetación costera y la arena, característica de este tramo de Sauaçui.",
       "zh": "留意岸边植被向沙地过渡的地带，这是萨瓦苏伊这段海岸值得观察的景观。"
+    },
+    "nextStop": "praia-de-ipioca",
+    "notice": {
+      "pt": "Salve no mapa o acesso de chegada e combine o retorno antes de iniciar a caminhada pela areia.",
+      "en": "Save your arrival access on the map and arrange your return before starting your walk on the sand.",
+      "es": "Guarda en el mapa el acceso de llegada y acuerda el regreso antes de empezar a caminar por la arena.",
+      "zh": "出发沿沙滩步行前，先把抵达时的入口存到地图上，并约好返程。"
     }
   },
   "praia-de-jaragua": {
@@ -141,6 +197,13 @@ export const visitDetails = {
       "en": "The beach’s proximity to port structures distinguishes this stretch from the visitor waterfronts of Pajuçara and Ponta Verde.",
       "es": "La cercanía de la playa a las estructuras portuarias distingue este tramo de los paseos más turísticos de Pajuçara y Ponta Verde.",
       "zh": "海滩紧靠港口设施，体现了雅拉瓜与帕茹萨拉、蓬塔韦尔迪旅游海滨不同的港区景观。"
+    },
+    "nextStop": "bairro-historico-de-jaragua",
+    "notice": {
+      "pt": "Para continuar a pé até o bairro histórico, identifique primeiro o trecho de passeio público que contorna o porto.",
+      "en": "Before continuing on foot to the historic district, identify the public walkway that skirts the port.",
+      "es": "Antes de seguir a pie al barrio histórico, identifica el tramo de paseo público que bordea el puerto.",
+      "zh": "若要步行去历史街区，先辨认绕过港区的公共人行道。"
     }
   },
   "pontal-da-barra": {
@@ -157,6 +220,13 @@ export const visitDetails = {
       "en": "Filé embroidery is worked on a mesh. Notice how stitches create both solid patterns and open spaces in one piece.",
       "es": "El bordado filé se trabaja sobre una red. Observa cómo las puntadas forman motivos llenos y espacios abiertos en la misma pieza.",
       "zh": "菲莱刺绣以网格为底，留意彩线怎样在同一块织物上形成实纹与镂空。"
+    },
+    "nextStop": "pavilhao-do-artesanato",
+    "notice": {
+      "pt": "Peça autorização para fotografar dentro das oficinas e confirme com o artesão o tempo necessário se quiser encomendar uma peça.",
+      "en": "Ask permission before taking photos in a workshop, and check lead times with the artisan if ordering a piece.",
+      "es": "Pide permiso para fotografiar dentro de los talleres y consulta el plazo si quieres encargar una pieza.",
+      "zh": "进工坊拍照前先征得同意。若想订做刺绣，直接向手艺人询问交付时间。"
     }
   },
   "piscinas-naturais-de-pajucara": {
@@ -173,6 +243,13 @@ export const visitDetails = {
       "en": "From the raft, look at how the reef separates sheltered areas from the open sea. The stopping point depends on the day’s conditions.",
       "es": "Desde la jangada, observa cómo el arrecife separa las zonas resguardadas del mar abierto. La parada depende de las condiciones del día.",
       "zh": "乘帆筏时可观察礁带如何将相对平缓的水域与外海分开。停靠点依当天条件安排。"
+    },
+    "nextStop": "praia-de-pajucara",
+    "notice": {
+      "pt": "Leve apenas o que puder proteger da água e deixe claro com o operador como será o reencontro no embarque de volta.",
+      "en": "Bring only what you can protect from water and confirm how to meet the operator again for the return crossing.",
+      "es": "Lleva solo lo que puedas proteger del agua y confirma cómo volverás a encontrarte con el operador para el regreso.",
+      "zh": "只带能做好防水的物品，并提前和船家约定返程时在哪里集合。"
     }
   },
   "feirinha-de-artesanato-da-pajucara": {
@@ -189,6 +266,13 @@ export const visitDetails = {
       "en": "Embroidery patterns are easier to see when pieces are spread out on a counter. Look at materials used by other stalls too.",
       "es": "Los motivos del bordado se ven mejor con las piezas extendidas. Fíjate también en los materiales que ofrecen otros puestos.",
       "zh": "把刺绣摊开更容易看清花纹，也可以观察不同摊位所用的其他材料。"
+    },
+    "nextStop": "pavilhao-do-artesanato",
+    "notice": {
+      "pt": "Confirme as formas de pagamento na banca e peça embalagem adequada se for transportar uma peça frágil.",
+      "en": "Ask the stallholder which payment methods they take and request suitable wrapping for fragile items.",
+      "es": "Pregunta en el puesto qué medios de pago acepta y pide un embalaje adecuado si compras una pieza frágil.",
+      "zh": "先问摊主支持哪些付款方式。购买易碎手工艺品时，可请对方做好包装。"
     }
   },
   "memorial-teotonio-vilela": {
@@ -205,6 +289,13 @@ export const visitDetails = {
       "en": "The waterfront setting is part of the memorial’s design. Compare the building’s scale with that of the public promenade.",
       "es": "La ubicación junto al mar forma parte de la lectura del memorial. Compara la escala del edificio con la del paseo público.",
       "zh": "临海位置本身就是纪念馆景观的一部分，可比较建筑体量与公共步道的尺度。"
+    },
+    "nextStop": "praia-de-pajucara",
+    "notice": {
+      "pt": "Se o memorial estiver fechado, mantenha a parada externa e siga a pé pelo trecho público da orla.",
+      "en": "If the memorial is closed, keep the outdoor stop and continue along the public waterfront on foot.",
+      "es": "Si el memorial está cerrado, conserva la visita exterior y sigue a pie por el tramo público del paseo.",
+      "zh": "如纪念馆关闭，可保留外观参观，再步行沿公共滨海步道继续游览。"
     }
   },
   "monumento-almirante-tamandare": {
@@ -221,6 +312,13 @@ export const visitDetails = {
       "en": "The base and inscription explain the monument’s commemorative purpose. The open waterfront lets you see it from more than one side.",
       "es": "La base y la inscripción explican el carácter conmemorativo del monumento. El paseo abierto permite observarlo desde varios lados.",
       "zh": "基座和铭文说明纪念碑的用途；开阔的公共步道让游客能从不同方向观察全貌。"
+    },
+    "nextStop": "farol-da-ponta-verde",
+    "notice": {
+      "pt": "Posicione-se no lado do passeio que permite ler a placa sem bloquear quem passa pelo calçadão.",
+      "en": "Stand where you can read the plaque without blocking pedestrians on the promenade.",
+      "es": "Sitúate donde puedas leer la placa sin bloquear el paso de quienes caminan por el paseo.",
+      "zh": "选一个不妨碍步道通行的位置阅读铭牌。"
     }
   },
   "pavilhao-do-artesanato": {
@@ -237,6 +335,13 @@ export const visitDetails = {
       "en": "The pavilion groups its shops inside one building. Compare this layout with the arrangement of stalls at the craft fair.",
       "es": "El pabellón reúne las tiendas en un edificio. Compara esta distribución con la de los puestos de la feria.",
       "zh": "展销馆把店铺集中在一个建筑内，可与附近集市的摊位布局作比较。"
+    },
+    "nextStop": "feirinha-de-artesanato-da-pajucara",
+    "notice": {
+      "pt": "Confirme com a loja a embalagem e as dimensões da peça se ela precisar caber na bagagem.",
+      "en": "Ask the shop to confirm the packed dimensions if the piece needs to fit in your luggage.",
+      "es": "Pide a la tienda las dimensiones con embalaje si la pieza debe caber en tu equipaje.",
+      "zh": "如果要把手工艺品放进行李，结账前请店家确认包装后的尺寸。"
     }
   },
   "museu-da-imagem-e-do-som": {
@@ -253,6 +358,13 @@ export const visitDetails = {
       "en": "The former state revenue office shows how a public-finance building was repurposed for the state’s audiovisual heritage.",
       "es": "La antigua oficina de recaudación muestra cómo un edificio de finanzas públicas pasó a albergar la memoria audiovisual del estado.",
       "zh": "博物馆所在的旧财政征收大楼，呈现了公共财政建筑改作地方影音文化展馆的变化。"
+    },
+    "nextStop": "praca-dois-leoes",
+    "notice": {
+      "pt": "Para grupos, use o canal de agendamento do MISA e confirme se haverá mediação ou visita livre.",
+      "en": "For groups, use MISA’s booking channel and confirm whether the visit will be guided or self-guided.",
+      "es": "Para grupos, utiliza el canal de reservas del MISA y confirma si la visita será guiada o libre.",
+      "zh": "团队参观可走馆方预约渠道，同时确认是有讲解员带领，还是自行参观。"
     }
   },
   "museu-pierre-chalita": {
@@ -269,6 +381,13 @@ export const visitDetails = {
       "en": "Looking at the collection and at the building offers two perspectives: one on the art and one on the museum’s place in the historic street.",
       "es": "La colección y el edificio ofrecen dos perspectivas: una sobre el arte y otra sobre el lugar del museo en la calle histórica.",
       "zh": "馆藏与馆舍提供两种观察角度：馆内看艺术收藏，街上看展馆如何融入历史街区。"
+    },
+    "nextStop": "rua-sa-e-albuquerque",
+    "notice": {
+      "pt": "Confirme com a Fundação Pierre Chalita se haverá recepção de visitantes antes de reservar tempo para o acervo.",
+      "en": "Check with the Pierre Chalita Foundation about public access before setting aside time to see the collection.",
+      "es": "Confirma con la Fundación Pierre Chalita si recibirá visitantes antes de reservar tiempo para la colección.",
+      "zh": "出发前向皮埃尔·沙利塔基金会确认是否对外接待，再为馆藏参观预留时间。"
     }
   },
   "museu-do-comercio": {
@@ -285,6 +404,13 @@ export const visitDetails = {
       "en": "When open, the grand hall shows the ceremonial role of the commercial association, distinct from that of the warehouses nearby.",
       "es": "Cuando se puede visitar, el salón noble muestra la función representativa de la asociación comercial, distinta de la de los almacenes cercanos.",
       "zh": "礼堂开放时，可以从厅室的布置了解商业协会的礼仪与接待功能，并与附近仓库的用途作对照。"
+    },
+    "nextStop": "rua-sa-e-albuquerque",
+    "notice": {
+      "pt": "Identifique a Associação Comercial no mapa e confirme o acesso à visita, pois o edifício tem funções além da museológica.",
+      "en": "Locate the Commercial Association on the map and confirm visitor access because the building serves purposes beyond the museum.",
+      "es": "Localiza la Asociación Comercial en el mapa y confirma el acceso para visitantes, pues el edificio tiene otras funciones además del museo.",
+      "zh": "在地图上认准商业协会大楼，并询问访客入口，因为这里还有博物馆以外的用途。"
     }
   },
   "memorial-a-republica": {
@@ -301,6 +427,13 @@ export const visitDetails = {
       "en": "The flags and the placement of the monument can be seen together from the waterfront.",
       "es": "Desde el paseo marítimo se ven en conjunto las banderas y la ubicación del monumento.",
       "zh": "从滨海步道一侧，可以同时观察旗帜的排列与纪念建筑在场地中的位置。"
+    },
+    "nextStop": "bairro-historico-de-jaragua",
+    "notice": {
+      "pt": "Separe o horário da visita interna do percurso pela Avenida da Paz, que pode ser feito como parada externa.",
+      "en": "Plan the interior visit separately from the Avenida da Paz walk, which still works as an outdoor stop.",
+      "es": "Separa el horario de entrada del paseo por la avenida da Paz, que también permite una visita exterior.",
+      "zh": "把馆内开放时段和和平大道的外观参观分别安排；只看外观也可以走这一段。"
     }
   },
   "praca-dois-leoes": {
@@ -317,6 +450,13 @@ export const visitDetails = {
       "en": "Compare the sculptures that give the square its name with the front of the former revenue office, now the museum.",
       "es": "Compara las esculturas que dan nombre a la plaza con la fachada de la antigua oficina de recaudación, hoy museo.",
       "zh": "看完广场得名的两座狮像，再转向旧财政征收大楼，也就是今天的影音博物馆。"
+    },
+    "nextStop": "museu-da-imagem-e-do-som",
+    "notice": {
+      "pt": "Combine o ponto de encontro junto a um dos leões e confira o horário do MISA se for atravessar para o museu.",
+      "en": "Choose one of the lions as your meeting point and check MISA’s hours if you plan to cross to the museum.",
+      "es": "Elige uno de los leones como punto de encuentro y consulta el horario del MISA si vas a cruzar al museo.",
+      "zh": "可约定在其中一座狮像旁集合。如果要过街进影音博物馆，先看馆方开放时间。"
     }
   },
   "rua-sa-e-albuquerque": {
@@ -333,6 +473,13 @@ export const visitDetails = {
       "en": "Differences in doors, windows and façade width offer clues to the buildings’ original uses.",
       "es": "Las diferencias entre portones, ventanas y anchura de las fachadas dan pistas sobre los usos antiguos de los edificios.",
       "zh": "比较大门、窗户与立面宽度，可以从街边辨认建筑过去的不同用途。"
+    },
+    "nextStop": "museu-do-comercio",
+    "notice": {
+      "pt": "Fotografe as fachadas da calçada e trate as entradas de edifícios como paradas separadas, conforme cada instituição.",
+      "en": "Photograph the façades from the sidewalk and plan any building visits separately with each institution.",
+      "es": "Fotografía las fachadas desde la acera y organiza por separado las visitas interiores con cada institución.",
+      "zh": "沿人行道拍摄建筑立面。要进楼参观时，分别按各机构的开放安排规划。"
     }
   },
   "porto-de-maceio": {
@@ -349,6 +496,13 @@ export const visitDetails = {
       "en": "The view brings together working port infrastructure and traces of older commerce preserved in nearby streets.",
       "es": "El paisaje reúne la infraestructura portuaria en uso y las huellas del antiguo comercio conservadas en las calles cercanas.",
       "zh": "现役港口设施与邻近街道保存的旧商业建筑，共同展示了雅拉瓜从旧商港到今天的变化。"
+    },
+    "nextStop": "rua-sa-e-albuquerque",
+    "notice": {
+      "pt": "Use o passeio público como ponto de observação. Para encontrar o cais no mapa, não confunda a área operacional com o local de visita.",
+      "en": "Use the public promenade as your viewing point. The operating wharf shown on the map is separate from the visitor viewpoint.",
+      "es": "Usa el paseo público como mirador. El muelle operativo que aparece en el mapa queda separado del punto para visitantes.",
+      "zh": "请以公共步道为观景点。地图上的作业码头和游客观景位置是两处不同的地方。"
     }
   },
   "bairro-historico-de-jaragua": {
@@ -365,6 +519,13 @@ export const visitDetails = {
       "en": "Read the district as a whole. Its square, warehouses, commercial institutions and waterfront help explain its development around the port.",
       "es": "Lee el barrio como un conjunto: la plaza, los almacenes, las instituciones comerciales y la costa explican su desarrollo portuario.",
       "zh": "可把广场、仓库、商业机构与海滨当作一个整体阅读，理解这个街区如何围绕港口发展。"
+    },
+    "nextStop": "praca-dois-leoes",
+    "notice": {
+      "pt": "Se um equipamento cultural estiver fechado, mantenha as ruas e a praça no roteiro e deixe a visita ao interior para outro horário.",
+      "en": "If a cultural venue is closed, keep the streets and square on the itinerary and return for the interior at another time.",
+      "es": "Si un centro cultural está cerrado, mantén las calles y la plaza en el recorrido y deja el interior para otro horario.",
+      "zh": "遇到展馆闭馆，可以保留街道和广场两站，另外安排时间参观室内。"
     }
   },
   "museu-theo-brandao": {
@@ -381,6 +542,13 @@ export const visitDetails = {
       "en": "The scale and decoration of the old mansion contrast with the folk-culture objects in the collection.",
       "es": "La escala y la ornamentación del antiguo palacete contrastan con los objetos de cultura popular de la colección.",
       "zh": "古宅的体量与装饰和馆内日常民间文化藏品形成对比，可分开留意。"
+    },
+    "nextStop": "praca-dois-leoes",
+    "notice": {
+      "pt": "Antes de ir, consulte as normas da UFAL sobre visita em grupo e fotografia nas salas.",
+      "en": "Before going, check UFAL’s rules on group visits and photography inside the galleries.",
+      "es": "Antes de ir, consulta las normas de la UFAL sobre visitas en grupo y fotografía en sala.",
+      "zh": "出发前可查看阿拉戈斯联邦大学关于团体参观和展厅拍照的规定。"
     }
   },
   "museu-palacio-floriano-peixoto": {
@@ -397,6 +565,13 @@ export const visitDetails = {
       "en": "Alongside the ceremonial rooms, the collection includes furniture, silverware and paintings, including work by Alagoas artists.",
       "es": "Además de los salones, la colección reúne muebles, platería y pinturas, entre ellas obras de artistas de Alagoas.",
       "zh": "除了政务厅室，还可留意馆藏家具、银器与阿拉戈斯本地画家的作品。"
+    },
+    "nextStop": "igreja-dos-martirios",
+    "notice": {
+      "pt": "Use o número 517 como referência de chegada e confirme com a Secult as condições para grupos.",
+      "en": "Use street number 517 as the arrival landmark and check group-visit arrangements with Secult.",
+      "es": "Usa el número 517 como referencia de llegada y consulta con la Secretaría de Cultura las condiciones para grupos.",
+      "zh": "导航可用 517 号门牌定位。团队参观前可向州文化部门确认接待安排。"
     }
   },
   "praca-dom-pedro-ii": {
@@ -413,6 +588,13 @@ export const visitDetails = {
       "en": "The steps frame the cathedral and make the relationship between square and forecourt easier to see.",
       "es": "Los escalones enmarcan la catedral y permiten apreciar la relación entre la plaza y el atrio.",
       "zh": "台阶将视线引向教堂立面，也让人看出广场与教堂前庭的高差关系。"
+    },
+    "nextStop": "catedral-metropolitana-de-maceio",
+    "notice": {
+      "pt": "Se o grupo preferir evitar os degraus, mantenha o ponto de observação na parte baixa da praça.",
+      "en": "If the group prefers to avoid the steps, use the lower end of the square as the viewing point.",
+      "es": "Si el grupo prefiere evitar los escalones, utiliza la parte baja de la plaza como punto de observación.",
+      "zh": "同行者若想避开台阶，可以留在广场低处看主教座堂和台阶的整体关系。"
     }
   },
   "praca-sinimbu": {
@@ -429,6 +611,13 @@ export const visitDetails = {
       "en": "The square gives you enough distance to see the surrounding façades, including that of the university gallery.",
       "es": "La plaza ofrece distancia para observar las fachadas del entorno, incluida la de la pinacoteca.",
       "zh": "广场留出的距离适合观察周边建筑正面，也能看全大学美术馆所在的历史建筑。"
+    },
+    "nextStop": "pinacoteca-universitaria",
+    "notice": {
+      "pt": "Combine a entrada na Pinacoteca com a programação da exposição; use a praça como ponto de encontro do grupo.",
+      "en": "Time any gallery visit around the exhibition schedule and use the square as the meeting point.",
+      "es": "Ajusta la visita a la pinacoteca al programa de exposiciones y usa la plaza como punto de encuentro.",
+      "zh": "按展览开放安排决定是否进美术馆，同行者可在广场集合。"
     }
   },
   "catedral-metropolitana-de-maceio": {
@@ -445,6 +634,13 @@ export const visitDetails = {
       "en": "Take in the entire façade from the square. When the interior is open, the aisle gives a lengthwise view of the nave.",
       "es": "Mira la fachada completa desde la plaza. Si el interior está abierto, el pasillo ofrece una vista longitudinal de la nave.",
       "zh": "从广场看完整的立面。如内部开放，可从过道沿纵向观察中殿。"
+    },
+    "nextStop": "praca-dom-pedro-ii",
+    "notice": {
+      "pt": "Se houver celebração, faça a visita externa e deixe a nave para outro horário.",
+      "en": "If a service is in progress, visit the exterior and return for the nave at another time.",
+      "es": "Si hay una celebración, visita el exterior y deja la nave para otro momento.",
+      "zh": "遇到礼拜或仪式时先看外观，把中殿参观留到其他时段。"
     }
   },
   "teatro-deodoro": {
@@ -461,6 +657,13 @@ export const visitDetails = {
       "en": "The square gives enough room to compare the main entrance with the full composition of the theater façade.",
       "es": "La plaza da distancia para comparar la entrada principal con la composición completa de la fachada del teatro.",
       "zh": "广场提供了足够的观赏距离，可以先看剧院立面的整体构图，再观察主入口。"
+    },
+    "nextStop": "igreja-do-livramento",
+    "notice": {
+      "pt": "Para assistir a uma sessão, confira endereço, horário de entrada e instruções no bilhete da produção.",
+      "en": "For a performance, check the venue, entry time and instructions printed on the event ticket.",
+      "es": "Para asistir a una función, revisa la sede, la hora de acceso y las instrucciones de la entrada.",
+      "zh": "观看演出时，以票面注明的场馆、入场时间与须知为准。"
     }
   },
   "igreja-do-livramento": {
@@ -477,6 +680,13 @@ export const visitDetails = {
       "en": "The bell tower helps locate the church on the commercial street. Notice how it rises above the neighboring shopfronts.",
       "es": "El campanario permite localizar la iglesia en la calle comercial. Observa cómo se eleva por encima de las fachadas vecinas.",
       "zh": "钟楼是商业街上寻找教堂的标志，可以观察塔身如何高出相邻的商铺立面。"
+    },
+    "nextStop": "catedral-metropolitana-de-maceio",
+    "notice": {
+      "pt": "Na Rua do Comércio, deixe passagem junto às entradas das lojas e pergunte pela visita interna caso a porta esteja aberta.",
+      "en": "On Rua do Comércio, leave shop entrances clear and ask about visiting the interior if the door is open.",
+      "es": "En la calle do Comércio, deja libres los accesos a tiendas y pregunta por la visita interior si la puerta está abierta.",
+      "zh": "在商业街停留时给商铺入口留出空间。看到教堂开门，也可先询问能否入内参观。"
     }
   },
   "igreja-dos-martirios": {
@@ -493,6 +703,13 @@ export const visitDetails = {
       "en": "The church and former palace show two architectural scales on the same square. Compare them from one fixed spot.",
       "es": "La iglesia y el antiguo palacio muestran dos escalas arquitectónicas en la misma plaza. Compáralas desde un punto fijo.",
       "zh": "在广场选一个固定位置，比较教堂与旧政府宫两种不同的建筑尺度。"
+    },
+    "nextStop": "museu-palacio-floriano-peixoto",
+    "notice": {
+      "pt": "Os acessos da igreja e do palácio são independentes. Consulte os horários de cada parada antes de combinar os dois interiores.",
+      "en": "The church and palace have separate entrances. Check each site’s hours before planning to see both interiors.",
+      "es": "La iglesia y el palacio tienen accesos independientes. Consulta ambos horarios antes de organizar las dos visitas interiores.",
+      "zh": "教堂和博物馆有各自开放安排。若计划两处都进，出发前分别确认时段。"
     }
   },
   "pinacoteca-universitaria": {
@@ -509,6 +726,13 @@ export const visitDetails = {
       "en": "Before seeing the exhibition, look at the façade of the former power company building. The visit combines art with architectural reuse.",
       "es": "Antes de ver la exposición, observa la fachada de la antigua compañía eléctrica. La visita combina arte y reutilización arquitectónica.",
       "zh": "看展前先观察原电力公司建筑的立面，理解这处大学艺术空间如何沿用既有建筑。"
+    },
+    "nextStop": "praca-sinimbu",
+    "notice": {
+      "pt": "Verifique se a mostra está aberta ao público, especialmente entre duas exposições ou em dias de montagem.",
+      "en": "Check that the exhibition is open to the public, especially between shows or on installation days.",
+      "es": "Comprueba que la exposición está abierta al público, sobre todo entre muestras o en días de montaje.",
+      "zh": "遇到换展或布展期间，先确认当天有没有对公众开放的展厅。"
     }
   },
   "mirante-de-sao-goncalo": {
@@ -525,6 +749,13 @@ export const visitDetails = {
       "en": "From above, compare the built-up Farol district with the lower city to understand Maceió’s terrain.",
       "es": "Desde arriba, compara el barrio del Farol con la ciudad baja para entender el relieve de Maceió.",
       "zh": "从高处比较法罗尔街区与低处城区的位置关系，可以看懂马塞约的地势落差。"
+    },
+    "nextStop": "mirante-santa-terezinha",
+    "notice": {
+      "pt": "Ao combinar com o Centro, calcule a diferença de nível e marque um ponto de retorno se preferir não descer a pé.",
+      "en": "When combining the viewpoint with downtown, account for the elevation change and pick a pickup point if you prefer not to walk downhill.",
+      "es": "Si lo combinas con el centro, considera el desnivel y fija un punto de recogida si prefieres no bajar a pie.",
+      "zh": "若要连游市中心，记得考虑两处的高差。不打算步行下坡的话，可提前确定乘车点。"
     }
   },
   "mirante-santa-terezinha": {
@@ -541,6 +772,13 @@ export const visitDetails = {
       "en": "The direction of the lagoons gives a different reference point from the sea views along the tourist waterfront.",
       "es": "La dirección de las lagunas ofrece una referencia distinta del panorama marítimo del paseo turístico.",
       "zh": "从这里辨认潟湖所在方向，可看到与旅游海滨面向外海不同的城市景观。"
+    },
+    "nextStop": "mirante-de-sao-goncalo",
+    "notice": {
+      "pt": "Confira os avisos municipais e, se o acesso estiver fechado, use São Gonçalo como alternativa no mesmo bairro.",
+      "en": "Check municipal notices and use São Gonçalo as an alternative in the same district if access is closed.",
+      "es": "Consulta los avisos municipales y, si el acceso está cerrado, considera São Gonçalo como alternativa en el mismo barrio.",
+      "zh": "先查市政府公告。若入口关闭，可考虑同在法罗尔街区的圣贡萨洛观景台。"
     }
   },
   "praca-centenario": {
@@ -557,6 +795,13 @@ export const visitDetails = {
       "en": "The contrast between traffic on Avenida Fernandes Lima and the tree-lined interior explains why the square makes a useful neighborhood rest stop.",
       "es": "El contraste entre el tráfico de la avenida Fernandes Lima y el interior arbolado explica la función de la plaza como lugar de descanso.",
       "zh": "费尔南德斯·利马大道的车流与广场内部的树荫形成对比，也说明了这处空间为何适合作为街区休息点。"
+    },
+    "nextStop": "mirante-de-sao-goncalo",
+    "notice": {
+      "pt": "Use a praça como pausa entre paradas no Farol e defina a saída a partir do lado em que seguirá viagem.",
+      "en": "Use the square as a break between Farol stops and choose an exit on the side toward your next destination.",
+      "es": "Usa la plaza para descansar entre paradas en Farol y elige una salida en dirección a tu siguiente destino.",
+      "zh": "可把广场安排成法罗尔街区路线的休息点，再从靠下一站的一侧离开。"
     }
   }
 } as const;
