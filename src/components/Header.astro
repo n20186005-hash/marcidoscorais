@@ -17,21 +17,21 @@ const pageSeg = page ? `${page}` : "";
 
 <header class="site-nav" id="siteNav">
   <div
-    class="site-nav__inner mx-auto flex w-full max-w-[1120px] items-center justify-between gap-6 px-4 sm:px-8"
+    class="site-nav__inner mx-auto flex w-full max-w-[1120px] items-center justify-between gap-2 px-3 sm:gap-4 sm:px-8"
   >
     <a
-      class="site-nav__brand flex shrink-0 items-center gap-3 whitespace-nowrap text-lg font-extrabold tracking-tight text-ink no-underline"
+      class="site-nav__brand flex min-w-0 items-center gap-2 whitespace-nowrap text-base sm:shrink-0 sm:gap-3 sm:text-lg font-extrabold tracking-tight text-ink no-underline"
       href={`/${lang}`}
     >
       <span
         class="site-nav__brand-mark grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-ocean to-ocean-light text-white shadow-sm"
         >🪸</span
       >
-      <span>{t.site.shortName}</span>
+      <span class="truncate">{t.site.shortName}</span>
     </a>
 
-    <nav aria-label={interfaceCopy[lang].primary}>
-      <ul class="site-nav__links flex items-center gap-5 whitespace-nowrap" id="navLinks">
+    <nav class="site-nav__primary min-w-0 flex-1" aria-label={interfaceCopy[lang].primary}>
+      <ul class="site-nav__links flex items-center gap-1 whitespace-nowrap" id="navLinks">
         {
           t.nav.map((item) => (
             <li>
@@ -47,9 +47,7 @@ const pageSeg = page ? `${page}` : "";
       </ul>
     </nav>
 
-    <div class="flex-1"></div>
-
-    <div class="site-nav__actions flex shrink-0 items-center gap-3">
+    <div class="site-nav__actions flex shrink-0 items-center gap-2 sm:gap-3">
       <div class="lang-menu" id="langMenu">
         <button
           class="lang-menu__btn"
