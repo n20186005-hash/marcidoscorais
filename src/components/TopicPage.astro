@@ -42,7 +42,8 @@ const related = topic.related
   .filter((r) => r.content) as { slug: string; content: TopicContent }[];
 ---
 
-<section class="section">
+<article class="topic-page">
+<section class="section topic-page__intro">
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">{topic.eyebrow}</span>
@@ -166,8 +167,10 @@ const related = topic.related
       <ul class="tip-list">
         {topic.reviewPlaces.map(({ label, query, snapshot }) => (
           <li>
-            <a class="underline" href={mapsSearch(query)} target="_blank" rel="noopener">{labels.reviewsOf.replace("{place}", label)}</a>
-            {snapshot && <p>{snapshot.text} · <a class="underline" href={snapshot.source}>{labels.snapshot}</a></p>}
+            <div>
+              <a class="underline" href={mapsSearch(query)} target="_blank" rel="noopener">{labels.reviewsOf.replace("{place}", label)}</a>
+              {snapshot && <p>{snapshot.text} · <a class="underline" href={snapshot.source}>{labels.snapshot}</a></p>}
+            </div>
           </li>
         ))}
       </ul>
@@ -236,4 +239,36 @@ const related = topic.related
   )
 }
 
+</article>
+
 <script type="application/ld+json" set:html={JSON.stringify(faqLd)}></script>
+
+<style>
+  .topic-page {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .topic-page__intro .section-head {
+    margin-bottom: 0;
+  }
+
+  .topic-page :global(.section-head__title) {
+    text-wrap: balance;
+  }
+
+  .topic-page :global(.grid > *),
+  .topic-page :global(.tip-list li > *) {
+    min-inline-size: 0;
+  }
+
+  .topic-page :global(.card) {
+    padding: clamp(16px, 2.5vw, 24px);
+    border-radius: var(--radius-md);
+  }
+
+  .topic-page :global(.btn) {
+    max-inline-size: 100%;
+    text-align: center;
+  }
+</style>
