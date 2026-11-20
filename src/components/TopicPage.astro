@@ -166,7 +166,7 @@ const related = topic.related
       <ul class="tip-list">
         {topic.reviewPlaces.map(({ label, query, snapshot }) => (
           <li>
-            <a class="underline" href={mapsSearch(query)} target="_blank" rel="noopener">{labels.reviewsOf} {label}</a>
+            <a class="underline" href={mapsSearch(query)} target="_blank" rel="noopener">{labels.reviewsOf.replace("{place}", label)}</a>
             {snapshot && <p>{snapshot.text} · <a class="underline" href={snapshot.source}>{labels.snapshot}</a></p>}
           </li>
         ))}
