@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import { siteConfig, type Lang } from "../config";
 import { getJsonLd } from "../lib/schema";
-import { languagesList, htmlLang, defaultLang } from "../i18n/ui";
+import { languagesList, htmlLang, localizedPath, defaultLang } from "../i18n/ui";
 import type { Translation } from "../i18n/translations";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -43,11 +43,11 @@ const altLangs = availableLangs ?? languagesList;
 const alternates = [
   {
     hreflang: "x-default",
-    href: `${baseUrl}/${defaultLang}${pagePath ? "/" + pagePath : ""}`,
+    href: `${baseUrl}${localizedPath(defaultLang, pagePath)}`,
   },
   ...altLangs.map((l) => ({
     hreflang: htmlLang[l],
-    href: `${baseUrl}/${l}${pagePath ? "/" + pagePath : ""}`,
+    href: `${baseUrl}${localizedPath(l, pagePath)}`,
   })),
 ];
 ---

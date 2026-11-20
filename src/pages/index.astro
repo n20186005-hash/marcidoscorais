@@ -12,14 +12,14 @@ const target = "/pt";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="refresh" content={`0; url=${target}`} />
     <link rel="canonical" href={target} />
-    <title>Redirecionando… / Redirecting…</title>
+    <title>Redirecionando…</title>
     <script is:inline define:vars={{ target }}>
       window.location.replace(target);
     </script>
   </head>
   <body>
     <p>
-      Redirecionando… / Redirecting… <a href={target}>{target}</a>
+      Redirecionando… <a href={target}>{target}</a>
     </p>
   </body>
 </html>

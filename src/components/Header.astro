@@ -1,6 +1,7 @@
 ---
+import { interfaceCopy } from "../i18n/interface-copy";
 import { type Lang } from "../config";
-import { languagesList, langLabels } from "../i18n/ui";
+import { languagesList, langLabels, htmlLang, localizedPath } from "../i18n/ui";
 import type { Translation } from "../i18n/translations";
 
 interface Props {
@@ -29,7 +30,7 @@ const pageSeg = page ? `${page}` : "";
       <span>{t.site.shortName}</span>
     </a>
 
-    <nav aria-label="Primary">
+    <nav aria-label={interfaceCopy[lang].primary}>
       <ul class="site-nav__links flex items-center gap-5 whitespace-nowrap" id="navLinks">
         {
           t.nav.map((item) => (
@@ -56,6 +57,7 @@ const pageSeg = page ? `${page}` : "";
           aria-haspopup="true"
           aria-expanded="false"
           id="langMenuBtn"
+          aria-label={interfaceCopy[lang].language}
         >
           <span>{langLabels[lang].code}</span>
           <span aria-hidden="true">▾</span>
@@ -65,12 +67,12 @@ const pageSeg = page ? `${page}` : "";
             languagesList.map((l) => (
               <li>
                 <a
-                  href={pageSeg && (availableLangs?.includes(l) ?? true) ? `/${l}/${pageSeg}` : `/${l}`}
+                  href={localizedPath(l, (availableLangs?.includes(l) ?? true) ? pageSeg : "")}
                   role="menuitem"
                   aria-current={l === lang ? "true" : "false"}
                 >
                   <span>{langLabels[l].code}</span>
-                  <span class="lang-native">{langLabels[l].native}</span>
+                  <span class="lang-native" lang={htmlLang[l]}>{langLabels[l].native}</span>
                 </a>
               </li>
             ))
@@ -82,12 +84,12 @@ const pageSeg = page ? `${page}` : "";
         class="theme-toggle"
         type="button"
         id="themeToggle"
-        aria-label="Toggle theme"
+        aria-label={interfaceCopy[lang].theme}
       >
         <span class="theme-toggle__icon">🌙</span>
       </button>
 
-      <button class="nav-toggle" type="button" id="navToggle" aria-label="Menu">
+      <button class="nav-toggle" type="button" id="navToggle" aria-label={interfaceCopy[lang].menu}>
         ☰
       </button>
     </div>

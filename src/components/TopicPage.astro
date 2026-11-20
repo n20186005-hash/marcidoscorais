@@ -1,4 +1,5 @@
 ---
+import { interfaceCopy } from "../i18n/interface-copy";
 import type { Lang } from "../config";
 import type { VisitPlan } from "../data/maceio-visit-plans";
 import TopicSection from "./TopicSection.astro";
@@ -13,6 +14,7 @@ interface Props {
   visitPlan?: VisitPlan;
 }
 const { lang, topic, t, visitPlan } = Astro.props;
+const labels = interfaceCopy[lang].topic;
 const mapsSearch = (query: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
@@ -48,12 +50,12 @@ const related = topic.related
       <p class="section-head__subtitle">{topic.intro}</p>
       {visitPlan && (
         <div class="mt-4 space-y-2">
-          <p><strong>Horário</strong> · {visitPlan.hours}</p>
-          <p><a class="underline" href="#avaliacoes">{rating?.text ?? "Consultar avaliações dos visitantes"}</a></p>
+          <p><strong>{labels.hours}</strong> · {visitPlan.hours}</p>
+          <p><a class="underline" href="#avaliacoes">{rating?.text ?? labels.visitorReviews}</a></p>
         </div>
       )}
       {topic.photo && topic.location && (
-        <a class="btn btn--outline mt-3 inline-block" href={mapsSearch(topic.location.query)} target="_blank" rel="noopener">Ver no mapa</a>
+        <a class="btn btn--outline mt-3 inline-block" href={mapsSearch(topic.location.query)} target="_blank" rel="noopener">{interfaceCopy[lang].map}</a>
       )}
     </div>
   </div>
@@ -75,26 +77,26 @@ const related = topic.related
   <section id="informacoes" class="section section--alt">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-head__title">{topic.visitorInfo.heading ?? "Sobre o local"}</h2>
-        <p class="section-head__subtitle"><strong>Gestão do local</strong> · {topic.visitorInfo.management}</p>
+        <h2 class="section-head__title">{topic.visitorInfo.heading ?? labels.about}</h2>
+        <p class="section-head__subtitle"><strong>{labels.management}</strong> · {topic.visitorInfo.management}</p>
         {topic.visitorInfo.background && <p class="section-head__subtitle">{topic.visitorInfo.background}</p>}
       </div>
-      <h3 class="card__title">Informações práticas</h3>
+      <h3 class="card__title">{labels.practical}</h3>
       <dl class="grid grid-2">
-        <div class="card"><dt class="card__title">Tipo de visita</dt><dd>{topic.visitorInfo.type}</dd></div>
-        <div class="card"><dt class="card__title">Acesso e funcionamento</dt><dd>{topic.visitorInfo.access}</dd></div>
-        {!visitPlan && <div class="card"><dt class="card__title">Como chegar</dt><dd>{topic.visitorInfo.transport}</dd></div>}
-        {topic.location && <div class="card"><dt class="card__title">Localização</dt><dd>{topic.location.address}</dd></div>}
+        <div class="card"><dt class="card__title">{labels.type}</dt><dd>{topic.visitorInfo.type}</dd></div>
+        <div class="card"><dt class="card__title">{labels.access}</dt><dd>{topic.visitorInfo.access}</dd></div>
+        {!visitPlan && <div class="card"><dt class="card__title">{labels.transport}</dt><dd>{topic.visitorInfo.transport}</dd></div>}
+        {topic.location && <div class="card"><dt class="card__title">{labels.location}</dt><dd>{topic.location.address}</dd></div>}
       </dl>
       {visitPlan && (
         <div class="grid grid-2 mt-4">
-          <section class="card" id="horario"><h3 class="card__title">Horário de funcionamento</h3><p>{visitPlan.hours}</p></section>
-          <section class="card" id="ingresso"><h3 class="card__title">Preço e ingressos</h3><p>{visitPlan.fee}</p></section>
+          <section class="card" id="horario"><h3 class="card__title">{labels.opening}</h3><p>{visitPlan.hours}</p></section>
+          <section class="card" id="ingresso"><h3 class="card__title">{labels.tickets}</h3><p>{visitPlan.fee}</p></section>
         </div>
       )}
       {visitPlan && (
         <section class="card mt-4" id="transporte">
-          <h3 class="card__title">Como chegar</h3>
+          <h3 class="card__title">{labels.transport}</h3>
           <p>{topic.visitorInfo.transport}</p>
         </section>
       )}
@@ -108,25 +110,25 @@ const related = topic.related
   <>
     <section id="roteiro-da-visita" class="section section--alt">
       <div class="container">
-        <div class="section-head"><h2 class="section-head__title">Roteiro da visita</h2></div>
+        <div class="section-head"><h2 class="section-head__title">{labels.itinerary}</h2></div>
         <ol class="list-decimal space-y-2 pl-6">
           {visitPlan.route.map((step) => <li>{step}</li>)}
         </ol>
-        {topic.visitorInfo && <p class="mt-4"><strong>Antes de sair</strong> · {topic.visitorInfo.access}</p>}
+        {topic.visitorInfo && <p class="mt-4"><strong>{labels.advice}</strong> · {topic.visitorInfo.access}</p>}
       </div>
     </section>
     {photoSections.map((section) => <TopicSection section={section} />)}
     {visitPlan.photoTip && (
       <section id="fotos-do-roteiro" class="section">
         <div class="container">
-          <div class="section-head"><h2 class="section-head__title">Onde fotografar</h2></div>
+          <div class="section-head"><h2 class="section-head__title">{labels.photoTips}</h2></div>
           <p>{visitPlan.photoTip}</p>
         </div>
       </section>
     )}
     <section id="hospedagem" class="section">
       <div class="container">
-        <div class="section-head"><h2 class="section-head__title">Onde se hospedar</h2></div>
+        <div class="section-head"><h2 class="section-head__title">{labels.stay}</h2></div>
         <p>{visitPlan.stay}</p>
       </div>
     </section>
@@ -159,13 +161,13 @@ const related = topic.related
   <section id="avaliacoes" class="section">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-head__title">Avaliações no Google Maps</h2>
+        <h2 class="section-head__title">{labels.reviews}</h2>
       </div>
       <ul class="tip-list">
         {topic.reviewPlaces.map(({ label, query, snapshot }) => (
           <li>
-            <a class="underline" href={mapsSearch(query)} target="_blank" rel="noopener">Ver avaliações de {label}</a>
-            {snapshot && <p>{snapshot.text} · <a class="underline" href={snapshot.source}>Registro publicado pelo Prime Gourmet</a></p>}
+            <a class="underline" href={mapsSearch(query)} target="_blank" rel="noopener">{labels.reviewsOf} {label}</a>
+            {snapshot && <p>{snapshot.text} · <a class="underline" href={snapshot.source}>{labels.snapshot}</a></p>}
           </li>
         ))}
       </ul>
@@ -178,15 +180,15 @@ const related = topic.related
     <section id="localizacao" class="section section--alt">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-head__title">Localização e rota</h2>
+          <h2 class="section-head__title">{labels.mapSection}</h2>
           <p class="section-head__subtitle">{topic.location.address}</p>
         </div>
         <a class="btn btn--outline" href={mapsSearch(topic.location.query)} target="_blank" rel="noopener">
-          Abrir ponto no Google Maps
+          {labels.openMap}
         </a>
         {topic.location.directions && (
           <a class="btn btn--outline" href={topic.location.directions} target="_blank" rel="noopener">
-            Ver percurso a pé
+            {labels.walking}
           </a>
         )}
       </div>
@@ -222,7 +224,7 @@ const related = topic.related
     <section id="fontes" class="section">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-head__title">Fontes</h2>
+          <h2 class="section-head__title">{labels.sources}</h2>
         </div>
         <ul class="tip-list">
           {topic.sources.map(({ label, href }) => (

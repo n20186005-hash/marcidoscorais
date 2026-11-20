@@ -1292,7 +1292,7 @@ export const translations: Record<Lang, Translation> = {
       subtitle: "阿塔拉亚滨海大道等你发现的一角。",
       items: Array.from({ length: 22 }, (_, i) => ({
         src: `/gallery/${i + 1}.jpg`,
-        caption: `Marco dos Corais ${i + 1}`,
+        caption: `珊瑚地标照片 ${i + 1}`,
         story: {
           lead: "光、海与混凝土在此相遇。",
           detail: "随着太阳移动，地标的每个角度都讲述不同的故事。",

@@ -126,28 +126,29 @@ document.addEventListener("DOMContentLoaded", () => {
   if (weatherCard && tempEl) {
     const lat = weatherCard.dataset.lat || "-9.6689";
     const lon = weatherCard.dataset.lon || "-35.6853";
-    const codeMap: Record<number, { icon: string; label: string }> = {
-      0: { icon: "☀️", label: "Clear" },
-      1: { icon: "🌤️", label: "Mostly clear" },
-      2: { icon: "⛅", label: "Partly cloudy" },
-      3: { icon: "☁️", label: "Overcast" },
-      45: { icon: "🌫️", label: "Fog" },
-      48: { icon: "🌫️", label: "Fog" },
-      51: { icon: "🌦️", label: "Light drizzle" },
-      53: { icon: "🌦️", label: "Drizzle" },
-      55: { icon: "🌦️", label: "Drizzle" },
-      61: { icon: "🌧️", label: "Rain" },
-      63: { icon: "🌧️", label: "Rain" },
-      65: { icon: "🌧️", label: "Heavy rain" },
-      71: { icon: "🌨️", label: "Snow" },
-      73: { icon: "🌨️", label: "Snow" },
-      75: { icon: "🌨️", label: "Snow" },
-      80: { icon: "🌧️", label: "Showers" },
-      81: { icon: "🌧️", label: "Showers" },
-      82: { icon: "🌧️", label: "Showers" },
-      95: { icon: "⛈️", label: "Thunderstorm" },
-      96: { icon: "⛈️", label: "Thunderstorm" },
-      99: { icon: "⛈️", label: "Thunderstorm" },
+    const weatherLabels: string[] = JSON.parse(weatherCard.dataset.weatherLabels ?? "[]");
+    const codeMap: Record<number, { icon: string; labelIndex: number }> = {
+      0: { icon: "☀️", labelIndex: 0 },
+      1: { icon: "🌤️", labelIndex: 1 },
+      2: { icon: "⛅", labelIndex: 2 },
+      3: { icon: "☁️", labelIndex: 3 },
+      45: { icon: "🌫️", labelIndex: 4 },
+      48: { icon: "🌫️", labelIndex: 4 },
+      51: { icon: "🌦️", labelIndex: 5 },
+      53: { icon: "🌦️", labelIndex: 6 },
+      55: { icon: "🌦️", labelIndex: 6 },
+      61: { icon: "🌧️", labelIndex: 7 },
+      63: { icon: "🌧️", labelIndex: 7 },
+      65: { icon: "🌧️", labelIndex: 8 },
+      71: { icon: "🌨️", labelIndex: 9 },
+      73: { icon: "🌨️", labelIndex: 9 },
+      75: { icon: "🌨️", labelIndex: 9 },
+      80: { icon: "🌧️", labelIndex: 10 },
+      81: { icon: "🌧️", labelIndex: 10 },
+      82: { icon: "🌧️", labelIndex: 10 },
+      95: { icon: "⛈️", labelIndex: 11 },
+      96: { icon: "⛈️", labelIndex: 11 },
+      99: { icon: "⛈️", labelIndex: 11 },
     };
     fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`
@@ -157,10 +158,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const cur = data?.current;
         if (!cur) return;
         const temp = Math.round(cur.temperature_2m);
-        const info = codeMap[cur.weather_code] || { icon: "🌡️", label: "" };
+        const info = codeMap[cur.weather_code];
         if (tempEl) tempEl.textContent = `${temp}°`;
-        if (descEl) descEl.textContent = info.label;
-        if (iconEl) iconEl.textContent = info.icon;
+        if (descEl) descEl.textContent = info ? weatherLabels[info.labelIndex] ?? "" : "";
+        if (iconEl) iconEl.textContent = info?.icon ?? "🌡️";
       })
       .catch(() => {
         if (descEl) descEl.textContent = "";

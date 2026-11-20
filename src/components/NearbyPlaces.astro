@@ -1,4 +1,5 @@
 ---
+import { portugueseGuidesCopy } from "../i18n/interface-copy";
 import { maceioPlaces } from "../data/maceio-places";
 import { pajucaraGuides } from "../data/pajucara-guides";
 
@@ -8,8 +9,8 @@ const areas = [...new Set(nearby.map(([, topic]) => topic.eyebrow))];
 <section class="section section--alt" id="arredores">
   <div class="container">
     <div class="section-head">
-      <h2 class="section-head__title">O que visitar perto do Marco dos Corais</h2>
-      <p class="section-head__subtitle">Escolha uma parada na orla ou combine o passeio com o patrimônio de Maceió.</p>
+      <h2 class="section-head__title">{portugueseGuidesCopy.nearbyTitle}</h2>
+      <p class="section-head__subtitle">{portugueseGuidesCopy.nearbyIntro}</p>
     </div>
     <div class="grid grid-3">
       {areas.map((area) => (

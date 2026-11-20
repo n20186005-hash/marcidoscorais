@@ -27,3 +27,9 @@ export function getLangFromUrl(url: URL): Lang {
   const seg = url.pathname.split("/").filter(Boolean)[0];
   return isLang(seg) ? seg : defaultLang;
 }
+
+export function localizedPath(lang: Lang, page: string): string {
+  const aliases = ["lugares-para-conhecer-em-maceio", "lugares-para-visitar-em-maceio"];
+  const slug = aliases.includes(page) ? aliases[lang === "es" ? 1 : 0] : page;
+  return slug ? `/${lang}/${slug}` : `/${lang}`;
+}

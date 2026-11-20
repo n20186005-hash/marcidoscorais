@@ -16,7 +16,7 @@ export default defineConfig({
     : "https://marcidoscorais.com",
   i18n: {
     defaultLocale: "pt",
-    locales: ["pt", "en", "zh"],
+    locales: ["pt", "en", "zh", "es"],
     // 默认语言也带前缀：/pt、/en、/zh 均可访问；根 / 由 public/_redirects 边缘 302 到 /pt/
     prefixDefaultLocale: true,
     routing: {

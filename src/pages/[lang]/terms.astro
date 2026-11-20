@@ -14,7 +14,7 @@ const t = getTranslation(lang);
 const doc = legal.terms[lang];
 ---
 
-<Layout lang={lang} t={t} page="terms" title={doc.title} noindex>
+<Layout lang={lang} t={t} page="terms" title={doc.title} description={doc.intro} noindex>
   <section class="section legal">
     <div class="container">
       <h1 class="legal__title">{doc.title}</h1>

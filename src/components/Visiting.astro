@@ -1,4 +1,6 @@
 ---
+import { portugueseGuidesCopy } from "../i18n/interface-copy";
+import { renderRichText } from "../lib/richtext";
 import type { Lang } from "../config";
 import type { Translation } from "../i18n/translations";
 import WeatherWidget from "./WeatherWidget.astro";
@@ -20,17 +22,17 @@ const { lang, t } = Astro.props;
 
     <div
       class="prose reveal"
-      set:html={t.visiting.paragraphs.join("<br/><br/>")}
+      set:html={t.visiting.paragraphs.map(renderRichText).join("<br/><br/>")}
     ></div>
 
     {lang === "pt" && (
       <div class="prose reveal">
-        <p><a class="underline" href="/pt/o-que-fazer-em-maceio">Roteiros de meio dia e um dia em Maceió</a></p>
-        <p><a class="underline" href="/pt/pontos-turisticos-maceio">Pontos turísticos de Maceió por bairro</a></p>
+        <p><a class="underline" href="/pt/o-que-fazer-em-maceio">{portugueseGuidesCopy.itineraries}</a></p>
+        <p><a class="underline" href="/pt/pontos-turisticos-maceio">{portugueseGuidesCopy.attractions}</a></p>
       </div>
     )}
 
-    <WeatherWidget />
+    <WeatherWidget lang={lang} />
 
     <h3 class="card__title reveal" style="margin:8px 0 14px">
       ✅ {t.visiting.essentials.map((e) => e.name).join(" · ")}

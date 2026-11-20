@@ -1,4 +1,5 @@
 ---
+import { interfaceCopy } from "../i18n/interface-copy";
 import type { Lang } from "../config";
 import type { Translation } from "../i18n/translations";
 
@@ -6,7 +7,7 @@ interface Props {
   lang: Lang;
   t: Translation;
 }
-const { t } = Astro.props;
+const { lang, t } = Astro.props;
 ---
 
 <section id="gallery" class="section">
@@ -36,7 +37,7 @@ const { t } = Astro.props;
 
   <!-- 灯箱 -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
-    <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
+    <button class="lightbox__close" id="lightboxClose" aria-label={interfaceCopy[lang].close}>×</button>
     <img class="lightbox__img" id="lightboxImg" src="" alt="" />
     <div class="lightbox__cap" id="lightboxCap"></div>
   </div>

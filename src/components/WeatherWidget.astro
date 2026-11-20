@@ -1,10 +1,16 @@
 ---
+import { interfaceCopy } from "../i18n/interface-copy";
+import type { Lang } from "../config";
 import { siteConfig } from "../config";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
 ---
 
 <div
   class="weather-card"
   id="weatherCard"
+  data-weather-labels={JSON.stringify(interfaceCopy[lang].weather)}
   data-lat={siteConfig.geo.latitude}
   data-lon={siteConfig.geo.longitude}
 >

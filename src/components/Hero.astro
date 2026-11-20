@@ -1,4 +1,5 @@
 ---
+import { interfaceCopy } from "../i18n/interface-copy";
 import { siteConfig, type Lang } from "../config";
 import type { Translation } from "../i18n/translations";
 import { getTopic } from "../i18n/topics";
@@ -78,7 +79,7 @@ const sunsetHref = sunsetTopic
         target="_blank"
         rel="noopener"
       >
-        🗺️ Ver no mapa
+        🗺️ {interfaceCopy[lang].map}
       </a>
       {
         sunsetTopic && (
@@ -86,7 +87,7 @@ const sunsetHref = sunsetTopic
             class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3.5 py-2 text-sm font-semibold text-white ring-1 ring-white/25 backdrop-blur-md transition hover:bg-white/25"
             href={sunsetHref}
           >
-            🌅 Pôr do sol
+            🌅 {interfaceCopy[lang].sunset}
           </a>
         )
       }
@@ -94,7 +95,7 @@ const sunsetHref = sunsetTopic
         class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3.5 py-2 text-sm font-semibold text-white ring-1 ring-white/25 backdrop-blur-md transition hover:bg-white/25"
         href="#gallery"
       >
-        📷 Fotos
+        📷 {interfaceCopy[lang].photos}
       </a>
     </div>
 

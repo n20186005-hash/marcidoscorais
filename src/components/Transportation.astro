@@ -1,4 +1,5 @@
 ---
+import { portugueseGuidesCopy } from "../i18n/interface-copy";
 import type { Lang } from "../config";
 import type { Translation } from "../i18n/translations";
 
@@ -21,7 +22,7 @@ const { lang, t } = Astro.props;
       {t.transportation.intro}
       {lang === "pt" && (
         <p>
-          <a class="underline" href="/pt/orla-pajucara-ponta-verde">Roteiro a pé de Pajuçara ao Marco dos Corais</a>
+          <a class="underline" href="/pt/orla-pajucara-ponta-verde">{portugueseGuidesCopy.waterfrontWalk}</a>
         </p>
       )}
     </div>
