@@ -15,8 +15,13 @@ interface Props {
 }
 const { lang, topic, t, visitPlan } = Astro.props;
 const labels = interfaceCopy[lang].topic;
-const mapsSearch = (query: string) =>
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+const mapsSearch = (query: string) => {
+  const params = new URLSearchParams({ api: "1", query });
+  if (topic.location?.query === query && topic.location.placeId) {
+    params.set("query_place_id", topic.location.placeId);
+  }
+  return `https://www.google.com/maps/search/?${params}`;
+};
 
 const earlyOrder = ["planeje-a-visita", "planejamento"];
 const discoverySections = visitPlan ? topic.sections.filter(({ id }) => id === "o-que-observar" || id === "orla") : [];
@@ -58,7 +63,17 @@ const quickFacts = visitPlan && topic.visitorInfo ? [
   [labels.access, topic.visitorInfo.access],
 ] : [];
 
-const related = topic.related
+const relatedSlugs = visitPlan ? [...new Set([visitPlan.nextStop, ...topic.related])] : topic.related;
+const pageSections = [
+  ["dicas-de-visita", labels.visitTips],
+  ["informacoes", labels.atAGlance],
+  ["descobrir", labels.discover],
+  ["roteiro-da-visita", labels.itinerary],
+  [photoSections[0]?.id ?? "fotos-do-roteiro", labels.photoTips],
+  ["hospedagem", labels.stay],
+  ["localizacao", labels.mapSection],
+] as const;
+const related = relatedSlugs
   .map((slug) => ({ slug, content: getTopic(lang, slug) }))
   .filter((r) => r.content) as { slug: string; content: TopicContent }[];
 ---
@@ -91,6 +106,14 @@ const related = topic.related
       <a class="underline" href={topic.photo.source}>{topic.photo.credit}</a>
     </figcaption>
   </figure>
+)}
+
+{visitPlan && (
+  <nav class="container mt-6" aria-label={labels.pageContents}>
+    <ul class="flex flex-wrap justify-center gap-x-4 gap-y-2">
+      {pageSections.map(([id, label]) => <li><a class="underline" href={`#${id}`}>{label}</a></li>)}
+    </ul>
+  </nav>
 )}
 
 {visitPlan && (
@@ -279,7 +302,7 @@ const related = topic.related
       <div class="container">
         <div class="section-head">
           <h2 class="section-head__title">{t.footer.guidesTitle}</h2>
-          {visitPlan && <a class="btn btn--outline" href={`/${lang}#arredores`}>{nearbyCopy[lang].title}</a>}
+          {visitPlan && <p class="section-head__subtitle">{labels.relatedIntro}</p>}
         </div>
         <div class="grid grid-3">
           {related.map((r) => (
@@ -287,11 +310,18 @@ const related = topic.related
               <h3 class="card__title">{r.content.title}</h3>
               <p class="card__text">{r.content.intro}</p>
               <span class="btn btn--outline mt-3 inline-block">
-                {t.hero.secondaryCta.label}
+                {labels.readGuide}
               </span>
             </a>
           ))}
         </div>
+        {visitPlan && (
+          <div class="card mt-6">
+            <h3 class="card__title">{nearbyCopy[lang].title}</h3>
+            <p class="card__text">{nearbyCopy[lang].intro}</p>
+            <a class="btn btn--outline mt-3" href={`/${lang}#arredores`}>{labels.allNearby}</a>
+          </div>
+        )}
       </div>
     </section>
   )

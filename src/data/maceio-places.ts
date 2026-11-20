@@ -116,10 +116,10 @@ const places = {
     source: "https://maceio.al.gov.br/p/semapa/feiras-e-mercados",
   },
   "memorial-teotonio-vilela": {
-    name: "Memorial Teotônio Vilela", area: "Orla urbana", address: "Av. Dr. Antônio Gouveia, orla da Pajuçara, Maceió – AL", manager: "Equipamento cultural de Alagoas; consulte os canais estaduais para informações sobre visitação.",
+    name: "Memorial Teotônio Vilela", area: "Orla urbana", address: "Av. Dr. Antônio Gouveia, orla da Pajuçara, Maceió – AL", manager: "Secretaria de Estado da Cultura de Alagoas (Secult).",
     summary: "Um monumento dedicado ao senador alagoano na orla da Pajuçara.",
     history: "O memorial homenageia o senador alagoano Teotônio Vilela, figura ligada à redemocratização brasileira.",
-    feature: "A forma escultórica do conjunto à beira-mar cria um contraste com os edifícios da avenida.",
+    feature: "Oscar Niemeyer projetou o memorial. Na visita interna, procure o vitral de Marianne Peretti inspirado na bandeira brasileira e a cronologia da vida de Teotônio Vilela.",
     route: "Siga pelo calçadão da Pajuçara e coloque o nome completo do memorial no mapa. Combine a parada com o passeio pela faixa de areia.",
     visitTip: "Deixe a leitura da placa e a foto do lado de fora como primeira etapa. Se o interior estiver fechado, a parada ainda cabe no roteiro da orla.",
     photoTip: "Afaste-se no passeio para incluir a forma do monumento e o mar no mesmo quadro.",
@@ -169,11 +169,11 @@ const places = {
     route: "Comece pela Rua Sá e Albuquerque. Localize o edifício da fundação e combine a parada com a Praça Dois Leões.",
     visitTip: "Confirme se há visitação antes de montar o dia em torno da coleção. Se o museu estiver fechado, prossiga pela rua em direção à Praça Dois Leões.",
     photoTip: "Fotografe a identificação da fachada junto a um trecho da rua para contextualizar a localização.",
-    access: "Consulte a Fundação Pierre Chalita para visitas e exposições.",
+    access: "O cadastro MuseusBr informa que o acervo foi transferido para o Armazém Pierre Chalita, em Jaraguá. Confirme com a Fundação o local exato e a disponibilidade de visita antes de sair.",
     question: "A visita pode ser combinada com o MISA?", answer: "Sim, desde que a programação dos dois equipamentos permita. Ambos fazem parte de um passeio por Jaraguá.",
   },
   "museu-do-comercio": {
-    name: "Museu do Comércio de Alagoas", area: "Jaraguá", address: "Associação Comercial, Rua Sá e Albuquerque, Jaraguá, Maceió – AL", manager: "Associação Comercial de Maceió.",
+    name: "Museu do Comércio de Alagoas", area: "Jaraguá", address: "Associação Comercial de Maceió, Rua Sá e Albuquerque, 467, Jaraguá, Maceió – AL", manager: "Associação Comercial de Maceió.",
     summary: "A história do comércio alagoano contada no edifício da Associação Comercial.",
     history: "O museu apresenta a memória do comércio alagoano no edifício da Associação Comercial, em um bairro que cresceu junto ao porto.",
     feature: "O salão nobre contrasta com os antigos armazéns da rua. Compare a linguagem representativa do edifício com as fachadas de trabalho do entorno.",
@@ -186,7 +186,7 @@ const places = {
   "memorial-a-republica": {
     name: "Memorial à República", area: "Jaraguá", address: "Av. da Paz, Jaraguá, Maceió – AL", manager: "Equipamento cultural ligado ao Governo de Alagoas.",
     summary: "Bandeiras e memória republicana no trecho de orla de Jaraguá.",
-    history: "O memorial remete à Proclamação da República e à origem alagoana de Deodoro da Fonseca e Floriano Peixoto.",
+    history: "Inaugurado em 15 de novembro de 2005, o memorial homenageia os marechais alagoanos Deodoro da Fonseca e Floriano Peixoto e remete à Proclamação da República.",
     feature: "A bandeira e a implantação do conjunto junto à orla são os elementos que ajudam a reconhecer o local.",
     route: "Chegue pela Avenida da Paz e veja primeiro o conjunto a partir do passeio. Siga depois em direção ao núcleo histórico de Jaraguá.",
     visitTip: "Combine com o passeio à beira-mar e observe o conjunto de mais de um ângulo. Confirme separadamente se haverá acesso à parte interna.",
@@ -264,7 +264,7 @@ const places = {
     question: "Qual é a referência para o desembarque?", answer: "Peça a Catedral Metropolitana na Praça Dom Pedro II, no Centro.",
   },
   "teatro-deodoro": {
-    name: "Teatro Deodoro", area: "Centro histórico", address: "Praça Marechal Deodoro, Centro, Maceió – AL", manager: "Diretoria de Teatros do Estado de Alagoas (Diteal).",
+    name: "Teatro Deodoro", area: "Centro histórico", address: "Rua Barão de Maceió, s/n, Praça Marechal Deodoro, Centro, Maceió – AL", manager: "Diretoria de Teatros do Estado de Alagoas (Diteal).",
     summary: "Um teatro histórico do Centro para observar da praça ou conhecer em dia de espetáculo.",
     history: "O teatro histórico marca a consolidação de um espaço dedicado às artes cênicas no Centro de Maceió.",
     feature: "Observe a simetria da fachada. Em caso de visita interna, repare na relação entre o lustre, o teto e a sala de espetáculos.",
@@ -287,7 +287,7 @@ const places = {
     question: "É a igreja em frente ao palácio?", answer: "A Igreja do Livramento está na Rua do Comércio. A Igreja dos Martírios fica no entorno do palácio.",
   },
   "igreja-dos-martirios": {
-    name: "Igreja Bom Jesus dos Martírios", area: "Centro histórico", address: "Praça Marechal Floriano Peixoto, 517, Centro, Maceió – AL", manager: "Comunidade católica local, na Arquidiocese de Maceió.",
+    name: "Igreja Bom Jesus dos Martírios", area: "Centro histórico", address: "Rua do Sol, em frente ao Palácio Floriano Peixoto, Praça dos Martírios, Centro, Maceió – AL", manager: "Comunidade católica local, na Arquidiocese de Maceió.",
     summary: "A igreja que dá nome à praça forma um conjunto com o antigo palácio do governo.",
     history: "A igreja dá nome à Praça dos Martírios e compõe o conjunto histórico que inclui o antigo palácio do governo.",
     feature: "Procure o revestimento decorativo da fachada e compare sua escala com a do palácio na mesma praça.",
@@ -310,7 +310,7 @@ const places = {
     source: "https://visite.museus.gov.br/instituicoes/museu-da-imagem-e-do-som-de-alagoas/",
   },
   "pinacoteca-universitaria": {
-    name: "Pinacoteca Universitária da UFAL", area: "Centro histórico", address: "Praça Visconde de Sinimbu, Centro, Maceió – AL", manager: "Universidade Federal de Alagoas (UFAL).",
+    name: "Pinacoteca Universitária da UFAL", area: "Centro histórico", address: "Rua Roberto Ferreira, s/n, Praça Sinimbu, Centro, Maceió – AL, CEP 57025-590", manager: "Universidade Federal de Alagoas (UFAL).",
     summary: "Um edifício reaproveitado para exposições, no entorno da Praça Sinimbu.",
     history: "A Pinacoteca universitária ocupa o edifício associado à antiga companhia de força e luz, reaproveitado para atividades culturais.",
     feature: "A fachada faz parte do conjunto da praça. Observe a diferença entre a aparência externa do edifício e a função contemporânea das galerias.",
@@ -385,6 +385,37 @@ const places = {
 
 export type MaceioPlaceSlug = keyof typeof places;
 
+const visitingSources: Partial<Record<MaceioPlaceSlug, string[]>> = {
+  "igreja-dos-martirios": [
+    "https://visitealagoas.com.br/atividades/igreja-bom-jesus-dos-martirios"
+  ],
+  "museu-do-comercio": [
+    "https://alagoasdigital.al.gov.br/orgao/14"
+  ],
+  "teatro-deodoro": [
+    "https://www.diteal.al.gov.br/perguntas-frequentes"
+  ],
+  "pinacoteca-universitaria": [
+    "https://pinacoteca.ufal.br/visita/horario-de-funcionamento",
+    "https://pinacoteca.ufal.br/visita/como-chegar"
+  ],
+  "museu-theo-brandao": [
+    "https://mtb.ufal.br/contatos"
+  ],
+  "memorial-teotonio-vilela": [
+    "https://cultura.al.gov.br/equipamentos/memorial-teotonio-vilela"
+  ],
+  "memorial-a-republica": [
+    "https://cultura.al.gov.br/equipamentos/memorial-a-republica"
+  ],
+  "museu-pierre-chalita": [
+    "https://cadastro.museus.gov.br/museus/museu-de-arte-sacra-pierre-chalita-mapc/"
+  ],
+  "museu-da-imagem-e-do-som": [
+    "https://alagoasdigital.al.gov.br/servico/347"
+  ]
+};
+
 function makeTopic(slug: MaceioPlaceSlug, place: Place): TopicContent {
   const query = `${place.name}, ${place.address}`;
   const photo = maceioPhotos[slug];
@@ -414,6 +445,10 @@ function makeTopic(slug: MaceioPlaceSlug, place: Place): TopicContent {
     related: ["pontos-turisticos-maceio", "orla-pajucara-ponta-verde"],
     sources: [
       { label: "Informações de referência", href: place.source ?? (place.area === "Centro histórico" ? heritage : tourism) },
+      ...(visitingSources[slug] ?? []).map((href) => ({
+        label: "Canal de informações ao visitante",
+        href,
+      })),
       ...(slug === "museu-palacio-floriano-peixoto" ? [
         { label: "Horários e endereço do museu", href: "https://visite.museus.gov.br/instituicoes/museu-palacio-floriano-peixoto/" },
         { label: "Visita gratuita pela Secult", href: "https://alagoasdigital.al.gov.br/servico/3131" },

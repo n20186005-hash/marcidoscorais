@@ -10,7 +10,7 @@ import es from "./nearby/es.json";
 import zh from "./nearby/zh.json";
 
 const dictionaries: Record<Exclude<Lang, "pt">, Record<string, string>> = { en, es, zh };
-const stableKeys = new Set(["id", "href", "src", "source", "query", "directions", "related"]);
+const stableKeys = new Set(["id", "href", "src", "source", "query", "placeId", "directions", "related"]);
 
 export const nearbyGuides = { ...pajucaraGuides, ...maceioPlaces };
 export type NearbySlug = keyof typeof nearbyGuides;

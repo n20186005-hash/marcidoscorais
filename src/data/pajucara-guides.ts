@@ -20,6 +20,7 @@ export const pajucaraGuides = {
     photo: { ...maceioPhotos["praia-de-pajucara"], alt: "Trecho da Praia de Pajuçara em Maceió", credit: "Wikimedia Commons · ficha da fotografia" },
     visitorInfo: {
       heading: "Sobre a Praia de Pajuçara",
+      background: "Na Pajuçara, o embarque de jangadas faz a ligação entre a praia urbana e os recifes. O calçadão também permite um passeio independente do embarque.",
       management: "A Prefeitura de Maceió regulamenta o trecho de atuação das jangadas na orla; os operadores informam as condições do passeio.",
       type: "Praia urbana e ponto de embarque de jangadas",
       transport: "A pé pelo calçadão desde Ponta Verde ou de carro pela Avenida Dr. Antônio Gouveia.",
@@ -68,6 +69,7 @@ export const pajucaraGuides = {
     photo: { ...maceioPhotos["orla-pajucara-ponta-verde"], alt: "Praia de Ponta Verde, trecho final da caminhada pela orla", credit: "Wikimedia Commons · ficha da fotografia" },
     visitorInfo: {
       heading: "Sobre o calçadão de Pajuçara a Ponta Verde",
+      background: "A caminhada reúne dois trechos de orla com usos diferentes: os embarques e a feira na Pajuçara, e a curva costeira com o Marco dos Corais em Ponta Verde.",
       management: "A Prefeitura de Maceió implantou a Faixa Verde por meio do DMTT.",
       type: "Roteiro a pé pelo calçadão, entre Pajuçara e Ponta Verde",
       transport: "Comece no Parque Massay-ó-k ou faça o trajeto inverso a partir do Marco dos Corais.",
@@ -109,9 +111,10 @@ export const pajucaraGuides = {
     eyebrow: "Ponta Verde",
     title: "Farol da Ponta Verde",
     intro: "A torre listrada ao largo da Praia de Ponta Verde é um sinal de navegação da costa de Maceió. Da orla, procure um campo aberto de visão para enquadrar a torre, os recifes e o mar.",
-    location: { address: "Ao largo da Praia de Ponta Verde, Maceió – AL", query: "Farol da Ponta Verde, Maceió, AL" },
+    location: { address: "Ao largo da Praia de Ponta Verde, Maceió – AL", query: "Farol da Ponta Verde, Maceió, AL", placeId: "ChIJ1bNc4DNFAQcR-5WX25w0oGo" },
     visitorInfo: {
       heading: "Sobre o Farol da Ponta Verde",
+      background: "O farol foi inaugurado em 1922, conforme a Capitania dos Portos. A torre continua a fazer parte da sinalização marítima da costa de Maceió.",
       management: "A Capitania dos Portos de Alagoas, da Marinha do Brasil, documenta a sinalização náutica do farol.",
       type: "Farol costeiro em atividade",
       transport: "Chegue ao calçadão de Ponta Verde pela Avenida Sílvio Carlos Viana e observe o farol a partir da margem.",
@@ -158,6 +161,7 @@ export const pajucaraGuides = {
     location: { address: "Av. Dr. Antônio Gouveia, antiga Praça Multieventos, Pajuçara, Maceió – AL", query: "Parque Massay-ó-k antiga Praça Multieventos, Pajuçara, Maceió, AL" },
     visitorInfo: {
       heading: "Sobre o Parque Massay-ó-k",
+      background: "A Praça Multieventos surgiu da requalificação da orla e foi pensada para feiras e apresentações. Hoje o parque combina esse uso cultural com caminhos e lugares para descansar à beira-mar.",
       management: "O Instituto de Pesquisa, Planejamento e Licenciamento Urbano e Ambiental da Prefeitura de Maceió documenta a requalificação do parque. A roda-gigante tem operação própria.",
       type: "Parque urbano na orla de Pajuçara",
       transport: "Chegue pelo calçadão da Pajuçara ou use a antiga Praça Multieventos como referência para desembarque na Av. Dr. Antônio Gouveia.",
@@ -176,6 +180,7 @@ export const pajucaraGuides = {
       { id: "o-que-observar", title: "O que observar", blocks: [{ type: "p", text: "Caminhos, canteiros e assentos ocupam a antiga praça. A roda-gigante ao lado é uma referência visual da orla." }] },
       { id: "historia", title: "Da Praça Multieventos ao parque", blocks: [
         { type: "p", text: "A prefeitura identifica a antiga praça como ponto de encontro e palco de eventos da Pajuçara. A requalificação atualizou o paisagismo, os espaços para sentar e a iluminação. As áreas abertas mantêm a ligação com o passeio da orla." },
+        { type: "p", text: "A antiga escultura O Sol Nascente foi retirada para dar espaço a estruturas de eventos. Em 2025, a instalação da roda-gigante de 42 metros acrescentou uma nova referência à paisagem da Pajuçara." },
       ] },
       { id: "visita", title: "Como encaixar o parque no passeio", blocks: [
         { type: "steps", items: ["Entre pelo lado da Avenida Dr. Antônio Gouveia e percorra os caminhos entre os canteiros.", "Faça uma pausa e veja a roda-gigante do nível do parque. Confira a programação se quiser subir.", "Saia para o calçadão e siga em direção a Ponta Verde, ou volte à praia para um embarque de jangada já combinado."] },
@@ -189,6 +194,8 @@ export const pajucaraGuides = {
     sources: [
       { label: "Prefeitura de Maceió — história do Parque Massay-ó-k", href: "https://maceio.al.gov.br/p/iplam/o-parque-massay-o-k" },
       { label: "Prefeitura de Maceió — roda-gigante", href: "https://maceio.al.gov.br/p/iplam/roda-massay-o-k" },
+      { label: "Operador da roda-gigante: horários", href: "https://rodamaceio.com.br/" },
+      { label: "Bilheteria da roda-gigante", href: "https://ingressos.rodamaceio.com.br/" },
     ],
   },
 } satisfies Record<string, TopicContent>;
