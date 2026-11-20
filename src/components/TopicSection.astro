@@ -1,0 +1,38 @@
+---
+import type { TopicSection } from "../i18n/topics";
+
+interface Props { section: TopicSection }
+const { section: sec } = Astro.props;
+---
+<section id={sec.id} class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-head__title">{sec.title}</h2>
+        </div>
+        <div class="prose">
+          {sec.blocks.map((b) => {
+            if (b.type === "p") {
+              return <p>{b.text}</p>;
+            }
+            if (b.type === "steps") {
+              return <ol class="list-decimal space-y-2 pl-6">{b.items.map((item) => <li>{item}</li>)}</ol>;
+            }
+            if (b.type === "list") {
+              return (
+                <ul class="tip-list">
+                  {b.items.map((i) => (
+                    <li>{i}</li>
+                  ))}
+                </ul>
+              );
+            }
+            return (
+              <div class="my-4 rounded-xl border-l-4 border-coral bg-coral/10 p-4 text-ink/90">
+                {b.text}
+              </div>
+            );
+          })}
+          {sec.links?.map(({ label, href }) => <p><a class="underline" href={href}>{label}</a></p>)}
+        </div>
+      </div>
+    </section>

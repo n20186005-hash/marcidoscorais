@@ -127,7 +127,7 @@ const places = {
     question: "É o mesmo que o Memorial à República?", answer: "São monumentos diferentes. O de Teotônio Vilela fica na Pajuçara; o da República, em Jaraguá.",
   },
   "museu-da-imagem-e-do-som": {
-    name: "Museu da Imagem e do Som de Alagoas", area: "Jaraguá", address: "Rua Sá e Albuquerque, em frente à Praça Dois Leões, Jaraguá, Maceió – AL", manager: "Secretaria de Estado da Cultura e Economia Criativa de Alagoas.",
+    name: "Museu da Imagem e do Som de Alagoas", area: "Jaraguá", address: "Rua Sá e Albuquerque, 275, em frente à Praça Dois Leões, Jaraguá, Maceió – AL", manager: "Secretaria de Estado da Cultura e Economia Criativa de Alagoas.",
     summary: "A memória audiovisual de Alagoas ocupa um edifício histórico de Jaraguá.",
     history: "O MISA preserva a memória audiovisual alagoana e ocupa o edifício que abrigou a Recebedoria Central do Estado.",
     feature: "Observe a composição da fachada voltada para a praça e a adaptação do prédio administrativo para uso cultural.",

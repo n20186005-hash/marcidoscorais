@@ -27,6 +27,7 @@ export const pajucaraGuides = {
     },
     reviewPlaces: [{ label: "Praia de Pajuçara", query: "Praia de Pajuçara, Maceió, AL" }],
     sections: [
+      { id: "planeje-a-visita", title: "Planeje a visita", blocks: [{ type: "p", text: "Escolha a ordem do passeio pelo horário de embarque. Sem saída confirmada, deixe tempo para o Parque Massay-ó-k e a Feirinha." }] },
       { id: "jangadas", title: "Onde embarcar e o que perguntar", blocks: [
         { type: "p", text: "A Prefeitura de Maceió delimitou na Pajuçara o trecho de atuação das embarcações de passeio. Ao chegar pela Avenida Dr. Antônio Gouveia, procure a área de embarque indicada na praia e confirme o ponto de encontro com o operador antes de pagar." },
         { type: "list", items: [
@@ -77,6 +78,7 @@ export const pajucaraGuides = {
       { label: "Marco dos Corais, fim do roteiro", query: "Marco dos Corais, Ponta Verde, Maceió, AL" },
     ],
     sections: [
+      { id: "o-que-observar", title: "O que observar", blocks: [{ type: "p", text: "A orla muda de caráter ao longo do percurso: as jangadas marcam a Pajuçara e o Marco dos Corais encerra a caminhada na curva de Ponta Verde." }] },
       { id: "passo-a-passo", title: "Percurso a pé em três paradas", blocks: [
         { type: "p", text: "1. Comece junto ao Parque Massay-ó-k, na Pajuçara. Se você vier de uma jangada, use o calçadão como ponto de reencontro do grupo." },
         { type: "p", text: "2. Siga pela orla em direção a Ponta Verde, mantendo-se no passeio de pedestres. A prefeitura usa a Avenida Dr. Antônio Gouveia e o Marco dos Corais como referências da Faixa Verde. Observe a sinalização onde houver faixas com usos diferentes." },
@@ -131,6 +133,8 @@ export const pajucaraGuides = {
       },
     }],
     sections: [
+      { id: "planeje-a-visita", title: "Planeje a visita", blocks: [{ type: "p", text: "Combine o farol com a visita ao Marco dos Corais. Escolha primeiro um ponto na margem com vista aberta para a torre." }] },
+      { id: "o-que-observar", title: "O que observar", blocks: [{ type: "p", text: "A torre listrada se destaca ao largo da praia. Observe seu alinhamento com as formações de recife a partir do calçadão." }] },
       { id: "historia", title: "História e função", blocks: [
         { type: "p", text: "A Capitania dos Portos registra a inauguração em 1922, quando a luz usava gás acetileno. A documentação da Marinha descreve a lanterna atual e sua sequência de lampejos para identificação por embarcações." },
       ] },
@@ -168,6 +172,8 @@ export const pajucaraGuides = {
     },
     reviewPlaces: [{ label: "Parque Massay-ó-k", query: "Parque Massay-ó-k antiga Praça Multieventos, Maceió, AL" }],
     sections: [
+      { id: "planeje-a-visita", title: "Planeje a visita", blocks: [{ type: "p", text: "Reserve uma pausa no parque entre a praia e a Feirinha. Se quiser subir na roda-gigante, verifique a bilheteria à parte." }] },
+      { id: "o-que-observar", title: "O que observar", blocks: [{ type: "p", text: "Caminhos, canteiros e assentos ocupam a antiga praça. A roda-gigante ao lado é uma referência visual da orla." }] },
       { id: "historia", title: "Da Praça Multieventos ao parque", blocks: [
         { type: "p", text: "A prefeitura identifica a antiga praça como ponto de encontro e palco de eventos da Pajuçara. A requalificação atualizou o paisagismo, os espaços para sentar e a iluminação. As áreas abertas mantêm a ligação com o passeio da orla." },
       ] },

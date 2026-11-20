@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import TopicPage from "../../components/TopicPage.astro";
+import { maceioVisitPlans } from "../../data/maceio-visit-plans";
 import { maceioPlaces } from "../../data/maceio-places";
 import { pajucaraGuides } from "../../data/pajucara-guides";
 import { getTranslation } from "../../i18n/translations";
@@ -8,14 +9,14 @@ import { getTranslation } from "../../i18n/translations";
 export function getStaticPaths() {
   return Object.entries({ ...pajucaraGuides, ...maceioPlaces }).map(([slug, topic]) => ({
     params: { pajucaraGuide: slug },
-    props: { topic },
+    props: { topic, visitPlan: maceioVisitPlans[slug] },
   }));
 }
 
 const slug = Astro.params.pajucaraGuide;
-const { topic } = Astro.props;
+const { topic, visitPlan } = Astro.props;
 const t = getTranslation("pt");
 ---
 <Layout lang="pt" t={t} page={slug} title={topic.metaTitle} description={topic.metaDescription} availableLangs={["pt"]}>
-  <TopicPage lang="pt" topic={topic} t={t} />
+  <TopicPage lang="pt" topic={topic} t={t} visitPlan={visitPlan} />
 </Layout>
