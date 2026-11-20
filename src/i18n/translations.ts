@@ -147,11 +147,13 @@ export const translations: Record<Lang, Translation> = {
     },
     meta: {
       metaTitle:
-        "Marco dos Corais em Maceió: Ponta Verde, Pôr do Sol e Como Visitar",
+        "Marco dos Corais, Maceió: como chegar e ver o pôr do sol",
       metaDescription:
-        "Conheça o Marco dos Corais, na orla de Ponta Verde em Maceió. Veja como chegar, melhor horário para visitar, pôr do sol, fotos, dicas e atrações próximas.",
+        "Veja onde fica o Marco dos Corais, como chegar ao mirante de Ponta Verde e quando ir para o pôr do sol. Confira também o roteiro a pé até Pajuçara.",
     },
     guides: [
+      { label: "Praia de Pajuçara e jangadas", href: "/pt/praia-de-pajucara" },
+      { label: "Orla de Maceió a pé", href: "/pt/orla-pajucara-ponta-verde" },
       {
         label: "Pontos turísticos de Maceió",
         href: "/pt/pontos-turisticos-maceio",

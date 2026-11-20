@@ -72,6 +72,27 @@ const related = topic.related
   ))
 }
 
+{
+  topic.location && (
+    <section id="localizacao" class="section section--alt">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-head__title">Localização e rota</h2>
+          <p class="section-head__subtitle">{topic.location.address}</p>
+        </div>
+        <a class="btn btn--outline" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(topic.location.query)}`} target="_blank" rel="noopener">
+          Abrir ponto no Google Maps
+        </a>
+        {topic.location.directions && (
+          <a class="btn btn--outline" href={topic.location.directions} target="_blank" rel="noopener">
+            Ver percurso a pé
+          </a>
+        )}
+      </div>
+    </section>
+  )
+}
+
 <section id="faq" class="section section--alt">
   <div class="container">
     <div class="section-head">
@@ -112,6 +133,23 @@ const related = topic.related
             </a>
           ))}
         </div>
+      </div>
+    </section>
+  )
+}
+
+{
+  topic.sources && (
+    <section id="fontes" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-head__title">Fontes</h2>
+        </div>
+        <ul class="tip-list">
+          {topic.sources.map(({ label, href }) => (
+            <li><a class="underline" href={href}>{label}</a></li>
+          ))}
+        </ul>
       </div>
     </section>
   )

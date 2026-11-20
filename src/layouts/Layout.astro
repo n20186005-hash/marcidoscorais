@@ -122,7 +122,7 @@ const alternates = [
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
   </head>
   <body class="bg-canvas text-ink antialiased">
-    <Header lang={lang} t={t} page={page} />
+    <Header lang={lang} t={t} page={page} availableLangs={availableLangs} />
     <main>
       <slot />
     </main>

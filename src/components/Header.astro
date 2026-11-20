@@ -7,8 +7,9 @@ interface Props {
   lang: Lang;
   t: Translation;
   page?: string;
+  availableLangs?: Lang[];
 }
-const { lang, t, page = "" } = Astro.props;
+const { lang, t, page = "", availableLangs } = Astro.props;
 // 当前页的基础路径（用于语言切换时保持同一页）
 const pageSeg = page ? `${page}` : "";
 ---
@@ -64,7 +65,7 @@ const pageSeg = page ? `${page}` : "";
             languagesList.map((l) => (
               <li>
                 <a
-                  href={pageSeg ? `/${l}/${pageSeg}` : `/${l}`}
+                  href={pageSeg && (availableLangs?.includes(l) ?? true) ? `/${l}/${pageSeg}` : `/${l}`}
                   role="menuitem"
                   aria-current={l === lang ? "true" : "false"}
                 >

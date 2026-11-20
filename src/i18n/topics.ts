@@ -1,4 +1,5 @@
 import type { Lang } from "../config";
+import { pajucaraGuides } from "../data/pajucara-guides";
 
 export type TopicSlug =
   | "pontos-turisticos-maceio"
@@ -6,7 +7,9 @@ export type TopicSlug =
   | "por-do-sol-marco-dos-corais"
   | "ponta-verde"
   | "lugares-para-conhecer-em-maceio"
-  | "praias-de-maceio";
+  | "praias-de-maceio"
+  | "lugares-para-visitar-em-maceio"
+  | keyof typeof pajucaraGuides;
 
 export type TopicBlock =
   | { type: "p"; text: string }
@@ -28,6 +31,8 @@ export type TopicContent = {
   sections: TopicSection[];
   faq: { question: string; answer: string }[];
   related: TopicSlug[];
+  location?: { address: string; query: string; directions?: string };
+  sources?: { label: string; href: string }[];
 };
 
 export const topics: Record<
@@ -35,6 +40,7 @@ export const topics: Record<
   Partial<Record<TopicSlug, TopicContent>>
 > = {
   pt: {
+    ...pajucaraGuides,
     "pontos-turisticos-maceio": {
       metaTitle: "Pontos Turísticos de Maceió: O que Visitar na Cidade",
       metaDescription:
@@ -128,7 +134,7 @@ export const topics: Record<
             "Sim. Jaraguá, o Museu Théo Brandão de Antropologia e a cena de forró e cachaça são atrações culturais consolidadas.",
         },
       ],
-      related: ["o-que-fazer-em-maceio", "ponta-verde", "praias-de-maceio"],
+      related: ["praia-de-pajucara", "orla-pajucara-ponta-verde", "o-que-fazer-em-maceio", "ponta-verde", "praias-de-maceio"],
     },
 
     "o-que-fazer-em-maceio": {

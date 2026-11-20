@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # 法律页（隐私/条款/Cookie）已在页面内用 noindex,follow 处理，这里再确认不阻断抓取。
-# 站点暂无 sitemap 自动生成；如需可接入 @astrojs/sitemap。
+Sitemap: https://marcidoscorais.com/sitemap.xml
